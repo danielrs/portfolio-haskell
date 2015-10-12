@@ -1,0 +1,20 @@
+Default: &defaults
+  database: Portfolio.sqlite3
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: Portfolio_test.sqlite3
+  <<: *defaults
+
+Staging:
+  database: Portfolio_staging.sqlite3
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: Portfolio_production.sqlite3
+  poolsize: 100
+  <<: *defaults
