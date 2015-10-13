@@ -1,0 +1,32 @@
+<div class="container">
+  <header>
+    <figure #profile>
+      <a href=@{HomeR}>
+        <img alt="me" src="@{StaticR images_profile_gray_png}">
+    <h1 #name>
+      <a href=@{HomeR}>Daniel Rivas
+    <small>
+      <ul #social>
+        <li>
+          <a href="https://github.com/DanielRS">Github
+        <li>
+          <a href="http://stackoverflow.com/users/3932019/danielrs">stack<strong>overflow</strong>
+        <li>
+          <a href="https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-primary-button">LinkedIn
+        <li>
+          <a href="https://twitter.com/devDanielRS">Twitter
+
+    <nav #main-nav>
+      <ul>
+        <li>
+          <a href=#about>About
+        <li>
+          <a href=#skills>Skills
+        <li>
+          <a href=#experiments>Experiments
+        <li>
+          <a href=#work>Work with me!
+        <!-- <li> -->
+        <!--   <strong> -->
+        <!--     <a href="@{BlogR}">Blog -->
+

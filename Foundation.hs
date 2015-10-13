@@ -58,6 +58,10 @@ instance Yesod App where
         master <- getYesod
         mmsg <- getMessage
 
+        let
+          headerWidget = $(hamletFile "templates/header.hamlet")
+          footerWidget = $(hamletFile "templates/footer.hamlet")
+
         -- We break up the default layout into two components:
         -- default-layout is the contents of the body tag, and
         -- default-layout-wrapper is the entire page. Since the final
@@ -65,7 +69,6 @@ instance Yesod App where
         -- you to use normal widget features in default-layout.
 
         pc <- widgetToPageContent $ do
-            -- addStylesheet $ StaticR css_bootstrap_css
             addStylesheet $ StaticR css_style_css
             $(widgetFile "default-layout")
         withUrlRenderer $(hamletFile "templates/default-layout-wrapper.hamlet")

@@ -9,8 +9,8 @@ $newline never
     <meta charset="UTF-8">
 
     <title>#{pageTitle pc}
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Personal portfolio page">
+    <meta name="author" content="Daniel Rivas">
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -22,52 +22,10 @@ $newline never
 
     <script>
       document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
+
   <body #page-top>
     <a #go-page-top href="#page-top">Top
-    <div class="container">
-      <header>
-        <figure #profile>
-          <a href=@{HomeR}>
-            <img alt="me" src="@{StaticR images_profile_gray_png}">
-        <h1 #name>
-          <a href=@{HomeR}>Daniel Rivas
-        <small>
-          <ul #social>
-            <li>
-              <a href="https://github.com/DanielRS">Github
-            <li>
-              <a href="http://stackoverflow.com/users/3932019/danielrs">stack<strong>overflow</strong>
-            <li>
-              <a href="https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-primary-button">LinkedIn
-            <li>
-              <a href="https://twitter.com/devDanielRS">Twitter
-
-        <nav #main-nav>
-          <ul>
-            <li>
-              <a href=#about>About
-            <li>
-              <a href=#skills>Skills
-            <li>
-              <a href=#experiments>Experiments
-            <li>
-              <a href=#work>Work with me!
-            <!-- <li> -->
-            <!--   <strong> -->
-            <!--     <a href="@{BlogR}">Blog -->
-
-    <!-- <div id="main" role="main"> -->
+    ^{headerWidget}
     ^{pageBody pc}
-    <footer>
-      #{appCopyright $ appSettings master}
+    ^{footerWidget}
 
-      $maybe analytics <- appAnalytics $ appSettings master
-        <script>
-          if(!window.location.href.match(/localhost/)){
-            window._gaq = [['_setAccount','#{analytics}'],['_trackPageview'],['_trackPageLoadTime']];
-            (function() {
-            \  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            \  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            \  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-          }
