@@ -5,12 +5,15 @@ module Style.Nav (stylesheet) where
 import Clay
 import qualified Clay.Media as M
 import Style.Variables
+import Style.Util.Mixins
 
 stylesheet :: Css
 stylesheet = do
 
-  "#profile" ? do
+  header ? do
     textAlign $ alignSide sideCenter
+
+  "#profile" ? do
     img ? do
       let rad = pct 50
       display inlineBlock
@@ -28,14 +31,25 @@ stylesheet = do
         maxHeight (px 256)
 
   "#name" ? do
-    textAlign $ alignSide sideCenter
+    marginBottom (em 0.075)
     a ? do
       color colorDarkGray
       textDecoration none
 
+  "#social" ? do
+    noListStyle
+    display inlineBlock
+    margin 0 0 (em 3) 0
+    padding (em 0) 0 0 0
+    li ? do
+      display inlineBlock
+      margin 0 (em 1) 0 (em 1)
+      a ? do
+        color colorGray
+        hover & color colorDarkGray
+
   "#main-nav" ? do
-    textAlign $ alignSide sideCenter
-    margin (em 2) 0 (em 2) 0
+    margin 0 0 (em 2) 0
     ul ? do
       display inlineBlock
       margin (px 0) 0 0 0
@@ -47,12 +61,11 @@ stylesheet = do
         margin (em 1) (em 2) (em 1) (em 2)
         transition "transform" (ms 125) linear 0
 
-        hover & transform (scale 1.250 1.250)
+        hover & transform (scale 1.125 1.125)
 
         a ? do
           color colorGray
           textDecoration none
-          transition "color" (ms 125) linear 0
           hover & color colorDarkGray
 
         query M.screen [M.minWidth $ px 480] $ do

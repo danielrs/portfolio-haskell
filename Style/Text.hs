@@ -21,6 +21,8 @@ defaultStyles = do
     fontSize (em 1.25)
     fontFamily ["Open Sans"] [sansSerif]
 
+  h1 ? fontSize (em 2.125)
+  h2 ? fontSize (em 2)
   h1 M.<> h2 ? do
     fontFamily ["Slabo 27px"] [serif]
     margin 0 0 (em 2) 0
@@ -49,13 +51,13 @@ defaultStyles = do
   a ? do
     fontFamily ["Slabo 27px"] [serif]
     color colorDarkGray
+    transition "color" (ms 125) linear 0
     visited & color colorGray
     hover & color colorBlack
     active & color colorBlack
 
   ul ? do
     noListStyle
-    li ? noListStyle
 
   footer ? do
     fontFamily ["Open Sans"] [sansSerif]
@@ -64,10 +66,11 @@ defaultStyles = do
 blackSectionStyles :: Css
 blackSectionStyles = do
   ".black-section" ? do
+    h4 ? do
+      color colorGray
+
     a ? do
       color colorLightGray
       visited & color colorLightGray
       hover & color colorWhite
       active & color colorWhite
-    h4 ? do
-      color colorGray

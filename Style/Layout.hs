@@ -125,15 +125,15 @@ experimentListStyle :: Css
 experimentListStyle = do
   "#experiment-list" |> li ? do
     row
-    padding (em 2) 0 (em 2) 0
-    borderBottom solid (px 1) colorDarkGray
-
-    firstChild & paddingTop (px 0)
-    lastChild & do
-      paddingBottom (px 0)
-      borderBottom solid (px 0) transparent
+    position relative
+    marginBottom (em 3)
+    lastChild & marginBottom (px 0)
 
     ".experiment-aside" ? do
       query Q.screen [Q.minWidth breakMd] $ column 1 3
     ".experiment-content" ? do
+      padding (em 1) (em 1) (em 1) (em 1)
+      color colorWhite
+      backgroundColor colorDarkGray
+      borderRadius (em 0.125) (em 0.125) (em 0.125) (em 0.125)
       query Q.screen [Q.minWidth breakMd] $ column 2 3
