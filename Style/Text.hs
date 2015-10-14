@@ -18,7 +18,7 @@ defaultStyles = do
   importUrl "https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Slabo+27px"
 
   body ? do
-    fontSize (em 1.25)
+    fontSize (em 1.125)
     fontFamily ["Open Sans"] [sansSerif]
 
   h1 ? fontSize (em 2.125)
