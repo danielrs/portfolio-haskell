@@ -1,5 +1,5 @@
-<div class="container">
-  <header>
+<header>
+  <div class="container">
     <figure #profile>
       <a href=@{HomeR}>
         <img alt="me" src="@{StaticR images_profile_gray_png}">

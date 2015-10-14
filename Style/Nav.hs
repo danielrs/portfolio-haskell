@@ -11,9 +11,11 @@ stylesheet :: Css
 stylesheet = do
 
   header ? do
+    padding (Clay.rem 2) (Clay.rem 2) 0 (Clay.rem 2)
     textAlign $ alignSide sideCenter
 
   "#profile" ? do
+    margin 0 0 (em 1) 0
     img ? do
       let rad = pct 50
       display inlineBlock

@@ -89,7 +89,7 @@
 <section .black-section>
   <.container>
 
-    <section>
+    <section #experiments-section>
       <h2 #experiments>Experiments
       <ul #experiment-list>
         <li>
@@ -120,7 +120,8 @@
         <li>
           <aside .experiment-aside>
             <h3>Dwarf Engine
-            <a href="#">Github page
+            <p>
+              <a href="#">Github page
             <h4>Technologies used:
             <ul>
               <li>
@@ -140,7 +141,7 @@
             <h4>Why is it called Dwarf Engine?
             <p>I was trying to find a good name, and Game of Thrones was on the TV, so yeah...
 
-    <section>
+    <section #work-section>
       <h2 #work>Work with me!
       <p>So you have decided to hire me? Great! You can contact me using any of the following means:
       <#contact-info>
