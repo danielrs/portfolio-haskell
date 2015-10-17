@@ -106,15 +106,11 @@
               <li>
                 <a href="http://fvisser.nl/clay/">Clay
                 <p>CSS EDSL for Haskell
-              <li>
-                <a href="http://www.purescript.org/">Purescript
-                <p>Functional programming language for front-end (based on haskell)
           <.experiment-content>
             <p>Before learning <strong>Haskell</strong>, I only did back-end web development using mainstream technologies (PHP-Laravel, Javascript-NodeJS); I only used Haskell for academic stuff, like practicing algorithms, and just using it for fun whenever I could.
             <p>After some time, I wanted to do something more useful, I wanted to use Haskell in some real world problems, and decided to use it to make my portfolio site!
             <p>The development in general was great, as <strong>Yesod</strong> makes good use of Haskell typing system, you can be sure your programs is working once it compiles.
             <p>After having a good expercience with Haskell and Yesod on the back-end I wanted to stay pure, and use similar tools for the front-end. <strong>Clay</strong> is a solid EDSL for Haskell, you can write really expressive CSS, using all the language facilities Haskell has to offer (libraries, modules, etc).
-            <p>And for Javascript, I decided to use <strong>Purescript</strong>, its syntax is based on Haskell's. It is a programming language that compiles into Javascript. I really like types, and Purescript gives me just that! (with a typing system just as powerful as Haskell's).
             <h4>What I learnt?
             <p>Haskell is really good for web development! Before starting I really thought that Haskell was only an academic language for learning the functional paradigm, but that's not true at all. I'll definitly start using Haskell on more projects.
         <li>
