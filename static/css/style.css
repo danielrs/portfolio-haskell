@@ -362,11 +362,11 @@ footer
   text-decoration    : none;
   background-color   : rgb(153,153,153);
   border-radius      : 0.125em 0px 0px 0px;
-  -webkit-transition : background-color 125.0ms linear 0.0s,right 250.0ms linear 0.0s;
-  -moz-transition    : background-color 125.0ms linear 0.0s,right 250.0ms linear 0.0s;
-  -ms-transition     : background-color 125.0ms linear 0.0s,right 250.0ms linear 0.0s;
-  -o-transition      : background-color 125.0ms linear 0.0s,right 250.0ms linear 0.0s;
-  transition         : background-color 125.0ms linear 0.0s,right 250.0ms linear 0.0s;
+  -webkit-transition : background-color 125.0ms linear 0.0s,margin-right 250.0ms linear 0.0s;
+  -moz-transition    : background-color 125.0ms linear 0.0s,margin-right 250.0ms linear 0.0s;
+  -ms-transition     : background-color 125.0ms linear 0.0s,margin-right 250.0ms linear 0.0s;
+  -o-transition      : background-color 125.0ms linear 0.0s,margin-right 250.0ms linear 0.0s;
+  transition         : background-color 125.0ms linear 0.0s,margin-right 250.0ms linear 0.0s;
   z-index            : 9;
 }
 
@@ -377,7 +377,7 @@ footer
 
 #go-page-top.go-page-top--hide
 {
-  right : -25%;
+  margin-right : -25%;
 }
 
 @media screen and (min-width: 480px)
