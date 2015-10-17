@@ -67,7 +67,7 @@ gotoPageStyle = do
     textDecoration none
     backgroundColor colorGray
     borderRadius r 0 0 0
-    transition "background-color" (ms 125) linear 0
+    transitions [("background-color", ms 125, linear, 0), ("right", ms 250, linear, 0)]
     zIndex 9
 
     hover & do
@@ -78,6 +78,9 @@ gotoPageStyle = do
       bottom (em 1)
       right (em 1)
       borderRadius r r r r
+
+    ".go-page-top--hide" & do
+      right (pct (-25))
 
 aboutStyle :: Css
 aboutStyle = do
