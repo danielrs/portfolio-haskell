@@ -48,11 +48,10 @@ generalStyle = do
       textAlign $ alignSide sideCenter
 
   footer ? do
+    fontFamily ["Open Sans"] [sansSerif]
+    backgroundColor colorLightGray
     padding (em 3) (em 2) (em 3) (em 2)
     textAlign $ alignSide sideCenter
-  ".black-section" |+ footer ? do
-    color colorWhite
-    backgroundColor colorBlack
 
 gotoPageStyle :: Css
 gotoPageStyle = do

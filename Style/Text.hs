@@ -59,10 +59,6 @@ defaultStyles = do
   ul ? do
     noListStyle
 
-  footer ? do
-    fontFamily ["Open Sans"] [sansSerif]
-    fontWeight bold
-
 blackSectionStyles :: Css
 blackSectionStyles = do
   ".black-section" ? do
