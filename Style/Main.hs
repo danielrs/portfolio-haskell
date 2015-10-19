@@ -5,7 +5,7 @@ import System.IO (writeFile)
 import Data.Text.Lazy (unpack)
 
 -- Import all sub-styles here
-import qualified Style.Nav as Nav
+import qualified Style.Header as Header
 import qualified Style.Text as Text
 import qualified Style.Layout as Layout
 
@@ -20,7 +20,7 @@ writeStatic = writeStylesheet "../static/css/style.css" stylesheet
 -- Add all sub-styles here
 stylesheet :: Css
 stylesheet = do
-  Nav.stylesheet
+  Header.stylesheet
   Text.stylesheet
   Layout.stylesheet
 

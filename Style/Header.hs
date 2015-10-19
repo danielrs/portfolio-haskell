@@ -1,11 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Style.Nav (stylesheet) where
+module Style.Header (stylesheet) where
 
 import Clay
-import qualified Clay.Media as M
+import qualified Clay.Media as Q
 import Style.Variables
 import Style.Util.Mixins
+import qualified Data.Monoid as M
 
 stylesheet :: Css
 stylesheet = do
@@ -25,10 +26,10 @@ stylesheet = do
       maxHeight (px 128)
       borderRadius rad rad rad rad
       backgroundColor colorLightGray
-      query M.screen [M.minWidth breakSm] $ do
+      query Q.screen [Q.minWidth breakSm] $ do
         maxWidth (px 160)
         maxHeight (px 160)
-      query M.screen [M.minWidth breakMd] $ do
+      query Q.screen [Q.minWidth breakMd] $ do
         maxWidth (px 256)
         maxHeight (px 256)
 
@@ -50,8 +51,14 @@ stylesheet = do
         color colorGray
         hover & color colorDarkGray
 
+  navbarStyle
+
+navbarStyle :: Css
+navbarStyle = do
   "#main-nav" ? do
     margin 0 0 (em 2) 0
+    backgroundColor $ rgba 0 0 0 0
+    transition "background-color" (ms 125) linear (ms 0)
     ul ? do
       display inlineBlock
       margin (px 0) 0 0 0
@@ -61,7 +68,7 @@ stylesheet = do
       li ? do
         display block
         margin (em 1) (em 2) (em 1) (em 2)
-        transition "transform" (ms 125) linear 0
+        transition "transform" (ms 125) linear (ms 0)
 
         hover & transform (scale 1.125 1.125)
 
@@ -70,5 +77,17 @@ stylesheet = do
           textDecoration none
           hover & color colorDarkGray
 
-        query M.screen [M.minWidth $ px 480] $ do
+        query Q.screen [Q.minWidth $ px 480] $ do
           display inlineBlock
+
+  "#main-nav.main-nav--fixed" ? do
+    position fixed
+    top (px 0)
+    left (px 0)
+    right (px 0)
+    backgroundColor colorGray
+    zIndex 100
+    ul Clay.** li Clay.** a ? do
+      color colorLightGray
+    ul Clay.** li Clay.** (a # hover M.<> a # ".main-nav__active") ? do
+      color colorWhite

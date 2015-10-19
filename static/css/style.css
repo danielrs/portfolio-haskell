@@ -90,7 +90,13 @@ header
 
 #main-nav
 {
-  margin : 0px 0px 2em 0px;
+  margin             : 0px 0px 2em 0px;
+  background-color   : rgba(0,0,0,0.0000);
+  -webkit-transition : background-color 125.0ms linear 0.0ms;
+  -moz-transition    : background-color 125.0ms linear 0.0ms;
+  -ms-transition     : background-color 125.0ms linear 0.0ms;
+  -o-transition      : background-color 125.0ms linear 0.0ms;
+  transition         : background-color 125.0ms linear 0.0ms;
 }
 
 #main-nav ul
@@ -105,11 +111,11 @@ header
 {
   display            : block;
   margin             : 1em 2em 1em 2em;
-  -webkit-transition : transform 125.0ms linear 0.0s;
-  -moz-transition    : transform 125.0ms linear 0.0s;
-  -ms-transition     : transform 125.0ms linear 0.0s;
-  -o-transition      : transform 125.0ms linear 0.0s;
-  transition         : transform 125.0ms linear 0.0s;
+  -webkit-transition : transform 125.0ms linear 0.0ms;
+  -moz-transition    : transform 125.0ms linear 0.0ms;
+  -ms-transition     : transform 125.0ms linear 0.0ms;
+  -o-transition      : transform 125.0ms linear 0.0ms;
+  transition         : transform 125.0ms linear 0.0ms;
 }
 
 #main-nav ul li:hover
@@ -140,6 +146,27 @@ header
 }
 
 }
+#main-nav.main-nav--fixed
+{
+  position         : fixed;
+  top              : 0px;
+  left             : 0px;
+  right            : 0px;
+  background-color : rgb(153,153,153);
+  z-index          : 100;
+}
+
+#main-nav.main-nav--fixed ul li a
+{
+  color : rgb(216,216,216);
+}
+
+#main-nav.main-nav--fixed ul li a:hover,
+#main-nav.main-nav--fixed ul li a.main-nav__active
+{
+  color : rgb(248,248,248);
+}
+
 body
 {
   font-size   : 1.125em;
@@ -206,11 +233,11 @@ a
 {
   font-family        : "Slabo 27px", serif;
   color              : rgb(114,114,114);
-  -webkit-transition : color 125.0ms linear 0.0s;
-  -moz-transition    : color 125.0ms linear 0.0s;
-  -ms-transition     : color 125.0ms linear 0.0s;
-  -o-transition      : color 125.0ms linear 0.0s;
-  transition         : color 125.0ms linear 0.0s;
+  -webkit-transition : color 125.0ms linear 0.0ms;
+  -moz-transition    : color 125.0ms linear 0.0ms;
+  -ms-transition     : color 125.0ms linear 0.0ms;
+  -o-transition      : color 125.0ms linear 0.0ms;
+  transition         : color 125.0ms linear 0.0ms;
 }
 
 a:visited
@@ -352,11 +379,11 @@ footer
   text-decoration    : none;
   background-color   : rgb(153,153,153);
   border-radius      : 0.125em 0px 0px 0px;
-  -webkit-transition : background-color 125.0ms linear 0.0s,right 250.0ms linear 0.0s;
-  -moz-transition    : background-color 125.0ms linear 0.0s,right 250.0ms linear 0.0s;
-  -ms-transition     : background-color 125.0ms linear 0.0s,right 250.0ms linear 0.0s;
-  -o-transition      : background-color 125.0ms linear 0.0s,right 250.0ms linear 0.0s;
-  transition         : background-color 125.0ms linear 0.0s,right 250.0ms linear 0.0s;
+  -webkit-transition : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
+  -moz-transition    : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
+  -ms-transition     : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
+  -o-transition      : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
+  transition         : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
   z-index            : 9;
 }
 

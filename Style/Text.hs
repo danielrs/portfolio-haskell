@@ -51,7 +51,7 @@ defaultStyles = do
   a ? do
     fontFamily ["Slabo 27px"] [serif]
     color colorDarkGray
-    transition "color" (ms 125) linear 0
+    transition "color" (ms 125) linear (ms 0)
     visited & color colorGray
     hover & color colorBlack
     active & color colorBlack

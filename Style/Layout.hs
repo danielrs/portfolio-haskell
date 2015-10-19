@@ -66,7 +66,7 @@ gotoPageStyle = do
     textDecoration none
     backgroundColor colorGray
     borderRadius r 0 0 0
-    transitions [("background-color", ms 125, linear, 0), ("right", ms 250, linear, 0)]
+    transitions [("background-color", ms 125, linear, ms 0), ("right", ms 250, linear, ms 0)]
     zIndex 9
 
     hover & do
