@@ -1,36 +1,3 @@
-$.fn.goTopButton = function(options) {
-	var $body = $('html, body');
-	var $doc = $(document);
-	var goPageTop = this;
-
-	var settings = $.extend({
-		hideClass : 'go-page-top--hide',
-		appearId : undefined,
-		appearOffset : function() { $(window).height() / 2 }
-	}, options);
-
-	this.on('click', function(e) {
-		e.preventDefault();
-		$body.stop();
-		$body.animate({scrollTop: 0});
-	});
-
-	function update() {
-		var checkpoint = settings.appearOffset();
-		if (settings.appearId !== undefined) checkpoint = $(settings.appearId).offset().top;
-		if ($body.scrollTop() >= checkpoint) {
-			goPageTop.removeClass(settings.hideClass);
-		} else {
-			goPageTop.addClass(settings.hideClass);
-		}
-	}
-
-	$doc.on('scroll', update);
-	update();
-
-	return this; // for chaining jquery methods
-};
-
 // Calls 'before' when elemId is not yet out-of viewport from the top
 // otherwise calls 'after'
 (function($) {
@@ -38,7 +5,6 @@ $.fn.goTopButton = function(options) {
 	var index = {}; // holds id -> scope pairs
 
 	$.fn.scrollCall = function(before, after) {
-		var $body = $('html, body');
 		var $doc = $(document);
 
 		this.each(function() {
@@ -54,7 +20,7 @@ $.fn.goTopButton = function(options) {
 
 		$doc.scroll(function() {
 			$.each(index, function(i, scope) {
-				if ($body.scrollTop() < $(i).offset().top) {
+				if ($doc.scrollTop() < $(i).offset().top) {
 					if (!$(i).data('before-done')) before.call(scope);
 					$(i).data('before-done', true);
 					$(i).data('after-done', false);
@@ -75,8 +41,9 @@ $.fn.goTopButton = function(options) {
 
 $(document).ready(function() {
 
-	var doc = $(document);
-	var body = $('html, body');
+	var $doc = $(document);
+	var $body = $('html, body');
+	var $goPageTop = $('#go-page-top');
 	var fontSize = parseInt($('body').css('font-size'));
 
 	$('#main-nav > ul > li > a').each(function() {
@@ -84,32 +51,39 @@ $(document).ready(function() {
 		$(this).on('click', function(e) {
 			var offset = $(id).offset().top - 2*fontSize - $('#main-nav ul').height();
 			e.preventDefault();
-			body.stop();
-			body.animate({scrollTop: offset});
+			$body.stop();
+			$body.animate({scrollTop: offset});
 		});
 	});
 
-	$('#go-page-top').goTopButton({
-		appearId : '#main-nav' // appear after #main-nav
-	});
-
-	// Fixed navbar code
+	// Scroll events
 	$('#main-nav').scrollCall(
 		function() {
 			console.log('before');
+			// Nav bar
 			var $dummy = $('#main-nav--dummy');
 			this.removeClass('main-nav--fixed');
 			this.css('height', 'auto');
 			$dummy.remove();
+			// Go top
+			$goPageTop.addClass('go-page-top--hide');
 		},
 		function() {
 			console.log('after');
-			// Selects or creates dummy object
+			// Nav bar
 			var $dummy = $('#main-nav--dummy');
 			if ($dummy.length <= 0) $dummy = $('<div>', { id : 'main-nav--dummy' });
 			$dummy.css('height', $('#main-nav').outerHeight(true));
 			this.addClass('main-nav--fixed');
 			this.after($dummy);
+			// Go top
+			$goPageTop.removeClass('go-page-top--hide');
 		}
 	);
+	// When #go-page-top is clicked go back top
+	$goPageTop.click(function(e) {
+		e.preventDefault();
+		$body.animate({ scrollTop: 0});
+	});
+
 });
