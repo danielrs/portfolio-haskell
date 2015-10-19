@@ -49,8 +49,9 @@ generalStyle = do
 
   footer ? do
     fontFamily ["Open Sans"] [sansSerif]
-    backgroundColor colorLightGray
-    padding (em 3) (em 2) (em 3) (em 2)
+    backgroundColor colorPitchBlack
+    color colorLightGray
+    padding (em 2) (em 2) (em 2) (em 2)
     textAlign $ alignSide sideCenter
 
 gotoPageStyle :: Css

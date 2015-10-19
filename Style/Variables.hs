@@ -8,6 +8,9 @@ import Clay.Color
 grayish' :: Float -> Color
 grayish' val = grayish $ unormalize val 255
 
+colorPitchBlack :: Color
+colorPitchBlack = grayish' 0.150
+
 colorBlack :: Color
 colorBlack = grayish' 0.300
 
