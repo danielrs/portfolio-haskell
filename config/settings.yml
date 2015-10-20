@@ -1,7 +1,7 @@
 # Values formatted like "_env:ENV_VAR_NAME:default_value" can be overridden by the specified environment variable.
 # See https://github.com/yesodweb/yesod/wiki/Configuration#overriding-configuration-values-with-environment-variables
 
-static-dir:     "_env:STATIC_DIR:static"
+static-dir:     "_env:STATIC_DIR:../static" # Required for OpenShift deployment
 host:           "_env:HOST:*4" # any IPv4 host
 port:           "_env:OPENSHIFT_DIY_PORT:8080"
 approot:        "_env:OPENSHIFT_DIY_IP:http://localhost:8080"
