@@ -1,11 +1,11 @@
 # Values formatted like "_env:ENV_VAR_NAME:default_value" can be overridden by the specified environment variable.
 # See https://github.com/yesodweb/yesod/wiki/Configuration#overriding-configuration-values-with-environment-variables
 
-# Options were configured for deployment in OpenShift
+# Environment variables for deployment in OpenShift
 static-dir:     "_env:OPENSHIFT_DIY_STATIC_DIR:static"
 host:           "_env:OPENSHIFT_DIY_IP:*4" # any IPv4 host
-port:           "_env:OPENSHIFT_DIY_PORT:8080"
-approot:        "_env:OPENSHIFT_DIY_URL:http://localhost:8080"
+port:           "_env:OPENSHIFT_DIY_PORT:3000"
+approot:        "_env:OPENSHIFT_DIY_URL:http://localhost:3000"
 ip-from-header: "_env:IP_FROM_HEADER:false"
 
 # Optional values with the following production defaults.
@@ -19,8 +19,8 @@ ip-from-header: "_env:IP_FROM_HEADER:false"
 # skip-combining: false
 
 database:
-  database: "_env:SQLITE_DATABASE:Portfolio.sqlite3"
-  poolsize: "_env:SQLITE_POOLSIZE:10"
+    database: "_env:SQLITE_DATABASE:/tmp/Portfolio.sqlite3"
+    poolsize: "_env:SQLITE_POOLSIZE:10"
 
 copyright: Copyright © 2015, Daniel Rivas
 #analytics: UA-YOURCODE

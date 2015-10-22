@@ -705,8 +705,8 @@ ul#toolset li:last-child
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   float              : left;
-  width              : 43%;
-  margin-right       : 14%;
+  width              : 48%;
+  margin-right       : 4%;
 }
 
 #about-text #about-developer:last-child,

@@ -43,9 +43,12 @@ row = do
   clearfix
 
 column :: Integer -> Integer -> Css
-column colSpan totalCols = do
+column colSpan totalCols = columnGap colSpan totalCols 28
+
+columnGap :: Integer -> Integer -> Integer -> Css
+columnGap colSpan totalCols baseGap = do
   let
-    gap = (1 / fromIntegral totalCols) * 28
+    gap = (1 / fromIntegral totalCols) * fromIntegral baseGap
     widthLeft = 100 - gap * (fromIntegral totalCols - 1)
     columnWidth = (widthLeft / fromIntegral totalCols) * fromIntegral colSpan
   display block
