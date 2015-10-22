@@ -88,7 +88,7 @@ aboutStyle = do
     "#about-text" ? do
       row
       "#about-developer" M.<> "#about-personal" ? do
-        columnGap 1 2 8
+        columnGap 1 2 12
         each 2 $ marginRight (px 0)
 
 toolsetStyle :: Css
