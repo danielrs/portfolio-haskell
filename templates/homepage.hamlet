@@ -137,15 +137,10 @@
 
     <section #work-section>
       <h2 #work>Work with me!
-      <p>So you have decided to hire me? Great! You can contact me using any of the following means:
-      <#contact-info>
-        <h3>e-mail
-        <p>
-          <a href="mailto:ers.daniel+dev@gmail.com?Subject=Work%20with%20me">ers.daniel+dev@gmail.com
-        <h3>Telephone number:
-        <p>+1 (281) 710-8961
-      <#social-media>
-        <h3>Social media
-        <a href="#">LinkedIn
-        <a href="#">Github
-        <a href="#">Twitter
+      <#work-text>
+        <#work-about>
+
+          <p>Want to get a website done? Need a programmer? A code analyst? You know my skills, now get to now my contact information.
+        <#work-contact>
+          <form id=contact-form method=post enctype=#{enctype}>
+            ^{contactWidget}

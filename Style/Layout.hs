@@ -17,6 +17,7 @@ stylesheet = do
   toolsetStyle
   skillsetStyle
   experimentListStyle
+  workStyle
 
 generalStyle :: Css
 generalStyle = do
@@ -140,3 +141,25 @@ experimentListStyle = do
       backgroundColor colorDarkGray
       borderRadius (em 0.125) (em 0.125) (em 0.125) (em 0.125)
       query Q.screen [Q.minWidth breakMd] $ column 2 3
+
+workStyle :: Css
+workStyle = do
+
+  "#work-text" ? do
+    query Q.screen [Q.minWidth breakMd] $ do
+      row
+      "#work-about" ? do
+        columnGap 1 2 12
+      "#work-contact" ? do
+        columnGap 1 2 12
+
+  "#contact-form" ? do
+    input # ("type" @= "email") M.<> input # ("type" @= "text") M.<> textarea ? do
+      display block
+      boxSizing borderBox
+      marginBottom (em 1)
+      width (pct 100)
+      minWidth (pct 100)
+      maxWidth (pct 100)
+      "resize" -:  "none"
+    textarea ? minHeight (px 240)

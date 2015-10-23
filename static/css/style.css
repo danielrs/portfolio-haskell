@@ -1,5 +1,58 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Slabo+27px);
+input[type='button'],
+input[type='submit'],
+button
+{
+  padding            : 0.5em 1em 0.5em 1em;
+  color              : rgb(153,153,153);
+  background-color   : rgba(0,0,0,0.0000);
+  border             : solid 2px rgb(153,153,153);
+  border-radius      : 2px 2px 2px 2px;
+  -webkit-transition : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
+  -moz-transition    : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
+  -ms-transition     : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
+  -o-transition      : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
+  transition         : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
+}
+
+input[type='button']:hover,
+input[type='submit']:hover,
+button:hover
+{
+  background-color : rgb(153,153,153);
+  color            : rgb(76,76,76);
+}
+
+input[type='button']:active,
+input[type='submit']:active,
+button:active
+{
+  background-color : rgb(216,216,216);
+  border-color     : rgb(216,216,216);
+}
+
+input[type='text'],
+input[type='email'],
+textarea
+{
+  padding          : 1em 1em 1em 1em;
+  border           : none 0px rgba(0,0,0,0.0000);
+  background-color : rgb(153,153,153);
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+textarea:focus
+{
+  background-color : rgb(216,216,216);
+}
+
+textarea
+{
+  font-family : "Open Sans", sans-serif;
+}
+
 header
 {
   padding    : 2rem 2rem 0% 2rem;
@@ -667,6 +720,94 @@ ul#toolset li:last-child
 }
 
 }
+
+@media screen and (min-width: 768px)
+{
+#work-text
+{
+  display            : block;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing    : border-box;
+  -ms-box-sizing     : border-box;
+  -o-box-sizing      : border-box;
+  box-sizing         : border-box;
+  width              : 100%;
+  zoom               : 1;
+}
+
+#work-text:before
+{
+  content : "";
+  display : table;
+}
+
+#work-text:after
+{
+  content : "";
+  display : table;
+  clear   : both;
+}
+
+#work-text #work-about
+{
+  display            : block;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing    : border-box;
+  -ms-box-sizing     : border-box;
+  -o-box-sizing      : border-box;
+  box-sizing         : border-box;
+  float              : left;
+  width              : 47%;
+  margin-right       : 6%;
+}
+
+#work-text #work-about:last-child
+{
+  margin-right : 0px;
+}
+
+#work-text #work-contact
+{
+  display            : block;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing    : border-box;
+  -ms-box-sizing     : border-box;
+  -o-box-sizing      : border-box;
+  box-sizing         : border-box;
+  float              : left;
+  width              : 47%;
+  margin-right       : 6%;
+}
+
+#work-text #work-contact:last-child
+{
+  margin-right : 0px;
+}
+
+}
+
+#contact-form input[type='email'],
+#contact-form input[type='text'],
+#contact-form textarea
+{
+  display            : block;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing    : border-box;
+  -ms-box-sizing     : border-box;
+  -o-box-sizing      : border-box;
+  box-sizing         : border-box;
+  margin-bottom      : 1em;
+  width              : 100%;
+  min-width          : 100%;
+  max-width          : 100%;
+  resize             : none;
+}
+
+#contact-form textarea
+{
+  min-height : 240px;
+}
+
 @media screen and (min-width: 768px)
 {
 
