@@ -149,13 +149,10 @@ workStyle = do
   "#work-text" ? do
     query Q.screen [Q.minWidth breakMd] $ do
       row
-      let primaryWidth = goldenDelta 100
       "#work-about" ? do
-        columnRaw
-        width (pct $ 100 - primaryWidth)
+        column 1 3
       "#work-contact" ? do
-        columnRaw
-        width (pct primaryWidth)
+        column 2 3
 
   "#contact-form" ? do
     input # ("type" @= "email") M.<> input # ("type" @= "text") M.<> textarea ? do

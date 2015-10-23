@@ -43,7 +43,7 @@ row = do
   clearfix
 
 column :: Integer -> Integer -> Css
-column colSpan totalCols = columnGap colSpan totalCols 28
+column colSpan totalCols = columnGap colSpan totalCols 16
 
 columnGap :: Integer -> Integer -> Integer -> Css
 columnGap colSpan totalCols baseGap = do

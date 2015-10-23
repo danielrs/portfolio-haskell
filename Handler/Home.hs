@@ -20,7 +20,7 @@ contactForm :: Form Contact
 contactForm extra = do
   let
     set label placeholder = FieldSettings label Nothing Nothing Nothing [("placeholder", placeholder)]
-  (emailRes, emailView) <- mreq emailField (set "email" "john.doe@gmail.com") Nothing
+  (emailRes, emailView) <- mreq emailField (set "email" "Your email address") Nothing
   (titleRes, titleView) <- mreq textField (set "title" "Title") Nothing
   (msgRes, msgView) <- mreq textareaField (set "msg" "Tell me what you need!") Nothing
 
