@@ -9,11 +9,11 @@ button
   background-color   : rgba(0,0,0,0.0000);
   border             : solid 2px rgb(153,153,153);
   border-radius      : 2px 2px 2px 2px;
-  -webkit-transition : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
-  -moz-transition    : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
-  -ms-transition     : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
-  -o-transition      : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
-  transition         : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
+  -webkit-transition : background-color 75.0ms linear 0.0s,color 75.0ms linear 0.0s,border-color 75.0ms linear 0.0s;
+  -moz-transition    : background-color 75.0ms linear 0.0s,color 75.0ms linear 0.0s,border-color 75.0ms linear 0.0s;
+  -ms-transition     : background-color 75.0ms linear 0.0s,color 75.0ms linear 0.0s,border-color 75.0ms linear 0.0s;
+  -o-transition      : background-color 75.0ms linear 0.0s,color 75.0ms linear 0.0s,border-color 75.0ms linear 0.0s;
+  transition         : background-color 75.0ms linear 0.0s,color 75.0ms linear 0.0s,border-color 75.0ms linear 0.0s;
 }
 
 input[type='button']:hover,
@@ -36,9 +36,14 @@ input[type='text'],
 input[type='email'],
 textarea
 {
-  padding          : 1em 1em 1em 1em;
-  border           : none 0px rgba(0,0,0,0.0000);
-  background-color : rgb(153,153,153);
+  padding            : 1em 1em 1em 1em;
+  border             : none 0px rgba(0,0,0,0.0000);
+  background-color   : rgb(153,153,153);
+  -webkit-transition : background-color 75.0ms linear 0.0s;
+  -moz-transition    : background-color 75.0ms linear 0.0s;
+  -ms-transition     : background-color 75.0ms linear 0.0s;
+  -o-transition      : background-color 75.0ms linear 0.0s;
+  transition         : background-color 75.0ms linear 0.0s;
 }
 
 input[type='text']:focus,
@@ -710,7 +715,7 @@ ul#toolset li:last-child
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   float              : left;
-  width              : 54.22222%;
+  width              : 63.55555%;
   margin-right       : 9.33333%;
 }
 
@@ -757,8 +762,7 @@ ul#toolset li:last-child
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   float              : left;
-  width              : 47%;
-  margin-right       : 6%;
+  width              : 38.1953%;
 }
 
 #work-text #work-about:last-child
@@ -775,8 +779,7 @@ ul#toolset li:last-child
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   float              : left;
-  width              : 47%;
-  margin-right       : 6%;
+  width              : 61.80469%;
 }
 
 #work-text #work-contact:last-child

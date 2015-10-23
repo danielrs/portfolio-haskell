@@ -27,9 +27,9 @@ buttonStyle = do
     borderRadius (px 2) (px 2) (px 2) (px 2)
 
     transitions
-      [("background-color", ms 125, linear, 0)
-      , ("color", ms 125, linear, 0)
-      , ("border-color", ms 125, linear, 0)]
+      [("background-color", ms 75, linear, 0)
+      , ("color", ms 75, linear, 0)
+      , ("border-color", ms 75, linear, 0)]
 
     hover & do
       backgroundColor colorGray
@@ -45,6 +45,7 @@ fieldStyle = do
     padding (em 1) (em 1) (em 1) (em 1)
     border none (px 0) transparent
     backgroundColor colorGray
+    transition "background-color" (ms 75) linear 0
     focus & do
       backgroundColor colorLightGray
 

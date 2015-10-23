@@ -5,7 +5,7 @@ import Clay (Size, Abs, px)
 import Clay.Color
 
 -- Colors
-grayish' :: Float -> Color
+grayish' :: Double -> Color
 grayish' val = grayish $ unormalize val 255
 
 colorPitchBlack :: Color

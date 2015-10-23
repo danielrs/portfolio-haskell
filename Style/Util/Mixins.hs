@@ -48,14 +48,20 @@ column colSpan totalCols = columnGap colSpan totalCols 28
 columnGap :: Integer -> Integer -> Integer -> Css
 columnGap colSpan totalCols baseGap = do
   let
+    totalGaps = totalCols - 1
     gap = (1 / fromIntegral totalCols) * fromIntegral baseGap
-    widthLeft = 100 - gap * (fromIntegral totalCols - 1)
-    columnWidth = (widthLeft / fromIntegral totalCols) * fromIntegral colSpan
+    widthLeft = 100 - gap * fromIntegral totalGaps
+    columnWidth = widthLeft / fromIntegral totalCols
+    spannedWidth = columnWidth * fromIntegral colSpan + gap * fromIntegral (colSpan - 1)
+  columnRaw
+  width (pct spannedWidth)
+  marginRight (pct gap)
+
+columnRaw :: Css
+columnRaw = do
   display block
   boxSizing borderBox
   float floatLeft
-  width (pct columnWidth)
-  marginRight (pct gap)
   lastChild & marginRight (px 0)
 
 each :: Integer -> Css -> Css

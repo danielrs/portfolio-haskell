@@ -6,6 +6,7 @@ import Clay
 import qualified Clay.Media as Q
 import qualified Data.Monoid as M
 
+import Style.Util.Import
 import Style.Util.Mixins
 import Style.Variables
 
@@ -148,10 +149,13 @@ workStyle = do
   "#work-text" ? do
     query Q.screen [Q.minWidth breakMd] $ do
       row
+      let primaryWidth = goldenDelta 100
       "#work-about" ? do
-        columnGap 1 2 12
+        columnRaw
+        width (pct $ 100 - primaryWidth)
       "#work-contact" ? do
-        columnGap 1 2 12
+        columnRaw
+        width (pct primaryWidth)
 
   "#contact-form" ? do
     input # ("type" @= "email") M.<> input # ("type" @= "text") M.<> textarea ? do
@@ -162,4 +166,5 @@ workStyle = do
       minWidth (pct 100)
       maxWidth (pct 100)
       "resize" -:  "none"
+
     textarea ? minHeight (px 240)
