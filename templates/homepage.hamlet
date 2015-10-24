@@ -135,12 +135,12 @@
             <h4>Why is it called Dwarf Engine?
             <p>I was trying to find a good name, and Game of Thrones was on the TV, so yeah...
 
-    <section #work-section>
-      <h2 #work>Work with me!
-      <#work-text>
-        <#work-about>
-
-          <p>Want to get a website done? Need a programmer? A code analyst? You know my skills, now get to now my contact information.
-        <#work-contact>
-          <form id=contact-form method=post enctype=#{enctype}>
-            ^{contactWidget}
+    <section #contact-section>
+      <h2 #contact>Contact me!
+      <#contact-text>
+        <#contact-about>
+          <p>Need a freelancer? An employee? A consultant? Contact me using the form on the right!
+        <form #contact-form method=post enctype=#{enctype}>
+          ^{contactWidget}
+      <!-- <h3>Need me email?
+      <p>In order to prevent spam my email is not shown here. However, you can get it by running the following Haskell script: -->

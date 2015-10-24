@@ -5,6 +5,7 @@ input[type='submit'],
 button
 {
   padding            : 0.5em 1em 0.5em 1em;
+  font-size          : 1.125em;
   color              : rgb(153,153,153);
   background-color   : rgba(0,0,0,0.0000);
   border             : solid 2px rgb(153,153,153);
@@ -728,7 +729,7 @@ ul#toolset li:last-child
 
 @media screen and (min-width: 768px)
 {
-#work-text
+#contact-text
 {
   display            : block;
   -webkit-box-sizing : border-box;
@@ -740,20 +741,20 @@ ul#toolset li:last-child
   zoom               : 1;
 }
 
-#work-text:before
+#contact-text:before
 {
   content : "";
   display : table;
 }
 
-#work-text:after
+#contact-text:after
 {
   content : "";
   display : table;
   clear   : both;
 }
 
-#work-text #work-about
+#contact-text #contact-about
 {
   display            : block;
   -webkit-box-sizing : border-box;
@@ -766,12 +767,12 @@ ul#toolset li:last-child
   margin-right       : 5.33333%;
 }
 
-#work-text #work-about:last-child
+#contact-text #contact-about:last-child
 {
   margin-right : 0px;
 }
 
-#work-text #work-contact
+#contact-text #contact-form
 {
   display            : block;
   -webkit-box-sizing : border-box;
@@ -784,11 +785,15 @@ ul#toolset li:last-child
   margin-right       : 5.33333%;
 }
 
-#work-text #work-contact:last-child
+#contact-text #contact-form:last-child
 {
   margin-right : 0px;
 }
 
+}
+#contact-form
+{
+  margin-bottom : 1.5em;
 }
 
 #contact-form input[type='email'],

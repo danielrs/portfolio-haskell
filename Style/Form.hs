@@ -21,6 +21,7 @@ buttonStyle = do
   M.<> input # ("type" @= "submit")
   M.<> button ? do
     padding (em 0.5) (em 1) (em 0.5) (em 1)
+    fontSize (em 1.125)
     color colorGray
     backgroundColor transparent
     border solid (px 2) colorGray

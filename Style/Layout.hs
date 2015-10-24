@@ -18,7 +18,7 @@ stylesheet = do
   toolsetStyle
   skillsetStyle
   experimentListStyle
-  workStyle
+  contactStyle
 
 generalStyle :: Css
 generalStyle = do
@@ -143,18 +143,19 @@ experimentListStyle = do
       borderRadius (em 0.125) (em 0.125) (em 0.125) (em 0.125)
       query Q.screen [Q.minWidth breakMd] $ column 2 3
 
-workStyle :: Css
-workStyle = do
+contactStyle :: Css
+contactStyle = do
 
-  "#work-text" ? do
+  "#contact-text" ? do
     query Q.screen [Q.minWidth breakMd] $ do
       row
-      "#work-about" ? do
+      "#contact-about" ? do
         column 1 3
-      "#work-contact" ? do
+      "#contact-form" ? do
         column 2 3
 
   "#contact-form" ? do
+    marginBottom (em 1.5)
     input # ("type" @= "email") M.<> input # ("type" @= "text") M.<> textarea ? do
       display block
       boxSizing borderBox

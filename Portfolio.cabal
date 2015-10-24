@@ -85,6 +85,7 @@ library
                  , time
                  -- Extra
                  , clay
+                 , hailgun
 
 executable         Portfolio
     if flag(library-only)
