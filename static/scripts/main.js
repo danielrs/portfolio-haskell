@@ -49,12 +49,16 @@ $(document).ready(function() {
 	$('#main-nav > ul > li > a').each(function() {
 		var id = $(this).attr('href');
 		$(this).on('click', function(e) {
+			history.replaceState(null, '', id);
 			var offset = $(id).offset().top - 2*fontSize - $('#main-nav ul').height();
 			e.preventDefault();
 			$body.stop();
 			$body.animate({scrollTop: offset});
 		});
 	});
+	if (window.location.hash) {
+		$('#main-nav > ul > li > a[href="' + window.location.hash + '"]').trigger('click');
+	}
 
 	// Scroll events
 	$('#main-nav').scrollCall(
@@ -83,6 +87,7 @@ $(document).ready(function() {
 	// When #go-page-top is clicked go back top
 	$goPageTop.click(function(e) {
 		e.preventDefault();
+		history.replaceState(null, '', window.location.origin);
 		$body.animate({ scrollTop: 0});
 	});
 
