@@ -10,11 +10,12 @@ import Style.Util.Mixins
 
 stylesheet :: Css
 stylesheet = do
-  defaultStyles
-  blackSectionStyles
+  defaultStyle
+  blackSectionStyle
+  notificationStyle
 
-defaultStyles :: Css
-defaultStyles = do
+defaultStyle :: Css
+defaultStyle = do
   importUrl "https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Slabo+27px"
 
   body ? do
@@ -59,8 +60,8 @@ defaultStyles = do
   ul ? do
     noListStyle
 
-blackSectionStyles :: Css
-blackSectionStyles = do
+blackSectionStyle :: Css
+blackSectionStyle = do
   ".black-section" ? do
     h4 ? do
       color colorGray
@@ -70,3 +71,16 @@ blackSectionStyles = do
       visited & color colorLightGray
       hover & color colorWhite
       active & color colorWhite
+
+notificationStyle :: Css
+notificationStyle = do
+  "#message" ? do
+    let r = em 0.125
+    textAlign $ alignSide sideCenter
+    E.span ? do
+      display inlineBlock
+      padding (em 0.5) (em 1) (em 0.5) (em 1)
+      fontWeight bold
+      color colorWhite
+      backgroundColor colorGray
+      borderRadius r r r r

@@ -93,6 +93,8 @@
         <li>
           <aside .experiment-aside>
             <h3>Portfolio website
+            <p>
+              <a href="https://github.com/DanielRS/portfolio">Github Page
             <h4>Technologies used:
             <ul>
               <li>
@@ -115,18 +117,18 @@
           <aside .experiment-aside>
             <h3>Dwarf Engine
             <p>
-              <a href="#">Github page
+              <a href="https://github.com/DanielRS/DwarfEngine">Github page
             <h4>Technologies used:
             <ul>
               <li>
-                <a href="#">C++
+                <a href="https://isocpp.org/">C++
                 <p>Programming language used to write most of the game-engine
               <li>
-                <a href="#">Lua
+                <a href="http://www.lua.org/">Lua
                 <p>Scripting language that sits on top of C++
               <li>
-                <a href="#">OpenGL
-                <p>For most(all?) of the rendering code
+                <a href="https://www.opengl.org/">OpenGL
+                <p>Used for most of the rendering
           <.experiment-content>
             <p>I would always try to do some game-development on my free time. I tried different game-engines, like Unity (C#), LibGDX (Java), Polycode (C++), but there was always something missing... I wanted to know more!
             <p>I wanted to learn all how the math of the engine worked, how those fancy effects with lights and shadows where achieved. Well, after some really long reading (OpenGL) I decided to start writing my own game-engine for learning purposes. Dwarf Engine was born!

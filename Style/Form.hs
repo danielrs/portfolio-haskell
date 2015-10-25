@@ -32,10 +32,13 @@ buttonStyle = do
       , ("color", ms 75, linear, 0)
       , ("border-color", ms 75, linear, 0)]
 
+    focus & do
+      outline solid (px 0) transparent
+      borderColor colorLightGray
+      color colorLightGray
     hover & do
       backgroundColor colorGray
       color colorBlack
-
     active & do
       backgroundColor colorLightGray
       borderColor colorLightGray
@@ -48,6 +51,7 @@ fieldStyle = do
     backgroundColor colorGray
     transition "background-color" (ms 75) linear 0
     focus & do
+      outline solid (px 0) transparent
       backgroundColor colorLightGray
 
   textarea ? do

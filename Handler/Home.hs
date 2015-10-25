@@ -2,7 +2,6 @@ module Handler.Home where
 
 import Import
 import Mail.Hailgun
-import qualified Data.Text as T
 
 -- This is a handler function for the GET request method on the HomeR
 -- resource pattern. All of your resource patterns are defined in
@@ -50,22 +49,32 @@ getHomeR = do
 
 postHomeR :: Handler Html
 postHomeR = do
-  ((result, widtet), enctype) <- runFormPost contactForm
+  ((result, contactWidget), enctype) <- runFormPost contactForm
   case result of
     FormSuccess contact -> do
-      master <- getYesod
+      settings <- appSettings <$> getYesod
       let
         context = HailgunContext
-          (appMailDomain $ appSettings master)
-          (appMailApiKey $ appSettings master)
+          (appMailDomain settings)
+          (appMailApiKey settings)
           Nothing
-        eMessage = hailgunMessage
+        Right message = hailgunMessage
           (title contact)
           (TextOnly $ encodeUtf8 . unTextarea . content $ contact)
           (encodeUtf8 . email $ contact)
-          (MessageRecipients [encodeUtf8 . appMailSendTo $ appSettings master] [] [])
+          (MessageRecipients [encodeUtf8 . appMailSendTo $ settings] [] [])
           []
-        Right message = eMessage
-      liftIO $ sendEmail context message
-      redirect HomeR
-    _ -> redirect HomeR
+
+      sendRes <- liftIO $ sendEmail context message
+      case sendRes of
+        Left err -> do
+          setMessage "There was an unknown error sending your email"
+          redirect HomeR
+        Right _ -> do
+          setMessage "Your email has been sent!"
+          redirect HomeR
+
+    _ -> defaultLayout $ do
+      setMessage "There was an error sending your email"
+      setTitle "Daniel Rivas - Home"
+      $(widgetFile "homepage")

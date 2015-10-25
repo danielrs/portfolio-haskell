@@ -17,6 +17,15 @@ button
   transition         : background-color 75.0ms linear 0.0s,color 75.0ms linear 0.0s,border-color 75.0ms linear 0.0s;
 }
 
+input[type='button']:focus,
+input[type='submit']:focus,
+button:focus
+{
+  outline      : solid 0px rgba(0,0,0,0.0000);
+  border-color : rgb(216,216,216);
+  color        : rgb(216,216,216);
+}
+
 input[type='button']:hover,
 input[type='submit']:hover,
 button:hover
@@ -51,6 +60,7 @@ input[type='text']:focus,
 input[type='email']:focus,
 textarea:focus
 {
+  outline          : solid 0px rgba(0,0,0,0.0000);
   background-color : rgb(216,216,216);
 }
 
@@ -356,6 +366,21 @@ ul li
 .black-section a:active
 {
   color : rgb(248,248,248);
+}
+
+#message
+{
+  text-align : center;
+}
+
+#message span
+{
+  display          : inline-block;
+  padding          : 0.5em 1em 0.5em 1em;
+  font-weight      : bold;
+  color            : rgb(248,248,248);
+  background-color : rgb(153,153,153);
+  border-radius    : 0.125em 0.125em 0.125em 0.125em;
 }
 
 html,
