@@ -86,4 +86,8 @@ $(document).ready(function() {
 		$body.animate({ scrollTop: 0});
 	});
 
+	// Message notification
+	var $message = $('#message');
+	$message.addClass('message--fixed');
+	$message.delay(4000).fadeOut();
 });

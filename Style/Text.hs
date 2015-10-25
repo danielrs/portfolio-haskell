@@ -3,6 +3,7 @@
 module Style.Text (stylesheet) where
 import Clay
 import qualified Clay.Elements as E
+import qualified Clay.Media as Q
 import qualified Data.Monoid as M
 
 import Style.Variables
@@ -84,3 +85,14 @@ notificationStyle = do
       color colorWhite
       backgroundColor colorGray
       borderRadius r r r r
+
+  "#message.message--fixed" ? do
+    position fixed
+    bottom (em 4)
+    left (pct 5)
+    right (pct 5)
+    zIndex 100
+
+    query Q.screen [Q.minWidth breakSm] $ do
+      left (pct 25)
+      right (pct 25)
