@@ -1,13 +1,21 @@
 <footer>
-  #{appCopyright $ appSettings master}
+  <.container>
+    <#footer-other>
+      <ul>
+        <li>
+          <a href=@{HomeR}>Home
+          <!-- <a href=@{HomeR}>Blog -->
+    <#footer-copyright>
+      <h3>#{appCopyrightName $ appSettings master} #
+        <small>&copy; #{appCopyrightYear $ appSettings master}
 
-  $maybe analytics <- appAnalytics $ appSettings master
-    <script>
-      if(!window.location.href.match(/localhost/)){
-        window._gaq = [['_setAccount','#{analytics}'],['_trackPageview'],['_trackPageLoadTime']];
-        (function() {
-        \  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        \  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        \  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-      }
+    $maybe analytics <- appAnalytics $ appSettings master
+      <script>
+        if(!window.location.href.match(/localhost/)){
+          window._gaq = [['_setAccount','#{analytics}'],['_trackPageview'],['_trackPageLoadTime']];
+          (function() {
+          \  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          \  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          \  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        }

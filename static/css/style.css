@@ -464,13 +464,80 @@ section > h6:first-child
 
 footer
 {
-  font-family      : "Open Sans", sans-serif;
-  background-color : rgb(63,63,63);
-  color            : rgb(216,216,216);
-  padding          : 2em 2em 2em 2em;
-  text-align       : center;
+  display            : block;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing    : border-box;
+  -ms-box-sizing     : border-box;
+  -o-box-sizing      : border-box;
+  box-sizing         : border-box;
+  width              : 100%;
+  zoom               : 1;
+  padding            : 1em 2em 1em 2em;
+  font-family        : "Open Sans", sans-serif;
+  background-color   : rgb(63,63,63);
+  color              : rgb(216,216,216);
 }
 
+footer:before
+{
+  content : "";
+  display : table;
+}
+
+footer:after
+{
+  content : "";
+  display : table;
+  clear   : both;
+}
+
+footer h1,
+footer h2,
+footer h3,
+footer h4
+{
+  margin-bottom : 0px;
+}
+
+footer h1 small,
+footer h2 small,
+footer h3 small,
+footer h4 small
+{
+  font-weight : normal;
+}
+
+footer #footer-copyright,
+footer #footer-other
+{
+  padding    : 1em 0px 1em 0px;
+  text-align : center;
+}
+
+@media screen and (min-width: 480px)
+{
+footer #footer-copyright,
+footer #footer-other
+{
+  text-align         : left;
+  display            : block;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing    : border-box;
+  -ms-box-sizing     : border-box;
+  -o-box-sizing      : border-box;
+  box-sizing         : border-box;
+  width              : 47%;
+  margin-right       : 6%;
+  float              : right;
+}
+
+footer #footer-copyright:first-child,
+footer #footer-other:first-child
+{
+  margin-right : 0px;
+}
+
+}
 #go-page-top
 {
   position           : fixed;
@@ -576,9 +643,9 @@ ul#toolset li
   -ms-box-sizing     : border-box;
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
+  width              : 47%;
+  margin-right       : 6%;
   float              : left;
-  width              : 46%;
-  margin-right       : 8%;
 }
 
 ul#toolset li:last-child
@@ -602,9 +669,9 @@ ul#toolset li
   -ms-box-sizing     : border-box;
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
+  width              : 22.75%;
+  margin-right       : 3%;
   float              : left;
-  width              : 22%;
-  margin-right       : 4%;
 }
 
 ul#toolset li:last-child
@@ -650,9 +717,9 @@ ul#toolset li:last-child
   -ms-box-sizing     : border-box;
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
+  width              : 47%;
+  margin-right       : 6%;
   float              : left;
-  width              : 46%;
-  margin-right       : 8%;
 }
 
 #skills-section #skills__professional:last-child,
@@ -729,9 +796,9 @@ ul#toolset li:last-child
   -ms-box-sizing     : border-box;
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
+  width              : 30.66666%;
+  margin-right       : 4%;
   float              : left;
-  width              : 29.77777%;
-  margin-right       : 5.33333%;
 }
 
 #experiment-list > li .experiment-aside:last-child
@@ -758,9 +825,9 @@ ul#toolset li:last-child
   -ms-box-sizing     : border-box;
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
+  width              : 65.33333%;
+  margin-right       : 4%;
   float              : left;
-  width              : 64.88888%;
-  margin-right       : 5.33333%;
 }
 
 #experiment-list > li .experiment-content:last-child
@@ -805,9 +872,9 @@ ul#toolset li:last-child
   -ms-box-sizing     : border-box;
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
+  width              : 30.66666%;
+  margin-right       : 4%;
   float              : left;
-  width              : 29.77777%;
-  margin-right       : 5.33333%;
 }
 
 #contact-text #contact-about:last-child
@@ -823,9 +890,9 @@ ul#toolset li:last-child
   -ms-box-sizing     : border-box;
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
+  width              : 65.33333%;
+  margin-right       : 4%;
   float              : left;
-  width              : 64.88888%;
-  margin-right       : 5.33333%;
 }
 
 #contact-text #contact-form:last-child
@@ -898,9 +965,9 @@ ul#toolset li:last-child
   -ms-box-sizing     : border-box;
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
-  float              : left;
   width              : 47%;
   margin-right       : 6%;
+  float              : left;
 }
 
 #about-text #about-developer:last-child,

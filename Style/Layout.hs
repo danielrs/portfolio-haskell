@@ -50,11 +50,23 @@ generalStyle = do
       textAlign $ alignSide sideCenter
 
   footer ? do
+    row
+    padding (em 1) (em 2) (em 1) (em 2)
     fontFamily ["Open Sans"] [sansSerif]
     backgroundColor colorPitchBlack
     color colorLightGray
-    padding (em 2) (em 2) (em 2) (em 2)
-    textAlign $ alignSide sideCenter
+
+    h1 M.<> h2 M.<> h3 M.<> h4 ? do
+      marginBottom (px 0)
+      small ? do
+        fontWeight normal
+
+    "#footer-copyright" M.<> "#footer-other" ? do
+      padding (em 1) 0 (em 1) 0
+      textAlign $ alignSide sideCenter
+      query Q.screen [Q.minWidth breakSm] $ do
+        textAlign $ alignSide sideLeft
+        columnRight 1 2
 
 gotoPageStyle :: Css
 gotoPageStyle = do
@@ -90,7 +102,7 @@ aboutStyle = do
     "#about-text" ? do
       row
       "#about-developer" M.<> "#about-personal" ? do
-        columnGap 1 2 12
+        column 1 2
         each 2 $ marginRight (px 0)
 
 toolsetStyle :: Css

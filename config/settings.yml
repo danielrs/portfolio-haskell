@@ -27,5 +27,7 @@ database:
     database: "_env:SQLITE_DATABASE:/tmp/Portfolio.sqlite3"
     poolsize: "_env:SQLITE_POOLSIZE:10"
 
-copyright: Copyright © 2015, Daniel Rivas
+copyright-name: Daniel Rivas
+copyright-year: 2015
+
 #analytics: UA-YOURCODE

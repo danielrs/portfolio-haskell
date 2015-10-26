@@ -43,7 +43,7 @@ row = do
   clearfix
 
 column :: Integer -> Integer -> Css
-column colSpan totalCols = columnGap colSpan totalCols 16
+column = columnLeft
 
 columnGap :: Integer -> Integer -> Integer -> Css
 columnGap colSpan totalCols baseGap = do
@@ -61,8 +61,18 @@ columnRaw :: Css
 columnRaw = do
   display block
   boxSizing borderBox
+
+columnLeft :: Integer -> Integer -> Css
+columnLeft colSpan totalCols = do
+  columnGap colSpan totalCols 12
   float floatLeft
   lastChild & marginRight (px 0)
+
+columnRight :: Integer -> Integer -> Css
+columnRight colSpan totalCols = do
+  columnGap colSpan totalCols 12
+  float floatRight
+  firstChild & marginRight (px 0)
 
 each :: Integer -> Css -> Css
 each n css =
