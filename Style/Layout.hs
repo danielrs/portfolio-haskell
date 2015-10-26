@@ -73,7 +73,7 @@ gotoPageStyle = do
   "#go-page-top" ? do
     let r = em 0.125
     position fixed
-    padding (em 0.250) (em 1) (em 0.250) (em 1)
+    padding (em 0.5) (em 1) (em 0.5) (em 1)
     bottom (px 0)
     right (px 0)
     color colorWhite

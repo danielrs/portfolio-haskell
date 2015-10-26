@@ -20,28 +20,25 @@ buttonStyle = do
   input # ("type" @= "button")
   M.<> input # ("type" @= "submit")
   M.<> button ? do
+    let r = em 0.125
     padding (em 0.5) (em 1) (em 0.5) (em 1)
-    fontSize (em 1.125)
-    color colorGray
-    backgroundColor transparent
-    border solid (px 2) colorGray
-    borderRadius (px 2) (px 2) (px 2) (px 2)
+    border solid (px 1) colorGray
+    borderRadius r r r r
+    fontWeight bold
+    color colorWhite
+    backgroundColor colorGray
 
     transitions
-      [("background-color", ms 75, linear, 0)
-      , ("color", ms 75, linear, 0)
-      , ("border-color", ms 75, linear, 0)]
+      [("background-color", ms 125, linear, 0)
+      , ("color", ms 125, linear, 0)
+      , ("border-color", ms 125, linear, 0)]
 
-    focus & do
-      outline solid (px 0) transparent
-      borderColor colorLightGray
-      color colorLightGray
     hover & do
-      backgroundColor colorGray
-      color colorBlack
-    active & do
-      backgroundColor colorLightGray
       borderColor colorLightGray
+      backgroundColor colorLightGray
+    active & do
+      borderColor colorDarkGray
+      backgroundColor colorDarkGray
 
 fieldStyle :: Css
 fieldStyle = do

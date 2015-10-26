@@ -20,8 +20,9 @@ defaultStyle = do
   importUrl "https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Slabo+27px"
 
   body ? do
-    fontSize (em 1.125)
+    -- fontSize (em 1.125)
     fontFamily ["Open Sans"] [sansSerif]
+    color colorBlack
 
   h1 ? fontSize (em 2.125)
   h2 ? fontSize (em 2)
