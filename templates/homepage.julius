@@ -42,64 +42,77 @@
 // Adds typewriter effect animation to selected elements
 (function($) {
 	$.fn.type = function(targetStr, options) {
+
+		// Checks if object given is a function. Taken from underscorejs source code
+		function isFunction(obj) {
+			return !!(obj && obj.constructor && obj.call && obj.apply);
+		}
+
+		// Drops the given number of characters from the end of the string
+		function dropTail (string, n) {
+			return string.substr(0, string.length - n);
+		}
+
+		// Returns a new string, 1 edit distance from current and closer to target
+		function typeTo(current, target) {
+			if (current !== target) {
+				if (current.length < target.length) {
+					var subTarget = target.substr(0, current.length);
+					if (current !== subTarget) {
+						return dropTail(current, 1);
+					} else {
+						return current + target.charAt(current.length);
+					}
+				} else {
+					return dropTail(current, 1);
+				}
+			}
+			return current;
+		}
+
+		// SETTINGS
+		var settings = {
+			caretChar: '_',
+			caretClass: 'typejs__caret',
+			ignoreContent: false,
+			typeDelay: 50,
+			onType: null,
+			onBackspace: null,
+			onFinish: null
+		};
+		$.extend(settings, options);
+
 		return this.each(function() {
+
+			// Sets up element
 			var this_ = $(this);
-			var settings = {
-				caretChar: '_',
-				caretClass: 'typejs__caret',
-				ignoreContent: false,
-				typeDelay: 50,
-				onType: null,
-				onBackspace: null,
-				onFinish: null
-			};
-			$.extend(settings, options);
+			var text = this_.text();
+			if (this_.children('.typejs__content').length > 0)
+				text = this_.children('.typejs__content').text();
 
+			var $content = $('<span>', { class: 'typejs__content', text: text});
+			var $caret = $('<span>', { class: settings.caretClass, text: settings.caretChar });
 
-			function dropTail (string, n) {
-				return string.slice(0, string.length - n);
-			}
+			this_.empty();
+			this_.append($content);
+			this_.append($caret);
 
-			function isFunction(value) {
-				return typeof value == 'function';
-			}
-
-			function step_(current, target) {
+			function typeStep(current, target) {
 				if (current !== target) {
-					var newStr = type_(current, target);
+					var newStr = typeTo(current, target);
 					if (newStr.length > current.length && isFunction(settings.onType)) {
 						settings.onType.call(this_);
 					} else if (newStr.length < current.length && isFunction(settings.onBackspace)) {
 						settings.onBackspace.call(this_)
 					}
-					this_.text(newStr);
-					this_.append('<span class="' + settings.caretClass + '">' + settings.caretChar + '</span>');
-					setTimeout(step_, settings.typeDelay, newStr, targetStr);
+					$content.text(newStr);
+					setTimeout(typeStep, settings.typeDelay, newStr, targetStr);
 				} else if (isFunction(settings.onFinish)) {
 					settings.onFinish.call(this_);
 				}
 			}
 
-			function type_(current, target) {
-				if (current !== target) {
-					if (current.length < target.length) {
-						var subTarget = target.substr(0, current.length);
-						if (current !== subTarget) {
-							// Backspace
-							return dropTail(current, 1);
-						} else {
-							// Type
-							return current + target.charAt(current.length);
-						}
-					} else {
-						// Backspace
-						return dropTail(current, 1);
-					}
-				}
-				return current;
-			}
-
-			setTimeout(step_, settings.typeDelay, this_.text(), targetStr);
+			setTimeout(typeStep, settings.typeDelay, $content.text(), targetStr);
 
 		}); // each
 	}; // function type
@@ -162,14 +175,16 @@ $(document).ready(function() {
 	$message.addClass('message--fixed');
 	$message.delay(4000).fadeOut();
 
-
-	$('#tagline').delay(10000).type("And web developer", {
-		onFinish: function() {
-			var this_ = this;
-			setTimeout(function() {
-				this_.type("And something else");
-			}, 500);
+	// Tagline typing
+	function typeArray($elem, array) {
+		var text = _.first(array);
+		if (text !== undefined) {
+			$elem.type(text, {
+				onFinish: function() {
+					setTimeout(function() { typeArray($elem, _.tail(array)); }, 500);
+				}
+			});
 		}
-	});
-
+	}
+	typeArray($('#tagline'), ['Hello!', 'I\'m Daniel', 'and..', 'I\'m a programmer']);
 });

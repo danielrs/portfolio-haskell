@@ -1,0 +1,13 @@
+/* CSS for animation typejs cursor */
+
+@keyframes blink {
+	0% { opacity: 1; }
+	45% { opacity: 1; }
+	50% { opacity: 0; }
+	95% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+.typejs__caret {
+	animation: blink 1s linear 0s infinite;
+}
