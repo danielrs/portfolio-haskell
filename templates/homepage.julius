@@ -181,10 +181,10 @@ $(document).ready(function() {
 		if (text !== undefined) {
 			$elem.type(text, {
 				onFinish: function() {
-					setTimeout(function() { typeArray($elem, _.tail(array)); }, 500);
+					setTimeout(function() { typeArray($elem, _.tail(array)); }, 750);
 				}
 			});
 		}
 	}
-	typeArray($('#tagline'), ['Hello!', 'I\'m Daniel', 'and..', 'I\'m a programmer']);
+	typeArray($('#tagline'), ['Hello!', 'I\'m Daniel', 'I\'m Daniel, and..', 'I\'m a programmer']);
 });
