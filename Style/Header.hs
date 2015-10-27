@@ -34,10 +34,15 @@ stylesheet = do
         maxHeight (px 256)
 
   "#name" ? do
-    marginBottom (em 0.075)
+    marginBottom (em 0.050)
     a ? do
       color colorDarkGray
       textDecoration none
+  "#tagline" ? do
+    fontFamily ["Inconsolata"] [monospace]
+    marginBottom (em 0.125)
+    color colorGray
+
 
   "#social" ? do
     noListStyle

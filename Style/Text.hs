@@ -17,14 +17,13 @@ stylesheet = do
 
 defaultStyle :: Css
 defaultStyle = do
-  importUrl "https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Slabo+27px"
-
+  importUrl "https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Slabo+27px|Inconsolata:400,700"
   body ? do
     -- fontSize (em 1.125)
     fontFamily ["Open Sans"] [sansSerif]
     color colorBlack
 
-  h1 ? fontSize (em 2.125)
+  h1 ? fontSize (em 2.250)
   h2 ? fontSize (em 2)
   h1 M.<> h2 ? do
     fontFamily ["Slabo 27px"] [serif]
