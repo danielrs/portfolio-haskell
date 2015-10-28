@@ -73,13 +73,11 @@ header
 
 #profile img
 {
-  display          : inline-block;
-  min-width        : 128px;
-  min-height       : 128px;
-  max-width        : 128px;
-  max-height       : 128px;
-  border-radius    : 50% 50% 50% 50%;
-  background-color : rgb(216,216,216);
+  display    : inline-block;
+  min-width  : 128px;
+  min-height : 128px;
+  max-width  : 128px;
+  max-height : 128px;
 }
 
 @media screen and (min-width: 480px)

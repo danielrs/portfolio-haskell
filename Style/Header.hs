@@ -24,8 +24,8 @@ stylesheet = do
       minHeight (px 128)
       maxWidth (px 128)
       maxHeight (px 128)
-      borderRadius rad rad rad rad
-      backgroundColor colorLightGray
+      -- borderRadius rad rad rad rad
+      -- backgroundColor colorLightGray
       query Q.screen [Q.minWidth breakSm] $ do
         maxWidth (px 160)
         maxHeight (px 160)
