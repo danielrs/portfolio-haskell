@@ -78,6 +78,7 @@ header
   min-height : 128px;
   max-width  : 128px;
   max-height : 128px;
+  opacity    : 0.8;
 }
 
 @media screen and (min-width: 480px)
