@@ -56,15 +56,11 @@
 		// Returns a new string, 1 edit distance from current and closer to target
 		function typeTo(current, target) {
 			if (current !== target) {
-				if (current.length < target.length) {
-					var subTarget = target.substr(0, current.length);
-					if (current !== subTarget) {
-						return dropTail(current, 1);
-					} else {
-						return current + target.charAt(current.length);
-					}
-				} else {
+				var subTarget = target.substr(0, current.length);
+				if (current !== subTarget) {
 					return dropTail(current, 1);
+				} else {
+					return current + target.charAt(current.length);
 				}
 			}
 			return current;
@@ -100,14 +96,18 @@
 			function typeStep(current, target) {
 				if (current !== target) {
 					var newStr = typeTo(current, target);
+					// Step callback
 					if (newStr.length > current.length && isFunction(settings.onType)) {
 						settings.onType.call(this_);
 					} else if (newStr.length < current.length && isFunction(settings.onBackspace)) {
 						settings.onBackspace.call(this_)
 					}
+					// Update content
 					$content.text(newStr);
+					// Next step
 					setTimeout(typeStep, settings.typeDelay, newStr, targetStr);
 				} else if (isFunction(settings.onFinish)) {
+					// Finished callback
 					settings.onFinish.call(this_);
 				}
 			}
