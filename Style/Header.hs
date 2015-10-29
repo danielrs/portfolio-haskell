@@ -31,8 +31,8 @@ stylesheet = do
         maxWidth (px 160)
         maxHeight (px 160)
       query Q.screen [Q.minWidth breakMd] $ do
-        maxWidth (px 256)
-        maxHeight (px 256)
+        maxWidth (px 192)
+        maxHeight (px 192)
 
   "#name" ? do
     marginBottom (em 0.050)
