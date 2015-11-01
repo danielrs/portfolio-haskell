@@ -11,9 +11,11 @@ $newline never
     <title>#{pageTitle pc}
     <meta name="description" content="Personal portfolio page">
     <meta name="author" content="Daniel Rivas">
-    <meta name="developer" content"Daniel Rivas">
+    <meta name="developer" content="Daniel Rivas">
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="shortcut icon" href="@{FaviconR}" type="image/x-icon">
 
     ^{pageHead pc}
 
