@@ -194,5 +194,5 @@ $(document).ready(function() {
 			});
 		}
 	}
-	typeArray($('#tagline'), ['Hello!', 'I\'m Daniel', 'I\'m Daniel, a..', 'Software developer']);
+	typeArray($('#tagline'), ['Hello!', 'I\'m Daniel', 'I\'m Daniel, and..', 'I\'m a programmer']);
 });

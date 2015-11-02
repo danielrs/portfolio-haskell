@@ -5,7 +5,7 @@
         <img alt="me" src="@{StaticR images_danielrs_logo_chaps_png}">
     <h1 #name>
       <a href=@{HomeR}>Daniel Rivas
-    <h2 #tagline>Software developer
+    <h2 #tagline>I'm a programmer
     <small>
       <ul #social>
         <li>
