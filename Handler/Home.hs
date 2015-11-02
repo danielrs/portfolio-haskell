@@ -50,6 +50,7 @@ getHomeR = do
 postHomeR :: Handler Html
 postHomeR = do
   ((result, contactWidget), enctype) <- runFormPost contactForm
+  $logInfo "Email POST request received"
   case result of
     FormSuccess contact -> do
       settings <- appSettings <$> getYesod
@@ -68,13 +69,16 @@ postHomeR = do
       sendRes <- liftIO $ sendEmail context message
       case sendRes of
         Left err -> do
-          setMessage "There was an unknown error sending your email"
+          setMessage "There was a server error sending your email"
+          $logError $ "Mailgun error - " ++ (pack . herMessage $ err)
           redirect HomeR
         Right _ -> do
           setMessage "Your email has been sent!"
+          $logInfo "Email sent correctly!"
           redirect HomeR
 
     _ -> defaultLayout $ do
       setMessage "There was an error sending your email"
+      $logWarn "Form validation error"
       setTitle "Daniel Rivas - Home"
       $(widgetFile "homepage")

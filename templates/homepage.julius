@@ -4,9 +4,16 @@
 	var created = 0;
 	var index = {}; // holds id -> scope pairs
 
-	$.fn.scrollCall = function(before, after) {
+	$.fn.scrollCall = function(before, after, options) {
 		var $doc = $(document);
 
+		// SETTINGS
+		var settings = {
+			continous: false
+		}
+		$.extend(settings, options);
+
+		// Creates a checkpoint before each selected element
 		this.each(function() {
 			var checkpointId = 'scrollcall-checkpoint-' + created;
 			var $checkpoint = $('<div>', {
@@ -18,14 +25,15 @@
 			created++;
 		});
 
+		// Calls before/after events for each checkpoint
 		$doc.scroll(function() {
 			$.each(index, function(i, scope) {
 				if ($doc.scrollTop() < $(i).offset().top) {
-					if (!$(i).data('before-done')) before.call(scope);
+					if (!$(i).data('before-done') || settings.continous) before.call(scope);
 					$(i).data('before-done', true);
 					$(i).data('after-done', false);
 				} else {
-					if (!$(i).data('after-done')) after.call(scope);
+					if (!$(i).data('after-done') || settings.continous) after.call(scope);
 					$(i).data('before-done', false);
 					$(i).data('after-done', true);
 				}
@@ -186,5 +194,5 @@ $(document).ready(function() {
 			});
 		}
 	}
-	typeArray($('#tagline'), ['Hello!', 'I\'m Daniel', 'I\'m Daniel, and..', 'I\'m a programmer']);
+	typeArray($('#tagline'), ['Hello!', 'I\'m Daniel', 'I\'m Daniel, a..', 'Software developer']);
 });

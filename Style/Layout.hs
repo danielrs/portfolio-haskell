@@ -44,10 +44,10 @@ generalStyle = do
     maxWidth (px 1280)
 
   section ? do
-    marginBottom (em 3)
+    marginBottom (em 4)
     star # lastChild <? marginBottom (px 0)
-    (h1 M.<> h2 M.<> h3 M.<> h4 M.<> h5 M.<> h6) # firstChild <? do
-      textAlign $ alignSide sideCenter
+    -- (h1 M.<> h2 M.<> h3 M.<> h4 M.<> h5 M.<> h6) # firstChild <? do
+    --   textAlign $ alignSide sideCenter
 
   footer ? do
     row
