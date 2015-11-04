@@ -22,6 +22,7 @@ buttonStyle = do
   M.<> button ? do
     let r = em 0.125
     padding (em 0.5) (em 1) (em 0.5) (em 1)
+    fontSize (em 1)
     border solid (px 1) colorGray
     borderRadius r r r r
     fontWeight bold
@@ -44,6 +45,7 @@ fieldStyle :: Css
 fieldStyle = do
   input # ("type" @= "text") M.<> input # ("type" @= "email") M.<> textarea ? do
     padding (em 1) (em 1) (em 1) (em 1)
+    fontSize (em 1)
     border none (px 0) transparent
     backgroundColor colorGray
     transition "background-color" (ms 75) linear 0

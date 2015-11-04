@@ -5,6 +5,7 @@ input[type='submit'],
 button
 {
   padding            : 0.5em 1em 0.5em 1em;
+  font-size          : 1em;
   border             : solid 1px rgb(153,153,153);
   border-radius      : 0.125em 0.125em 0.125em 0.125em;
   font-weight        : bold;
@@ -38,6 +39,7 @@ input[type='email'],
 textarea
 {
   padding            : 1em 1em 1em 1em;
+  font-size          : 1em;
   border             : none 0px rgba(0,0,0,0.0000);
   background-color   : rgb(153,153,153);
   -webkit-transition : background-color 75.0ms linear 0.0s;
