@@ -2,6 +2,7 @@ module Handler.Home where
 
 import Import
 import Mail.Hailgun
+import Text.Julius
 
 -- This is a handler function for the GET request method on the HomeR
 -- resource pattern. All of your resource patterns are defined in
@@ -40,12 +41,18 @@ contactForm extra = do
 
   return (contactRes, widget)
 
+allHomeR :: Widget -> Enctype -> Handler Html
+allHomeR contactWidget enctype = do
+  langs <- languages
+  defaultLayout $ do
+    setTitle $ "Daniel Rivas - Home"
+    toWidget $ $(juliusFile "templates/homepage.julius")
+    $(whamletLang "homepage" ["en", "es"])
+
 getHomeR :: Handler Html
 getHomeR = do
     (contactWidget, enctype) <- generateFormPost contactForm
-    defaultLayout $ do
-        setTitle "Daniel Rivas - Home"
-        $(widgetFile "homepage")
+    allHomeR contactWidget enctype
 
 postHomeR :: Handler Html
 postHomeR = do
@@ -77,8 +84,7 @@ postHomeR = do
           $logInfo "Email sent correctly!"
           redirect HomeR
 
-    _ -> defaultLayout $ do
-      setMessage "There was an error sending your email"
+    _ -> do
+      setMessage "There was an error validating the contact form"
       $logWarn "Form validation error"
-      setTitle "Daniel Rivas - Home"
-      $(widgetFile "homepage")
+      allHomeR contactWidget enctype

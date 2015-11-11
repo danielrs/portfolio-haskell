@@ -1,0 +1,127 @@
+<!-- WHITE ON BLACK -->
+<section .white-section>
+  <.container>
+
+    <section #about-section>
+      <h2 #about>Acerca
+      <#about-text>
+        <#about-developer>
+          <p>
+            Hola! Soy Daniel, experto de programacion. Desarrollador de aplicaciones. Mis lenguajes de programación favoritos son #
+            <a href="http://www.cplusplus.com/">C++,
+            <a href="https://www.python.org/">Python,
+            \ and
+            <a href="https://www.haskell.org/">Haskell;
+            \ pero puedo usar y disfrutar la mayoria de ellos, Después de todo los programadores no deberian depender de un lenguajes en especifico (cierto?).
+        <#about-personal>
+          <p>
+            En mi tiempo libre me gusta aprender lo que sea que me pueda servir, como nuevos lenguages de programación, herramientas, y ténicas de desarrollo.
+
+      <h3>Herramientas
+
+      <ul #toolset>
+        <li>
+          <h4>
+            <a href="http://www.vim.org/">Vim
+          <p>El editor de texto que me enseña algo nuevo cada dia!
+        <li>
+          <h4>
+            <a href="https://github.com/ggreer/the_silver_searcher">Ag
+          <p>Uno de los mejores buscadores de código que existe. Me ha ahorrado muchas horas de trabajo inspeccionando código.
+        <li>
+          <h4>
+            <a href="https://git-scm.com/">Git
+          <p>Después de haber cometido un error puedo deshacer los cambios rapidamente!
+        <li>
+          <h4>
+            <a href="https://www.archlinux.org/">Archlinux
+          <p>Contiene todo mi entorno de desarrollo.
+
+      <p>
+        En caso de estar interesado por que no ojear mis #
+        <a href="https://github.com/DanielRS/dotfiles">dotfiles
+        ?
+
+    <section #skills-section>
+      <h2 #skills>Habilidades
+      <div #skills__professional>
+        <h3>Profesional
+        <ul .skillset>
+          <li>
+            <h4>Desarrollo full-stack
+            <p>Desarrollo front-end y back-end, diseño y desarrollo de APIs, diseño y desarrollo de bases de datos, despliegue de aplicaciones.
+          <li>
+            <h4>C++ / Python / Haskell
+            <p>Análisis, optimización y desarrollo.
+          <li>
+            <h4>UX design
+            <p>Diseño de interfaces minimalistas pero funcionales.
+      <div #skills__personal>
+        <h3>Personal
+        <ul .skillset>
+          <li>
+            <h4>Team player
+            <p>I have been part of different development teams; never had problems meeting deadlines or development requirements.
+          <li>
+            <h4>Open to new ideas!
+            <p>I love learning new stuff everyday, whether by myself or from other people.
+
+<!-- BLACK ON WHITE -->
+<section .black-section>
+  <.container>
+
+    <section #experiments-section>
+      <h2 #experiments>Experiments
+      <ul #experiment-list>
+        <li>
+          <aside .experiment-aside>
+            <h3>Portfolio website
+            <p>
+              Project entry for this website, you can the source at #
+              <a href="https://github.com/DanielRS/portfolio">Github
+            <h4>Technologies used:
+            <ul>
+              <li>
+                <a href="https://www.haskell.org/">Haskell
+                <p>Functional programming language for back-end
+              <li>
+                <a href="http://www.yesodweb.com/">Yesod
+                <p>Back-end web framework
+              <li>
+                <a href="http://fvisser.nl/clay/">Clay
+                <p>CSS EDSL for Haskell
+          <.experiment-content>
+            <p>Building this website using <strong>Haskell</strong> was an absolute blast! The bug free experience that you can get thanks to its type system is insane! I see myself using <strong>Haskell</strong> and <strong>Yesod</strong> for more projects in the future. Too bad Haskell / Yesod setup is not a more popular choice, it definitely delivers!
+            <h4>What I learn?
+            <p>Haskell is really good for web development! Before this project, I thought Haskell was only good for native application development.
+        <li>
+          <aside .experiment-aside>
+            <h3>Dwarf Engine
+            <p>
+              Game engine, check the source code at #
+              <a href="https://github.com/DanielRS/DwarfEngine">Github
+            <h4>Technologies used:
+            <ul>
+              <li>
+                <a href="https://isocpp.org/">C++
+                <p>Programming language used to write most of the game-engine
+              <li>
+                <a href="http://www.lua.org/">Lua
+                <p>Scripting language that sits on top of C++
+              <li>
+                <a href="https://www.opengl.org/">OpenGL
+                <p>Used for most of the rendering
+          <.experiment-content>
+            <p>I sometimes enjoy my free time making games, I even tried different game-engines like <strong>LibGDX</strong>, <strong>Polycode</strong>, <strong>XNA</strong>, and <strong>Unreal Engine</strong>; always found them interesting, and I thought that making something similar would make a great learning experience, and it was (and still is)!
+            <h4>What I learn!
+            <p>Developing this piece of software has taught me a lot like application architecture design, compiler dependencies, FFI, rendering, texturing and a lot more! It also let me put in practice a lot of cool <strong>C++</strong> tricks.
+
+    <section #contact-section>
+      <h2 #contact>Contact me!
+      <#contact-text>
+        <#contact-about>
+          <p>Need a freelancer? An employee? A consultant? Whatever you need let me know!
+        <form #contact-form method=post enctype=#{enctype}>
+          ^{contactWidget}
+      <!-- <h3>Need me email?
+      <p>In order to prevent spam my email is not shown here. However, you can get it by running the following Haskell script: -->
