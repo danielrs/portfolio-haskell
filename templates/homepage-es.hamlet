@@ -1,126 +1,126 @@
-<!-- WHITE ON BLACK -->
+<!-- BLACK ON WHITE -->
 <section .white-section>
   <.container>
 
     <section #about-section>
-      <h2 #about>Acerca
+      <h2 #about>_{MsgNavAbout}
       <#about-text>
         <#about-developer>
           <p>
-            Hola! Soy Daniel, experto de programacion. Desarrollador de aplicaciones. Mis lenguajes de programación favoritos son #
+            Hola! Soy Daniel, adepto de programación. Desarrollador de aplicaciones y sitios web. Mis lenguajes de programación favoritos son #
             <a href="http://www.cplusplus.com/">C++,
             <a href="https://www.python.org/">Python,
             \ y
             <a href="https://www.haskell.org/">Haskell;
-            \ pero puedo usar y disfrutar la mayoria de ellos, Después de todo los programadores no deberian depender de un lenguajes en especifico (cierto?).
+            \ pero puedo usar y disfrutar la mayoría de ellos. Después de todos los programadores no deberían depender de un lenguaje en específico, cierto?
         <#about-personal>
           <p>
-            En mi tiempo libre me gusta aprender lo que sea que me pueda servir, como nuevos lenguages de programación, herramientas, y ténicas de desarrollo.
+            En mi tiempo libre me gusta aprender cualquier cosa que me pueda ser útil, como nuevos lenguajes de programación, herramientas y técnicas de diseño / desarrollo.
 
-      <h3>Herramientas
+      <h3>_{MsgToolset}
 
       <ul #toolset>
         <li>
           <h4>
             <a href="http://www.vim.org/">Vim
-          <p>El editor de texto que me enseña algo nuevo cada dia!
+          <p>_{MsgToolsetVim}
         <li>
           <h4>
             <a href="https://github.com/ggreer/the_silver_searcher">Ag
-          <p>Uno de los mejores buscadores de código que existe. Me ha ahorrado muchas horas de trabajo inspeccionando código.
+          <p>_{MsgToolsetAg}
         <li>
           <h4>
             <a href="https://git-scm.com/">Git
-          <p>Después de haber cometido un error puedo deshacer los cambios rapidamente!
+          <p>_{MsgToolsetGit}
         <li>
           <h4>
             <a href="https://www.archlinux.org/">Archlinux
-          <p>Contiene todo mi entorno de desarrollo.
+          <p>_{MsgToolsetArch}
 
       <p>
-        En caso de estar interesado por que no ojear mis #
+        _{MsgToolsetDotfiles}
         <a href="https://github.com/DanielRS/dotfiles">dotfiles
-        ?
+        .
 
     <section #skills-section>
-      <h2 #skills>Habilidades
+      <h2 #skills>_{MsgNavSkills}
       <div #skills__professional>
-        <h3>Profesional
+        <h3>_{MsgSkillsProfessional}
         <ul .skillset>
           <li>
-            <h4>Desarrollo full-stack
-            <p>Desarrollo front-end y back-end, diseño y desarrollo de APIs, diseño y desarrollo de bases de datos, despliegue de aplicaciones.
+            <h4>_{MsgSkillsFullstack}
+            <p>_{MsgSkillsFullstackContent}
           <li>
-            <h4>C++ / Python / Haskell
-            <p>Análisis, optimización y desarrollo.
+            <h4>_{MsgSkillsProgramming}
+            <p>_{MsgSkillsProgrammingContent}
           <li>
-            <h4>UX design
-            <p>Diseño de interfaces minimalistas pero funcionales.
+            <h4>_{MsgSkillsDesign}
+            <p>_{MsgSkillsDesignContent}
       <div #skills__personal>
-        <h3>Personal
+        <h3>_{MsgSkillsPersonal}
         <ul .skillset>
           <li>
-            <h4>Trabajo en equipo
-            <p>He sido parte de varios equipos de desarrollo.
+            <h4>_{MsgSkillsTeam}
+            <p>_{MsgSkillsTeamContent}
           <li>
-            <h4>Abierto a nuevas ideas!
-            <p>Me encanta aprender cosas nuevas, ya sea por mi mismo, o de otras personas.
+            <h4>_{MsgSkillsIdeas}
+            <p>_{MsgSkillsIdeasContent}
 
-<!-- BLACK ON WHITE -->
+<!-- WHITE ON BLACK -->
 <section .black-section>
   <.container>
 
     <section #experiments-section>
-      <h2 #experiments>Experimentos
+      <h2 #experiments>_{MsgNavExperiments}
       <ul #experiment-list>
         <li>
           <aside .experiment-aside>
-            <h3>Sitio web del portafolio
+            <h3>Portafolio
             <p>
-              Entrada sobre este sitio, el código fuente esta disponible en #
+              Entrada para éste sitio web, el código fuente se puede encontrar en #
               <a href="https://github.com/DanielRS/portfolio">Github
-            <h4>Tecnologías usadas:
+            <h4>_{MsgExperimentsTechnologies}
             <ul>
               <li>
                 <a href="https://www.haskell.org/">Haskell
-                <p>Functional programming language for back-end
+                <p>Lenguaje de programación funcional para el back-end
               <li>
                 <a href="http://www.yesodweb.com/">Yesod
-                <p>Back-end web framework
+                <p>Web-framework para Haskell
               <li>
                 <a href="http://fvisser.nl/clay/">Clay
-                <p>CSS EDSL for Haskell
+                <p>Un pre-procesador de CSS y lenguaje específico de dominio (DSL) en Haskell
           <.experiment-content>
-            <p>Building this website using <strong>Haskell</strong> was an absolute blast! The bug free experience that you can get thanks to its type system is insane! I see myself using <strong>Haskell</strong> and <strong>Yesod</strong> for more projects in the future. Too bad Haskell / Yesod setup is not a more popular choice, it definitely delivers!
-            <h4>What I learn?
-            <p>Haskell is really good for web development! Before this project, I thought Haskell was only good for native application development.
+            <p>Hacer éste sitio web utilizando <strong>Haskell</strong> fue una gran experiencia! El sistema de tipos estático produce programas casi libres de errores una vez compilados. Definitivamente usare <strong>Haskell</strong> y <strong>Yesod</strong> nuevamente.
+            <h4>_{MsgExperimentsWhat}
+            <p>Haskell es muy bueno para desarrollo web, las plantillas !hakespeare y el sistema i18n (internacionalización) son excelentes.
         <li>
           <aside .experiment-aside>
             <h3>Dwarf Engine
             <p>
-              Game engine, check the source code at #
+              Motor de juegos, el código fuente se puede ver en #
               <a href="https://github.com/DanielRS/DwarfEngine">Github
-            <h4>Technologies used:
+            <h4>_{MsgExperimentsTechnologies}
             <ul>
               <li>
                 <a href="https://isocpp.org/">C++
-                <p>Programming language used to write most of the game-engine
+                <p>Lenguaje de programación de bajo nivel
               <li>
                 <a href="http://www.lua.org/">Lua
-                <p>Scripting language that sits on top of C++
+                <p>Languaje interpretado de alto nivel, buena sinérgia con C / C++
               <li>
                 <a href="https://www.opengl.org/">OpenGL
-                <p>Used for most of the rendering
+                <p>Utilizado para el renderizado en todas las plataformas
           <.experiment-content>
-            <p>I sometimes enjoy my free time making games, I even tried different game-engines like <strong>LibGDX</strong>, <strong>Polycode</strong>, <strong>XNA</strong>, and <strong>Unreal Engine</strong>; always found them interesting, and I thought that making something similar would make a great learning experience, and it was (and still is)!
-            <h4>What I learn!
-            <p>Developing this piece of software has taught me a lot like application architecture design, compiler dependencies, FFI, rendering, texturing and a lot more! It also let me put in practice a lot of cool <strong>C++</strong> tricks.
+            <p>Cuando estaba aprendiendo a programar me gustaba mucho hacer juegos, inclusive probe varios motores populares como <strong>LibGDX</strong>, <strong>Polycode</strong>, <strong>XNA</strong> y <strong>Unreal Enegine</strong>. Pensé que tratar de hacer un motor por cuenta propia sería una gran experiencia de aprendizaje, y asi fué!
+            <h4>_{MsgExperimentsWhat}
+            <p>Desarrollar éste motor me enseño mucho sobre diseño de arquitectura de sotware, compilación, FFI (Foreign Function Interface), renderizado y texturizado.
 
     <section #contact-section>
-      <h2 #contact>Contact me!
+      <h2 #contact>_{MsgNavContact}
       <#contact-text>
         <#contact-about>
-          <p>Need a freelancer? An employee? A consultant? Whatever you need let me know!
+          <p>_{MsgContactMessage}
         <form #contact-form method=post enctype=#{enctype}>
           ^{contactWidget}
       <!-- <h3>Need me email?

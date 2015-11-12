@@ -24,7 +24,7 @@ library
                      Handler.Home
                      Handler.Blog
                      Handler.Lang
-                     Text.Shakespeare.I18L
+                     Text.Shakespeare.I18n
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT

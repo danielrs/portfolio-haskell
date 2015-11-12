@@ -12,8 +12,8 @@ import Style.Variables
 stylesheet :: Css
 stylesheet = do
   buttonStyle
+  selectStyle
   fieldStyle
-
 
 buttonStyle :: Css
 buttonStyle = do
@@ -21,7 +21,7 @@ buttonStyle = do
   M.<> input # ("type" @= "submit")
   M.<> button ? do
     let r = em 0.125
-    padding (em 0.5) (em 1) (em 0.5) (em 1)
+    padding (em 0.25) (em 0.5) (em 0.25) (em 0.5)
     fontSize (em 1)
     border solid (px 1) colorGray
     borderRadius r r r r
@@ -40,6 +40,12 @@ buttonStyle = do
     active & do
       borderColor colorDarkGray
       backgroundColor colorDarkGray
+
+selectStyle :: Css
+selectStyle = do
+  select ? do
+    let r = em 0.125
+    padding (em 0.25) (em 0.5) (em 0.25) (em 0.5)
 
 fieldStyle :: Css
 fieldStyle = do

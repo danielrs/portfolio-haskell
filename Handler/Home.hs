@@ -2,7 +2,7 @@ module Handler.Home where
 
 import Import
 import Mail.Hailgun
-import Text.Shakespeare.I18L
+import Text.Shakespeare.I18n
 
 -- This is a handler function for the GET request method on the HomeR
 -- resource pattern. All of your resource patterns are defined in
@@ -21,12 +21,13 @@ data Contact = Contact
 
 contactForm :: Form Contact
 contactForm extra = do
+  render <- getMessageRender
   let
     set label placeholder = FieldSettings label Nothing Nothing Nothing [("placeholder", placeholder)]
-  (nameRes, nameView) <- mreq textField (set "name" "Your name") Nothing
-  (emailRes, emailView) <- mreq emailField (set "email" "Your email address") Nothing
-  (titleRes, titleView) <- mreq textField (set "title" "Title") Nothing
-  (msgRes, msgView) <- mreq textareaField (set "msg" "Tell me what you need!") Nothing
+  (nameRes, nameView) <- mreq textField (set "name" (render MsgContactName)) Nothing
+  (emailRes, emailView) <- mreq emailField (set "email" (render MsgContactEmail)) Nothing
+  (titleRes, titleView) <- mreq textField (set "title" (render MsgContactTitle)) Nothing
+  (msgRes, msgView) <- mreq textareaField (set "msg" (render MsgContactContent)) Nothing
 
   let contactRes = Contact <$> nameRes <*> emailRes <*> titleRes <*> msgRes
   let widget = do
@@ -36,7 +37,7 @@ contactForm extra = do
         ^{fvInput emailView}
         ^{fvInput titleView}
         ^{fvInput msgView}
-        <input type=submit value=Send>
+        <input type=submit value=_{MsgContactSend}>
       |]
 
   return (contactRes, widget)
@@ -45,8 +46,7 @@ allHomeR :: Widget -> Enctype -> Handler Html
 allHomeR contactWidget enctype = do
   defaultLayout $ do
     setTitle $ "Daniel Rivas - Home"
-    -- $(whamletFilei18L "templates/homepage" ["en", "es"])
-    $(whamletFile "templates/homepage-en.hamlet")
+    $(whamletFilei18n "templates/homepage" ["en", "es"] ".hamlet")
 
 getHomeR :: Handler Html
 getHomeR = do
@@ -56,6 +56,7 @@ getHomeR = do
 postHomeR :: Handler Html
 postHomeR = do
   ((result, contactWidget), enctype) <- runFormPost contactForm
+  render <- (toHtml .) <$>  getMessageRender
   $logInfo "Email POST request received"
   case result of
     FormSuccess contact -> do
@@ -75,15 +76,15 @@ postHomeR = do
       sendRes <- liftIO $ sendEmail context message
       case sendRes of
         Left err -> do
-          setMessage "There was a server error sending your email"
+          setMessage $ render MsgMailServerError
           $logError $ "Mailgun error - " ++ (pack . herMessage $ err)
           redirect HomeR
         Right _ -> do
-          setMessage "Your email has been sent!"
+          setMessage $ render MsgMailSent
           $logInfo "Email sent correctly!"
           redirect HomeR
 
     _ -> do
-      setMessage "There was an error validating the contact form"
+      setMessage $ render MsgMailError
       $logWarn "Form validation error"
       allHomeR contactWidget enctype

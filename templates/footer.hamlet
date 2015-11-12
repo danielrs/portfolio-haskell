@@ -1,10 +1,19 @@
 <footer>
   <.container>
-    <#footer-other>
+
+    <#footer-lang>
+      <form action=@{LangR} method=post>
+        <select name=lang>
+          <option value=en>English
+          <option value=es>Español
+          <input type=submit value=_{MsgLangSwitchButton}>
+
+    <#footer-nav>
       <ul>
         <li>
           <a href=@{HomeR}>Home
           <!-- <a href=@{HomeR}>Blog -->
+
     <#footer-copyright>
       <h3>#{appCopyrightName $ appSettings master} #
         <small>&copy; #{appCopyrightYear $ appSettings master}

@@ -61,12 +61,12 @@ generalStyle = do
       small ? do
         fontWeight normal
 
-    "#footer-copyright" M.<> "#footer-other" ? do
+    "#footer-lang" M.<> "#footer-nav" M.<> "#footer-copyright" ? do
       padding (em 1) 0 (em 1) 0
       textAlign $ alignSide sideCenter
       query Q.screen [Q.minWidth breakSm] $ do
         textAlign $ alignSide sideLeft
-        columnRight 1 2
+        columnRight 1 3
 
 gotoPageStyle :: Css
 gotoPageStyle = do

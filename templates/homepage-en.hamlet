@@ -1,4 +1,4 @@
-<!-- WHITE ON BLACK -->
+<!-- BLACK ON WHITE -->
 <section .white-section>
   <.container>
 
@@ -15,7 +15,7 @@
             \ but I can use and enjoy most of them. After all programmers should be language agnostic (right?).
         <#about-personal>
           <p>
-            On my free time I like to learn just about anything I could make use of, like new programming languages, tools, and application architecture design.
+            On my free time I like to learn just about anything I could make use of, like new programming languages, tools, and design / development techniques.
 
       <h3>_{MsgToolset}
 
@@ -38,7 +38,7 @@
           <p>_{MsgToolsetArch}
 
       <p>
-        You can also check my #
+        _{MsgToolsetDotfiles}
         <a href="https://github.com/DanielRS/dotfiles">dotfiles
         .
 
@@ -48,25 +48,25 @@
         <h3>_{MsgSkillsProfessional}
         <ul .skillset>
           <li>
-            <h4>Full-stack development
-            <p>Front-end development, Back-end development, API design and development, Database design and development, deployment.
+            <h4>_{MsgSkillsFullstack}
+            <p>_{MsgSkillsFullstackContent}
           <li>
-            <h4>C++ / Python / Haskell
-            <p>Code analysis, optimization, and development.
+            <h4>_{MsgSkillsProgramming}
+            <p>_{MsgSkillsProgrammingContent}
           <li>
-            <h4>UX design
-            <p>Minimal yet comprehensive interfaces are my best bet.
+            <h4>_{MsgSkillsDesign}
+            <p>_{MsgSkillsDesignContent}
       <div #skills__personal>
         <h3>_{MsgSkillsPersonal}
         <ul .skillset>
           <li>
-            <h4>Team player
-            <p>I have been part of different development teams; never had problems meeting deadlines or development requirements.
+            <h4>_{MsgSkillsTeam}
+            <p>_{MsgSkillsTeamContent}
           <li>
-            <h4>Open to new ideas!
-            <p>I love learning new stuff everyday, whether by myself or from other people.
+            <h4>_{MsgSkillsIdeas}
+            <p>_{MsgSkillsIdeasContent}
 
-<!-- BLACK ON WHITE -->
+<!-- WHITE ON BLACK -->
 <section .black-section>
   <.container>
 
@@ -79,7 +79,7 @@
             <p>
               Project entry for this website, you can the source at #
               <a href="https://github.com/DanielRS/portfolio">Github
-            <h4>_{MsgExperimentTechnologies}
+            <h4>_{MsgExperimentsTechnologies}
             <ul>
               <li>
                 <a href="https://www.haskell.org/">Haskell
@@ -93,14 +93,14 @@
           <.experiment-content>
             <p>Building this website using <strong>Haskell</strong> was an absolute blast! The bug free experience that you can get thanks to its type system is insane! I see myself using <strong>Haskell</strong> and <strong>Yesod</strong> for more projects in the future. Too bad Haskell / Yesod setup is not a more popular choice, it definitely delivers!
             <h4>_{MsgExperimentsWhat}
-            <p>Haskell is really good for web development! Before this project, I thought Haskell was only good for native application development.
+            <p>Haskell is really good for web development! The shakespeare templates and the i18n system are extremely good.
         <li>
           <aside .experiment-aside>
             <h3>Dwarf Engine
             <p>
               Game engine, check the source code at #
               <a href="https://github.com/DanielRS/DwarfEngine">Github
-            <h4>Technologies used:
+            <h4>_{MsgExperimentsTechnologies}
             <ul>
               <li>
                 <a href="https://isocpp.org/">C++
@@ -114,7 +114,7 @@
           <.experiment-content>
             <p>I sometimes enjoy my free time making games, I even tried different game-engines like <strong>LibGDX</strong>, <strong>Polycode</strong>, <strong>XNA</strong>, and <strong>Unreal Engine</strong>; always found them interesting, and I thought that making something similar would make a great learning experience, and it was (and still is)!
             <h4>_{MsgExperimentsWhat}
-            <p>Developing this piece of software has taught me a lot like application architecture design, compiler dependencies, FFI, rendering, texturing and a lot more! It also let me put in practice a lot of cool <strong>C++</strong> tricks.
+            <p>Developing this piece of software has taught me a lot like application architecture design, compiler dependencies, FFI, rendering, and texturing.
 
     <section #contact-section>
       <h2 #contact>_{MsgNavContact}

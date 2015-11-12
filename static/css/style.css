@@ -4,7 +4,7 @@ input[type='button'],
 input[type='submit'],
 button
 {
-  padding            : 0.5em 1em 0.5em 1em;
+  padding            : 0.25em 0.5em 0.25em 0.5em;
   font-size          : 1em;
   border             : solid 1px rgb(153,153,153);
   border-radius      : 0.125em 0.125em 0.125em 0.125em;
@@ -32,6 +32,11 @@ button:active
 {
   border-color     : rgb(114,114,114);
   background-color : rgb(114,114,114);
+}
+
+select
+{
+  padding : 0.25em 0.5em 0.25em 0.5em;
 }
 
 input[type='text'],
@@ -501,8 +506,9 @@ footer h4 small
   font-weight : normal;
 }
 
-footer #footer-copyright,
-footer #footer-other
+footer #footer-lang,
+footer #footer-nav,
+footer #footer-copyright
 {
   padding    : 1em 0px 1em 0px;
   text-align : center;
@@ -510,8 +516,9 @@ footer #footer-other
 
 @media screen and (min-width: 480px)
 {
-footer #footer-copyright,
-footer #footer-other
+footer #footer-lang,
+footer #footer-nav,
+footer #footer-copyright
 {
   text-align         : left;
   display            : block;
@@ -520,13 +527,14 @@ footer #footer-other
   -ms-box-sizing     : border-box;
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
-  width              : 47%;
-  margin-right       : 6%;
+  width              : 30.66666%;
+  margin-right       : 4%;
   float              : right;
 }
 
-footer #footer-copyright:first-child,
-footer #footer-other:first-child
+footer #footer-lang:first-child,
+footer #footer-nav:first-child,
+footer #footer-copyright:first-child
 {
   margin-right : 0px;
 }
