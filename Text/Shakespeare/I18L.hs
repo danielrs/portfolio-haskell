@@ -8,13 +8,14 @@ import Import.NoFoundation
 import Language.Haskell.TH
 import Text.Hamlet
 
--- Main
+-- Returns a function that takes a list of preferred languages and returns
+-- the first one that matches the given list; returns default otherwise
 hamletFilei18L :: String -> [String] -> Q Exp
 hamletFilei18L _ [] = error "At least 1 language has to be supported."
 hamletFilei18L basename supportedLangs =
   [|
     let
-      widgets@((_, defaultWidget):_)= $(hamletFilesSuffix  basename supportedLangs)
+      widgets@((_, defaultWidget):_)=  $(hamletMultifileSuffix  basename supportedLangs)
     in
       (\langs ->
         case multiLookup langs widgets of
@@ -23,6 +24,8 @@ hamletFilei18L basename supportedLangs =
       )
   |]
 
+-- Returns a widget that matches the language preferred by the user, or the
+-- default one (first one specified)
 whamletFilei18L :: String -> [String] -> Q Exp
 whamletFilei18L _ [] = error "At least 1 language has to be supported."
 whamletFilei18L basename supportedLangs =
@@ -30,35 +33,41 @@ whamletFilei18L basename supportedLangs =
     do
       langs <- (<$>) unpack <$> languages
       let
-        widgets@((_, defaultWidget):_)= $(whamletFilesSuffix  basename supportedLangs)
+        widgets@((_, defaultWidget):_)= $(whamletMultifileSuffix  basename supportedLangs)
       case multiLookup langs widgets of
         Nothing -> defaultWidget
         Just widget -> widget
   |]
 
--- Utility functions
-firstOrNothing :: [Maybe a] -> Maybe a
-firstOrNothing [] = Nothing
-firstOrNothing (x:_) = x
+-- returns a list of hamlet files with the given suffixes
+hamletMultifileSuffix :: String -> [String] -> Q Exp
+hamletMultifileSuffix = shakespeareMultifileSuffix hamletFileSuffix
 
-multiLookup :: (Eq a, Ord a) => [a] -> [(a, b)] -> Maybe b
-multiLookup ks xs = firstOrNothing [lookup k xs | k <- ks]
+-- returns a list of whamlet files with the given suffixes
+whamletMultifileSuffix :: String -> [String] -> Q Exp
+whamletMultifileSuffix = shakespeareMultifileSuffix whamletFileSuffix
 
--- Functions
+-- returns a hamletFile with given suffix
 hamletFileSuffix :: String -> String -> Q Exp
 hamletFileSuffix basename suffix =
     [| $(hamletFile $ basename ++ "-" ++ suffix ++ ".hamlet") |]
 
+-- returns a whamletfile with given suffix
 whamletFileSuffix :: String -> String -> Q Exp
 whamletFileSuffix basename suffix =
     [| $(whamletFile $ basename ++ "-" ++ suffix ++ ".hamlet") |]
 
-hamletFilesSuffix :: String -> [String] -> Q Exp
-hamletFilesSuffix _ [] = [| [] |]
-hamletFilesSuffix basename (x:xs) =
-  [| (x, $(hamletFileSuffix basename x)) : $(hamletFilesSuffix basename xs) |]
+-- returns a list of shakespearean files of the same kind (hamlet, whamlet, etc) with given suffixes
+shakespeareMultifileSuffix :: (String -> String -> Q Exp) -> String -> [String] -> Q Exp
+shakespeareMultifileSuffix _ _ [] = [| [] |]
+shakespeareMultifileSuffix f basename (x:xs) =
+  [| (x, $(f basename x)) : $(shakespeareMultifileSuffix f basename xs) |]
 
-whamletFilesSuffix :: String -> [String] -> Q Exp
-whamletFilesSuffix _ [] = [| [] |]
-whamletFilesSuffix basename (x:xs) =
-  [| (x, $(whamletFileSuffix basename x)) : $(whamletFilesSuffix basename xs) |]
+-- Gets first element of the list
+getFirst :: [Maybe a] -> Maybe a
+getFirst [] = Nothing
+getFirst (x:_) = x
+
+-- Returns the first element that matches any of the given keys (in order)
+multiLookup :: (Eq a, Ord a) => [a] -> [(a, b)] -> Maybe b
+multiLookup ks xs = getFirst . filter (not . isNothing) $ [lookup k xs | k <- ks]

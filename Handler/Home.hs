@@ -2,7 +2,7 @@ module Handler.Home where
 
 import Import
 import Mail.Hailgun
-import Text.Julius
+import Text.Shakespeare.I18L
 
 -- This is a handler function for the GET request method on the HomeR
 -- resource pattern. All of your resource patterns are defined in
@@ -43,11 +43,10 @@ contactForm extra = do
 
 allHomeR :: Widget -> Enctype -> Handler Html
 allHomeR contactWidget enctype = do
-  langs <- languages
   defaultLayout $ do
     setTitle $ "Daniel Rivas - Home"
-    toWidget $ $(juliusFile "templates/homepage.julius")
-    $(whamletLang "homepage" ["en", "es"])
+    -- $(whamletFilei18L "templates/homepage" ["en", "es"])
+    $(whamletFile "templates/homepage-en.hamlet")
 
 getHomeR :: Handler Html
 getHomeR = do

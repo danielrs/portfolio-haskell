@@ -43,7 +43,8 @@ stylesheet = do
     fontFamily ["Inconsolata"] [monospace]
     marginBottom (em 0.125)
     color colorGray
-
+  "#tagline__messages" ? do
+    display none
 
   "#social" ? do
     noListStyle

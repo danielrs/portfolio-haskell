@@ -119,6 +119,11 @@ header
   color         : rgb(153,153,153);
 }
 
+#tagline__messages
+{
+  display : none;
+}
+
 #social
 {
   margin              : 0px 0px 0px 0px;

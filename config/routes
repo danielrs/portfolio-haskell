@@ -6,4 +6,7 @@
 
 / HomeR GET POST
 
+/lang_en LangEnR GET
+/lang_es LangEsR GET
+
 -- /blog BlogR GET

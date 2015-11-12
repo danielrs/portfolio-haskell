@@ -3,7 +3,7 @@
   <.container>
 
     <section #about-section>
-      <h2 #about>About
+      <h2 #about>_{MsgNavAbout}
       <#about-text>
         <#about-developer>
           <p>
@@ -17,25 +17,25 @@
           <p>
             On my free time I like to learn just about anything I could make use of, like new programming languages, tools, and application architecture design.
 
-      <h3>Toolset
+      <h3>_{MsgToolset}
 
       <ul #toolset>
         <li>
           <h4>
             <a href="http://www.vim.org/">Vim
-          <p>The text editor that teaches me something new everyday!
+          <p>_{MsgToolsetVim}
         <li>
           <h4>
             <a href="https://github.com/ggreer/the_silver_searcher">Ag
-          <p>One of the best code search tools in my opinion! It saved me from countless hours when exploring new code.
+          <p>_{MsgToolsetAg}
         <li>
           <h4>
             <a href="https://git-scm.com/">Git
-          <p>After messing up my client's project I can rollback before they even notice!
+          <p>_{MsgToolsetGit}
         <li>
           <h4>
             <a href="https://www.archlinux.org/">Archlinux
-          <p>It holds my whole development environment.
+          <p>_{MsgToolsetArch}
 
       <p>
         You can also check my #
@@ -43,9 +43,9 @@
         .
 
     <section #skills-section>
-      <h2 #skills>Skills
+      <h2 #skills>_{MsgNavSkills}
       <div #skills__professional>
-        <h3>Professional
+        <h3>_{MsgSkillsProfessional}
         <ul .skillset>
           <li>
             <h4>Full-stack development
@@ -57,7 +57,7 @@
             <h4>UX design
             <p>Minimal yet comprehensive interfaces are my best bet.
       <div #skills__personal>
-        <h3>Personal
+        <h3>_{MsgSkillsPersonal}
         <ul .skillset>
           <li>
             <h4>Team player
@@ -71,7 +71,7 @@
   <.container>
 
     <section #experiments-section>
-      <h2 #experiments>Experiments
+      <h2 #experiments>_{MsgNavExperiments}
       <ul #experiment-list>
         <li>
           <aside .experiment-aside>
@@ -79,7 +79,7 @@
             <p>
               Project entry for this website, you can the source at #
               <a href="https://github.com/DanielRS/portfolio">Github
-            <h4>Technologies used:
+            <h4>_{MsgExperimentTechnologies}
             <ul>
               <li>
                 <a href="https://www.haskell.org/">Haskell
@@ -92,7 +92,7 @@
                 <p>CSS EDSL for Haskell
           <.experiment-content>
             <p>Building this website using <strong>Haskell</strong> was an absolute blast! The bug free experience that you can get thanks to its type system is insane! I see myself using <strong>Haskell</strong> and <strong>Yesod</strong> for more projects in the future. Too bad Haskell / Yesod setup is not a more popular choice, it definitely delivers!
-            <h4>What I learn?
+            <h4>_{MsgExperimentsWhat}
             <p>Haskell is really good for web development! Before this project, I thought Haskell was only good for native application development.
         <li>
           <aside .experiment-aside>
@@ -113,14 +113,14 @@
                 <p>Used for most of the rendering
           <.experiment-content>
             <p>I sometimes enjoy my free time making games, I even tried different game-engines like <strong>LibGDX</strong>, <strong>Polycode</strong>, <strong>XNA</strong>, and <strong>Unreal Engine</strong>; always found them interesting, and I thought that making something similar would make a great learning experience, and it was (and still is)!
-            <h4>What I learn!
+            <h4>_{MsgExperimentsWhat}
             <p>Developing this piece of software has taught me a lot like application architecture design, compiler dependencies, FFI, rendering, texturing and a lot more! It also let me put in practice a lot of cool <strong>C++</strong> tricks.
 
     <section #contact-section>
-      <h2 #contact>Contact me!
+      <h2 #contact>_{MsgNavContact}
       <#contact-text>
         <#contact-about>
-          <p>Need a freelancer? An employee? A consultant? Whatever you need let me know!
+          <p>_{MsgContactMessage}
         <form #contact-form method=post enctype=#{enctype}>
           ^{contactWidget}
       <!-- <h3>Need me email?

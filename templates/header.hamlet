@@ -5,7 +5,12 @@
         <img alt="me" src="@{StaticR images_danielrs_logo_chaps_png}">
     <h1 #name>
       <a href=@{HomeR}>Daniel Rivas
-    <h2 #tagline>I'm a programmer
+    <h2 #tagline>_{MsgTagline0}
+    <ul #tagline__messages>
+      <li>_{MsgTagline1}
+      <li>_{MsgTagline2}
+      <li>_{MsgTagline3}
+      <li>_{MsgTagline0}
     <small>
       <ul #social>
         <li>
@@ -20,13 +25,13 @@
     <nav #main-nav>
       <ul>
         <li>
-          <a href=#about>About
+          <a href=#about>_{MsgNavAbout}
         <li>
-          <a href=#skills>Skills
+          <a href=#skills>_{MsgNavSkills}
         <li>
-          <a href=#experiments>Experiments
+          <a href=#experiments>_{MsgNavExperiments}
         <li>
-          <a href=#contact>Contact me!
+          <a href=#contact>_{MsgNavContact}
         <!-- <li> -->
         <!--   <strong> -->
         <!--     <a href="@{BlogR}">Blog -->

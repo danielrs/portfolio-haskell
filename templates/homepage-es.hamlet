@@ -10,7 +10,7 @@
             Hola! Soy Daniel, experto de programacion. Desarrollador de aplicaciones. Mis lenguajes de programación favoritos son #
             <a href="http://www.cplusplus.com/">C++,
             <a href="https://www.python.org/">Python,
-            \ and
+            \ y
             <a href="https://www.haskell.org/">Haskell;
             \ pero puedo usar y disfrutar la mayoria de ellos, Después de todo los programadores no deberian depender de un lenguajes en especifico (cierto?).
         <#about-personal>
@@ -60,26 +60,26 @@
         <h3>Personal
         <ul .skillset>
           <li>
-            <h4>Team player
-            <p>I have been part of different development teams; never had problems meeting deadlines or development requirements.
+            <h4>Trabajo en equipo
+            <p>He sido parte de varios equipos de desarrollo.
           <li>
-            <h4>Open to new ideas!
-            <p>I love learning new stuff everyday, whether by myself or from other people.
+            <h4>Abierto a nuevas ideas!
+            <p>Me encanta aprender cosas nuevas, ya sea por mi mismo, o de otras personas.
 
 <!-- BLACK ON WHITE -->
 <section .black-section>
   <.container>
 
     <section #experiments-section>
-      <h2 #experiments>Experiments
+      <h2 #experiments>Experimentos
       <ul #experiment-list>
         <li>
           <aside .experiment-aside>
-            <h3>Portfolio website
+            <h3>Sitio web del portafolio
             <p>
-              Project entry for this website, you can the source at #
+              Entrada sobre este sitio, el código fuente esta disponible en #
               <a href="https://github.com/DanielRS/portfolio">Github
-            <h4>Technologies used:
+            <h4>Tecnologías usadas:
             <ul>
               <li>
                 <a href="https://www.haskell.org/">Haskell

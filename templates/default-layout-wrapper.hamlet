@@ -25,8 +25,4 @@ $newline never
       document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
 
   <body #page-top>
-    <a #go-page-top href="#page-top">Top
-    ^{headerWidget}
     ^{pageBody pc}
-    ^{footerWidget}
-
