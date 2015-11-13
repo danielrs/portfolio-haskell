@@ -22,8 +22,8 @@ library
                      Settings.StaticFiles
                      Handler.Common
                      Handler.Home
-                     Handler.Blog
                      Handler.Lang
+                     Handler.Blog
                      Text.Shakespeare.I18n
 
     if flag(dev) || flag(library-only)
