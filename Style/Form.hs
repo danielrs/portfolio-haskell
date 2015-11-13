@@ -46,6 +46,7 @@ selectStyle = do
   select ? do
     let r = em 0.125
     padding (em 0.25) (em 0.5) (em 0.25) (em 0.5)
+    marginRight (em 0.125)
 
 fieldStyle :: Css
 fieldStyle = do
