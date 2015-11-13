@@ -23,7 +23,7 @@ library
                      Handler.Common
                      Handler.Home
                      Handler.Lang
-                     Handler.Blog
+                     -- Handler.Blog
                      Text.Shakespeare.I18n
 
     if flag(dev) || flag(library-only)
