@@ -7,4 +7,4 @@ postLangR :: Handler Html
 postLangR = do
   lang <- runInputPost $ ireq textField "lang"
   setLanguage lang
-  defaultLayout $(widgetFile "blog")
+  redirect HomeR

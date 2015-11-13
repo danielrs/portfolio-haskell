@@ -32,7 +32,7 @@
           <a href=#experiments>_{MsgNavExperiments}
         <li>
           <a href=#contact>_{MsgNavContact}
-        <!-- <li> -->
-        <!--   <strong> -->
-        <!--     <a href="@{BlogR}">Blog -->
+        <li>
+          <strong>
+            <a href="@{BlogR}">Blog
 
