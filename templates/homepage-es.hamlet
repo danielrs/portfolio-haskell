@@ -7,7 +7,7 @@
       <#about-text>
         <#about-developer>
           <p>
-            Hola! Soy Daniel, adepto de programación. Desarrollador de aplicaciones y sitios web. Mis lenguajes de programación favoritos son #
+            Hola! Soy Daniel, desarrollador de software. Mis lenguajes de programación favoritos son #
             <a href="http://www.cplusplus.com/">C++,
             <a href="https://www.python.org/">Python,
             \ y
@@ -15,7 +15,7 @@
             \ pero puedo usar y disfrutar la mayoría de ellos. Después de todos los programadores no deberían depender de un lenguaje en específico, cierto?
         <#about-personal>
           <p>
-            En mi tiempo libre me gusta aprender cualquier cosa que me pueda ser útil, como nuevos lenguajes de programación, herramientas y técnicas de diseño / desarrollo.
+            En mi tiempo libre me gusta aprender cualquier cosa que me pueda ser útil, como nuevos lenguajes de programación, herramientas y metodologías de desarrollo.
 
       <h3>_{MsgToolset}
 
@@ -91,9 +91,9 @@
                 <a href="http://fvisser.nl/clay/">Clay
                 <p>Un pre-procesador de CSS y lenguaje específico de dominio (DSL) en Haskell
           <.experiment-content>
-            <p>Hacer éste sitio web utilizando <strong>Haskell</strong> fue una gran experiencia! El sistema de tipos estático produce programas casi libres de errores una vez compilados. Definitivamente usare <strong>Haskell</strong> y <strong>Yesod</strong> nuevamente.
+            <p>Hacer éste sitio web utilizando <strong>Haskell</strong> fue una gran experiencia! El sistema de tipos estático produce programas casi libres de errores una vez compilados. Definitivamente usaré <strong>Haskell</strong> y <strong>Yesod</strong> nuevamente.
             <h4>_{MsgExperimentsWhat}
-            <p>Haskell es muy bueno para desarrollo web, las plantillas !hakespeare y el sistema i18n (internacionalización) son excelentes.
+            <p>Haskell es muy bueno para desarrollo web, las plantillas shakespeare y el sistema i18n (internacionalización) son excelentes.
         <li>
           <aside .experiment-aside>
             <h3>Dwarf Engine
@@ -112,9 +112,9 @@
                 <a href="https://www.opengl.org/">OpenGL
                 <p>Utilizado para el renderizado en todas las plataformas
           <.experiment-content>
-            <p>Cuando estaba aprendiendo a programar me gustaba mucho hacer juegos, inclusive probe varios motores populares como <strong>LibGDX</strong>, <strong>Polycode</strong>, <strong>XNA</strong> y <strong>Unreal Enegine</strong>. Pensé que tratar de hacer un motor por cuenta propia sería una gran experiencia de aprendizaje, y asi fué!
+            <p>Cuando estaba aprendiendo a programar me gustaba mucho hacer juegos, inclusive probe varios motores populares como <strong>LibGDX</strong>, <strong>Polycode</strong>, <strong>XNA</strong> y <strong>Unreal Engine</strong>. Pensé que tratar de hacer un motor por cuenta propia sería una gran experiencia de aprendizaje, y asi fué!
             <h4>_{MsgExperimentsWhat}
-            <p>Desarrollar éste motor me enseño mucho sobre diseño de arquitectura de sotware, compilación, FFI (Foreign Function Interface), renderizado y texturizado.
+            <p>Desarrollar éste motor me enseño mucho sobre diseño de arquitectura de sotware, estructuras de datos, compilación, FFI (Foreign Function Interface), renderizado y texturizado
 
     <section #contact-section>
       <h2 #contact>_{MsgNavContact}

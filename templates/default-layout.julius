@@ -9,7 +9,8 @@
 
 		// SETTINGS
 		var settings = {
-			continous: false
+			continuous: false,
+			checkpointAfter: false
 		}
 		$.extend(settings, options);
 
@@ -20,7 +21,11 @@
 				id : checkpointId,
 				class : 'scrollcall-checkpoint'
 			});
-			$(this).before($checkpoint);
+			if (!settings.checkpointAfter)
+				$(this).before($checkpoint);
+			else
+				$(this).after($checkpoint);
+
 			index['#' + checkpointId] = $(this);
 			created++;
 		});
@@ -29,11 +34,11 @@
 		$doc.scroll(function() {
 			$.each(index, function(i, scope) {
 				if ($doc.scrollTop() < $(i).offset().top) {
-					if (!$(i).data('before-done') || settings.continous) before.call(scope);
+					if (!$(i).data('before-done') || settings.continuous) before.call(scope);
 					$(i).data('before-done', true);
 					$(i).data('after-done', false);
 				} else {
-					if (!$(i).data('after-done') || settings.continous) after.call(scope);
+					if (!$(i).data('after-done') || settings.continuous) after.call(scope);
 					$(i).data('before-done', false);
 					$(i).data('after-done', true);
 				}
@@ -45,6 +50,61 @@
 		$doc.trigger('scroll');
 	};
 
+})(jQuery);
+
+(function($) {
+	$.fn.dummy = function(options) {
+
+		function guid() {
+			function S4() {
+				return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+			}
+			return (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+		}
+
+		var settings = {
+			suffix: "--dummy",
+			updateRate: 0,
+			updateOnResize: false,
+			after: false
+		};
+		$.extend(settings, options);
+
+		return this.each(function() {
+
+			var this_ = $(this);
+			var id = this_.attr('id');
+			var dummyId = this_.data('dummy');
+
+			console.log(dummyId);
+
+			if (dummyId === undefined) {
+				dummyId = id ? id : guid();
+				dummyId = dummyId + settings.suffix;
+
+				$dummy = $('<div>', { id: dummyId });
+				$dummy.height(this_.outerHeight());
+				if (settings.after) this_.after($dummy);
+				else this_.before($dummy);
+
+				dummyId = '#' + dummyId;
+				this_.data('dummy', dummyId);
+
+				// Set events
+				function updateDummy() { $(dummyId).height(this_.outerHeight()); };
+				if (settings.updateRate > 0) {
+					function update() {
+						updateDummy();
+						setTimeout(update, settings.updateRate);
+					}
+					update();
+				}
+				else if (settings.updateOnResize) {
+					$(window).resize(updateDummy);
+				}
+			}
+		});
+	}
 })(jQuery);
 
 // Adds typewriter effect animation to selected elements
@@ -148,28 +208,28 @@ $(document).ready(function() {
 	}
 
 	// Scroll events
-	$('#main-nav').scrollCall(
+	$('#main-nav-wrapper').scrollCall(
 		function() {
-			console.log('before');
 			// Nav bar
-			var $dummy = $('#main-nav--dummy');
-			this.removeClass('main-nav--fixed');
+			this.removeClass('main-nav-wrapper--fixed');
 			this.css('height', 'auto');
-			$dummy.remove();
 			// Go top
 			$goPageTop.addClass('go-page-top--hide');
+			// Remove dummy
+			var $dummy = $($('#main-nav-wrapper').data('dummy'));
+			$dummy.remove();
+			this.removeData('dummy');
 		},
 		function() {
-			console.log('after');
+			// Add dummy
+			this.dummy({ updateOnResize: true });
 			// Nav bar
-			var $dummy = $('#main-nav--dummy');
-			if ($dummy.length <= 0) $dummy = $('<div>', { id : 'main-nav--dummy' });
-			$dummy.css('height', $('#main-nav').outerHeight(true));
-			this.addClass('main-nav--fixed');
-			this.after($dummy);
+			this.addClass('main-nav-wrapper--fixed');
+			this.css('height', $('#main-nav').height());
 			// Go top
 			$goPageTop.removeClass('go-page-top--hide');
-		}
+				},
+		{ checkpointAfter: false }
 	);
 	// When #go-page-top is clicked go back top
 	$goPageTop.click(function(e) {

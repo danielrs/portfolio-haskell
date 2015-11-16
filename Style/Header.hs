@@ -63,9 +63,13 @@ stylesheet = do
 navbarStyle :: Css
 navbarStyle = do
   "#main-nav" ? do
+    position relative
+    top (pct 0)
     margin 0 0 (em 2) 0
     backgroundColor $ rgba 0 0 0 0
-    transition "background-color" (ms 125) linear (ms 0)
+    transitions
+      [ ("background-color", ms 125, linear, ms 0)
+      , ("top", ms 125, linear, ms 0)]
     ul ? do
       display inlineBlock
       margin (px 0) 0 0 0
@@ -84,17 +88,26 @@ navbarStyle = do
           textDecoration none
           hover & color colorDarkGray
 
-        query Q.screen [Q.minWidth $ px 480] $ do
+        query Q.screen [Q.minWidth breakSm] $ do
           display inlineBlock
 
-  "#main-nav.main-nav--fixed" ? do
+  "#main-nav-wrapper" ? do
+    overflow hidden -- Prevent margin collapse
+
+  "#main-nav-wrapper.main-nav-wrapper--fixed" ? do
     position fixed
     top (px 0)
     left (px 0)
     right (px 0)
-    backgroundColor colorGray
     zIndex 100
-    ul Clay.** li Clay.** a ? do
-      color colorLightGray
-    ul Clay.** li Clay.** (a # hover M.<> a # ".main-nav__active") ? do
-      color colorWhite
+
+    "#main-nav" ? do
+      backgroundColor colorGray
+      ul Clay.** li Clay.** a ? do
+        color colorLightGray
+      ul Clay.** li Clay.** (a # hover M.<> a # ".main-nav__active") ? do
+        color colorWhite
+
+    "#main-nav.main-nav--hidden" ? do
+      top $ pct (-100)
+      query Q.screen [Q.minWidth breakSm] $ top $ pct 0

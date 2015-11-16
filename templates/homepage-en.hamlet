@@ -7,7 +7,7 @@
       <#about-text>
         <#about-developer>
           <p>
-            Hey there! I'm Daniel, programming adept. Web developer and applications developer. My favorite programming languages are #
+            Hey there! I'm Daniel, software developer. My favorite programming languages are #
             <a href="http://www.cplusplus.com/">C++,
             <a href="https://www.python.org/">Python,
             \ and
@@ -15,7 +15,7 @@
             \ but I can use and enjoy most of them. After all programmers should be language agnostic (right?).
         <#about-personal>
           <p>
-            On my free time I like to learn just about anything I could make use of, like new programming languages, tools, and design / development techniques.
+            On my free time I like to learn just about anything I can make use of, like new programming languages, tools, and development methodologies.
 
       <h3>_{MsgToolset}
 
@@ -114,7 +114,7 @@
           <.experiment-content>
             <p>I sometimes enjoy my free time making games, I even tried different game-engines like <strong>LibGDX</strong>, <strong>Polycode</strong>, <strong>XNA</strong>, and <strong>Unreal Engine</strong>; always found them interesting, and I thought that making something similar would make a great learning experience, and it was (and still is)!
             <h4>_{MsgExperimentsWhat}
-            <p>Developing this piece of software has taught me a lot like application architecture design, compiler dependencies, FFI, rendering, and texturing.
+            <p>Developing this piece of software has taught me a lot like application architecture design, data structures, compilation, FFI, rendering, and texturing.
 
     <section #contact-section>
       <h2 #contact>_{MsgNavContact}

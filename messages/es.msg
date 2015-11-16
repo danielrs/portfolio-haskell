@@ -21,7 +21,7 @@ ToolsetDotfiles: Si estas interesado puedes ver mis
 
 SkillsProfessional: Profesional
 SkillsFullstack: Desarrollo Full-stack
-SkillsFullstackContent: Front-end, Back-end, APIs, Bases de datos y despliegue.
+SkillsFullstackContent: Front-end, back-end, APIs, bases de datos y despliegue.
 SkillsProgramming: C++ / Java / Python / Haskell
 SkillsProgrammingContent: Análisis, optimización y desarrollo.
 SkillsDesign: UX Design
@@ -29,7 +29,7 @@ SkillsDesignContent: Me especializo en el diseño minimal.
 
 SkillsPersonal: Personal
 SkillsTeam: Jugador de equipo
-SkillsTeamContent: He sido parte de varios equipos de desarrollo. Varios los productos que se desarrollaron incluyen aplicaciones, sitios web y juegos.
+SkillsTeamContent: He sido parte de varios equipos de desarrollo. Varios de los productos que se desarrollaron incluyen aplicaciones, sitios web y juegos.
 SkillsIdeas: Abierto a nuevas ideas!
 SkillsIdeasContent: Me encanta aprender cosas nuevas todos los dias, ya sea por mi mísmo o a través de otras personas.
 

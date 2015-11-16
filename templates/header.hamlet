@@ -22,17 +22,18 @@
         <li>
           <a href="https://twitter.com/devDanielRS">Twitter
 
-    <nav #main-nav>
-      <ul>
-        <li>
-          <a href=#about>_{MsgNavAbout}
-        <li>
-          <a href=#skills>_{MsgNavSkills}
-        <li>
-          <a href=#experiments>_{MsgNavExperiments}
-        <li>
-          <a href=#contact>_{MsgNavContact}
-        <!-- <li> -->
-        <!--   <strong> -->
-        <!--     <a href="@{BlogR}">Blog -->
+    <div #main-nav-wrapper>
+      <nav #main-nav .main-nav--hidden>
+        <ul>
+          <li>
+            <a href=#about>_{MsgNavAbout}
+          <li>
+            <a href=#skills>_{MsgNavSkills}
+          <li>
+            <a href=#experiments>_{MsgNavExperiments}
+          <li>
+            <a href=#contact>_{MsgNavContact}
+          <!-- <li> -->
+          <!--   <strong> -->
+          <!--     <a href="@{BlogR}">Blog -->
 
