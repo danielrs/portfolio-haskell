@@ -626,6 +626,12 @@ footer #footer-copyright:first-child
 }
 
 }
+footer a
+{
+  font-weight     : bold;
+  text-decoration : none;
+}
+
 #go-page-top
 {
   position           : fixed;

@@ -68,6 +68,10 @@ generalStyle = do
         textAlign $ alignSide sideLeft
         columnRight 1 3
 
+    a ? do
+      fontWeight bold
+      textDecoration none
+
 gotoPageStyle :: Css
 gotoPageStyle = do
   "#go-page-top" ? do

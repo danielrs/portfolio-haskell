@@ -16,9 +16,9 @@
 
 		// Creates a checkpoint before each selected element
 		this.each(function() {
-			var checkpointId = 'scrollcall-checkpoint-' + created;
+			var checkpointId = '#scrollcall-checkpoint-' + created;
 			var $checkpoint = $('<div>', {
-				id : checkpointId,
+				id : checkpointId.substr(1),
 				class : 'scrollcall-checkpoint'
 			});
 			if (!settings.checkpointAfter)
@@ -26,21 +26,21 @@
 			else
 				$(this).after($checkpoint);
 
-			index['#' + checkpointId] = $(this);
+			index[checkpointId] = $(this);
 			created++;
 		});
 
 		// Calls before/after events for each checkpoint
 		$doc.scroll(function() {
-			$.each(index, function(i, scope) {
-				if ($doc.scrollTop() < $(i).offset().top) {
-					if (!$(i).data('before-done') || settings.continuous) before.call(scope);
-					$(i).data('before-done', true);
-					$(i).data('after-done', false);
+			$.each(index, function(checkpointId, scope) {
+				if ($doc.scrollTop() < $(checkpointId).offset().top) {
+					if (!$(checkpointId).data('before-done') || settings.continuous) before.call(scope);
+					$(checkpointId).data('before-done', true);
+					$(checkpointId).data('after-done', false);
 				} else {
-					if (!$(i).data('after-done') || settings.continuous) after.call(scope);
-					$(i).data('before-done', false);
-					$(i).data('after-done', true);
+					if (!$(checkpointId).data('after-done') || settings.continuous) after.call(scope);
+					$(checkpointId).data('before-done', false);
+					$(checkpointId).data('after-done', true);
 				}
 			});
 		});
@@ -49,10 +49,10 @@
 		});
 		$doc.trigger('scroll');
 	};
-
 })(jQuery);
 
 (function($) {
+
 	$.fn.dummy = function(options) {
 
 		function guid() {
@@ -76,22 +76,22 @@
 			var id = this_.attr('id');
 			var dummyId = this_.data('dummy');
 
-			console.log(dummyId);
-
+			// Create dummy
 			if (dummyId === undefined) {
 				dummyId = id ? id : guid();
-				dummyId = dummyId + settings.suffix;
+				dummyId = '#' + dummyId + settings.suffix;
 
-				$dummy = $('<div>', { id: dummyId });
+				$dummy = $('<div>', { id: dummyId.substr(1) });
 				$dummy.height(this_.outerHeight());
 				if (settings.after) this_.after($dummy);
 				else this_.before($dummy);
 
-				dummyId = '#' + dummyId;
 				this_.data('dummy', dummyId);
 
 				// Set events
+
 				function updateDummy() { $(dummyId).height(this_.outerHeight()); };
+
 				if (settings.updateRate > 0) {
 					function update() {
 						updateDummy();
@@ -102,7 +102,7 @@
 				else if (settings.updateOnResize) {
 					$(window).resize(updateDummy);
 				}
-			}
+			} // if
 		});
 	}
 })(jQuery);
@@ -234,8 +234,7 @@ $(document).ready(function() {
 			this.css('height', $('#main-nav').height());
 			// Go top
 			$goPageTop.removeClass('go-page-top--hide');
-				},
-		{ checkpointAfter: false }
+		}
 	);
 	// When #go-page-top is clicked go back top
 	$goPageTop.click(function(e) {

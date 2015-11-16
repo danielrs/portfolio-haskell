@@ -10,7 +10,6 @@ import Yesod.Default.Util   (addStaticContentExternal)
 import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
 
-
 -- Adds messages folder
 mkMessage "App" "messages" "en"
 
@@ -75,9 +74,10 @@ instance Yesod App where
         pc <- widgetToPageContent $ do
             addStylesheet $ StaticR css_style_css
             addStylesheet $ StaticR css_type_css
-            addScriptRemote "https://cdn.jsdelivr.net/underscorejs/1.8.3/underscore-min.js"
-            addScriptRemote "https://cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"
-            addScript $ StaticR scripts_main_js
+            addScript $ StaticR js_components_jquery_dist_jquery_min_js
+            addScript $ StaticR js_components_underscore_underscore_min_js
+            addScript $ StaticR js_components_typing_js_typing_js
+            addScript $ StaticR js_main_js
             $(widgetFile "default-layout")
         withUrlRenderer $(hamletFile "templates/default-layout-wrapper.hamlet")
 

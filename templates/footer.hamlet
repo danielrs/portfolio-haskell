@@ -8,7 +8,7 @@
           <option value=es>Español
           <input type=submit value=_{MsgLangSwitchButton}>
 
-    <#footer-nav>
+    <nav #footer-nav>
       <ul>
         <li>
           <a href=@{HomeR}>Home
