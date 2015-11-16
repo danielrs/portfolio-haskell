@@ -23,7 +23,11 @@
           <a href="https://twitter.com/devDanielRS">Twitter
 
     <div #main-nav-wrapper>
-      <nav #main-nav .main-nav--hidden>
+      <nav #main-nav>
+
+        <div #main-nav__toggle>
+          <span #main-nav__arrow>
+
         <ul>
           <li>
             <a href=#about>_{MsgNavAbout}
@@ -36,4 +40,3 @@
           <!-- <li> -->
           <!--   <strong> -->
           <!--     <a href="@{BlogR}">Blog -->
-

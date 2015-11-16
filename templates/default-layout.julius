@@ -193,6 +193,7 @@ $(document).ready(function() {
 	var $goPageTop = $('#go-page-top');
 	var fontSize = parseInt($('body').css('font-size'));
 
+	// Main nav click scroll
 	$('#main-nav > ul > li > a').each(function() {
 		var id = $(this).attr('href');
 		$(this).on('click', function(e) {
@@ -206,6 +207,11 @@ $(document).ready(function() {
 	if (window.location.hash) {
 		$('#main-nav > ul > li > a[href="' + window.location.hash + '"]').trigger('click');
 	}
+	// Main nav toggle
+	$('#main-nav').addClass('main-nav--hidden');
+	$('#main-nav__toggle').click(function() {
+		$('#main-nav').toggleClass('main-nav--hidden');
+	});
 
 	// Scroll events
 	$('#main-nav-wrapper').scrollCall(

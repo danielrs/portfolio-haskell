@@ -70,6 +70,7 @@ navbarStyle = do
     transitions
       [ ("background-color", ms 125, linear, ms 0)
       , ("top", ms 125, linear, ms 0)]
+
     ul ? do
       display inlineBlock
       margin (px 0) 0 0 0
@@ -91,8 +92,40 @@ navbarStyle = do
         query Q.screen [Q.minWidth breakSm] $ do
           display inlineBlock
 
+    "#main-nav__toggle" ? do
+      let p = em 0.250
+
+      cursor pointer
+      display none
+
+      position absolute
+      top $ pct 100
+      right $ em 2
+      padding p p p p
+
+      textAlign $ alignSide sideCenter
+
+      backgroundColor colorGray
+
+      query Q.screen [Q.minWidth breakMd] $ display none
+
+    "#main-nav__arrow" ? do
+      let r = em 0.125
+      position relative
+      display inlineBlock
+
+      top (em (-0.5))
+      border solid (em 0.75) transparent
+      borderBottomColor colorWhite
+      borderRadius r r r r
+
+  ("#main-nav" # ".main-nav--hidden") Clay.** "#main-nav__arrow" ? do
+    top (em 0.5)
+    borderBottomColor transparent
+    borderTopColor colorWhite
+
   "#main-nav-wrapper" ? do
-    overflow hidden -- Prevent margin collapse
+    clearfix -- Prevent margin collapse
 
   "#main-nav-wrapper.main-nav-wrapper--fixed" ? do
     position fixed
@@ -108,6 +141,9 @@ navbarStyle = do
       ul Clay.** li Clay.** (a # hover M.<> a # ".main-nav__active") ? do
         color colorWhite
 
-    "#main-nav.main-nav--hidden" ? do
-      top $ pct (-100)
-      query Q.screen [Q.minWidth breakSm] $ top $ pct 0
+    "#main-nav.main-nav--hidden" ? do; top $ pct (-100)
+    "#main-nav__toggle" ? display block
+
+    query Q.screen [Q.minWidth breakSm] $ do
+     "#main-nav.main-nav--hidden" ? do; top $ pct 0
+     "#main-nav__toggle" ? display none
