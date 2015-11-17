@@ -229,14 +229,19 @@ header
 }
 #main-nav #main-nav__toggle
 {
-  cursor           : pointer;
-  display          : none;
-  position         : absolute;
-  top              : 100%;
-  right            : 2em;
-  padding          : 0.25em 0.25em 0.25em 0.25em;
-  text-align       : center;
-  background-color : rgb(153,153,153);
+  cursor             : pointer;
+  display            : none;
+  position           : absolute;
+  top                : 100%;
+  right              : 2em;
+  padding            : 0.25em 0.25em 0.25em 0.25em;
+  text-align         : center;
+  background-color   : rgb(153,153,153);
+  -webkit-transition : top 125.0ms linear 0.0ms;
+  -moz-transition    : top 125.0ms linear 0.0ms;
+  -ms-transition     : top 125.0ms linear 0.0ms;
+  -o-transition      : top 125.0ms linear 0.0ms;
+  transition         : top 125.0ms linear 0.0ms;
 }
 
 @media screen and (min-width: 768px)
@@ -255,6 +260,17 @@ header
   border              : solid 0.75em rgba(0,0,0,0.0000);
   border-bottom-color : rgb(248,248,248);
   border-radius       : 0.125em 0.125em 0.125em 0.125em;
+}
+
+
+#main-nav.main-nav--hidden #main-nav__toggle
+{
+  top : 95%;
+}
+
+#main-nav.main-nav--hidden #main-nav__toggle:hover
+{
+  top : 100%;
 }
 
 #main-nav.main-nav--hidden #main-nav__arrow

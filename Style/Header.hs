@@ -106,6 +106,7 @@ navbarStyle = do
       textAlign $ alignSide sideCenter
 
       backgroundColor colorGray
+      transition "top" (ms 125) linear (ms 0)
 
       query Q.screen [Q.minWidth breakMd] $ display none
 
@@ -119,10 +120,14 @@ navbarStyle = do
       borderBottomColor colorWhite
       borderRadius r r r r
 
-  ("#main-nav" # ".main-nav--hidden") Clay.** "#main-nav__arrow" ? do
-    top (em 0.5)
-    borderBottomColor transparent
-    borderTopColor colorWhite
+  "#main-nav" # ".main-nav--hidden" ? do
+    "#main-nav__toggle" ? do
+      top (pct 95)
+      hover & top (pct 100)
+    "#main-nav__arrow" ? do
+      top (em 0.5)
+      borderBottomColor transparent
+      borderTopColor colorWhite
 
   "#main-nav-wrapper" ? do
     clearfix -- Prevent margin collapse

@@ -7,6 +7,14 @@ apt-get update
 apt-get install -y git
 apt-get install -y vim
 
+# Node.js
+apt-get install curl
+curl -sL https://deb.nodesource.com/setup_5.x | bash -
+apt-get install --yes nodejs
+
+# Bower
+npm install -g bower
+
 # LIBRARIES NEEDED BY HASKELL APPS
 apt-get install -y libgmp-dev
 
