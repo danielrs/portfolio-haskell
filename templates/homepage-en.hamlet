@@ -2,7 +2,7 @@
 <section .white-section>
   <.container>
 
-    <section #about-section>
+    <section #about-section .main-section>
       <h2 #about>_{MsgNavAbout}
       <#about-text>
         <#about-developer>
@@ -42,7 +42,7 @@
         <a href="https://github.com/DanielRS/dotfiles">dotfiles
         .
 
-    <section #skills-section>
+    <section #skills-section .main-section>
       <h2 #skills>_{MsgNavSkills}
       <div #skills__professional>
         <h3>_{MsgSkillsProfessional}
@@ -66,57 +66,55 @@
             <h4>_{MsgSkillsIdeas}
             <p>_{MsgSkillsIdeasContent}
 
-<!-- WHITE ON BLACK -->
-<section .black-section>
-  <.container>
-
-    <section #experiments-section>
+    <section #experiments-section .main-section>
       <h2 #experiments>_{MsgNavExperiments}
+      <p>Check any of my personal projects if you are interested:
       <ul #experiment-list>
-        <li>
-          <aside .experiment-aside>
-            <h3>Portfolio website
-            <p>
-              Project entry for this website, you can the source at #
-              <a href="https://github.com/DanielRS/portfolio">Github
-            <h4>_{MsgExperimentsTechnologies}
-            <ul>
-              <li>
-                <a href="https://www.haskell.org/">Haskell
-                <p>Functional programming language for back-end
-              <li>
-                <a href="http://www.yesodweb.com/">Yesod
-                <p>Back-end web framework
-              <li>
-                <a href="http://fvisser.nl/clay/">Clay
-                <p>CSS EDSL for Haskell
-          <.experiment-content>
-            <p>Building this website using <strong>Haskell</strong> was an absolute blast! The bug free experience that you can get thanks to its type system is insane! I see myself using <strong>Haskell</strong> and <strong>Yesod</strong> for more projects in the future. Too bad Haskell / Yesod setup is not a more popular choice, it definitely delivers!
-            <h4>_{MsgExperimentsWhat}
-            <p>Haskell is really good for web development! The shakespeare templates and the i18n system are extremely good.
-        <li>
-          <aside .experiment-aside>
-            <h3>Dwarf Engine
-            <p>
-              Game engine, check the source code at #
-              <a href="https://github.com/DanielRS/DwarfEngine">Github
-            <h4>_{MsgExperimentsTechnologies}
-            <ul>
-              <li>
-                <a href="https://isocpp.org/">C++
-                <p>Programming language used to write most of the game-engine
-              <li>
-                <a href="http://www.lua.org/">Lua
-                <p>Scripting language that sits on top of C++
-              <li>
-                <a href="https://www.opengl.org/">OpenGL
-                <p>Used for most of the rendering
-          <.experiment-content>
-            <p>I sometimes enjoy my free time making games, I even tried different game-engines like <strong>LibGDX</strong>, <strong>Polycode</strong>, <strong>XNA</strong>, and <strong>Unreal Engine</strong>; always found them interesting, and I thought that making something similar would make a great learning experience, and it was (and still is)!
-            <h4>_{MsgExperimentsWhat}
-            <p>Developing this piece of software has taught me a lot like application architecture design, data structures, compilation, FFI, rendering, and texturing.
 
-    <section #contact-section>
+        <li .experiment>
+          <article>
+            <h4>Portfolio website
+            <section .experiment-content>
+              <p>This same website! Made with functional programming.
+            <ul .experiment-tags>
+              <li>
+                <a target="_blank" href="https://www.haskell.org/">Haskell
+              <li>
+                <a target="_blank" href="http://www.yesodweb.com/">Yesod
+              <li>
+                <a target="_blank" href="http://fvisser.nl/clay/">Clay
+            <p .experiment-link>
+              <a href="https://github.com/DanielRS/portfolio" .view-on-github>View on Github
+
+        <li .experiment>
+          <article>
+            <h4>Dwarf Engine
+            <section .experiment-content>
+              <p>Simple and light-weight game engine. Why not learn how stuff is made?
+            <ul .experiment-tags>
+              <li>
+                <a target="_blank" href="https://isocpp.org/">C++
+              <li>
+                <a target="_blank" href="http://www.lua.org/">Lua
+              <li>
+                <a target="_blank" href="https://www.python.org/">OpenGL
+            <p .experiment-link>
+              <a href="https://github.com/DanielRS/DwarfEngine" .view-on-github>View on Github
+
+        <li .experiment>
+          <article>
+            <h4>typing.js
+            <section .experiment-content>
+              <p>jQuery plugin for animated typing effects. Aims to be light-weight and small in size.
+            <ul .experiment-tags>
+              <li>
+                <a target="_blank" href="https://www.javascript.com/">Javascript
+              <li>
+                <a target="_blank" href="https://jquery.com/">jQuery
+            <p .experiment-link>
+              <a href="https://github.com/DanielRS/typing.js" .view-on-github>View on Github
+
+    <section #contact-section .main-section>
       <h2 #contact>_{MsgNavContact}
       <#contact-text>
         <#contact-about>

@@ -21,13 +21,12 @@ buttonStyle = do
   M.<> input # ("type" @= "submit")
   M.<> button ? do
     let r = em 0.125
-    padding (em 0.25) (em 0.5) (em 0.25) (em 0.5)
+    padding (em 0.3) (em 0.5) (em 0.3) (em 0.5)
     fontSize (em 1)
     border solid (px 1) colorGray
     borderRadius r r r r
-    fontWeight bold
-    color colorWhite
-    backgroundColor colorGray
+    color colorDarkGray
+    backgroundColor colorLightGray
 
     transitions
       [("background-color", ms 125, linear, 0)
@@ -35,11 +34,9 @@ buttonStyle = do
       , ("border-color", ms 125, linear, 0)]
 
     hover & do
-      borderColor colorLightGray
-      backgroundColor colorLightGray
+      backgroundColor colorWhite
     active & do
-      borderColor colorDarkGray
-      backgroundColor colorDarkGray
+      backgroundColor colorLightGray
 
 selectStyle :: Css
 selectStyle = do
@@ -53,12 +50,10 @@ fieldStyle = do
   input # ("type" @= "text") M.<> input # ("type" @= "email") M.<> textarea ? do
     padding (em 1) (em 1) (em 1) (em 1)
     fontSize (em 1)
-    border none (px 0) transparent
-    backgroundColor colorGray
-    transition "background-color" (ms 75) linear 0
+    border solid (px 1) colorLightGray
+    backgroundColor colorWhite
+    transition "box-shadow" (ms 75) linear 0
     focus & do
-      outline solid (px 0) transparent
-      backgroundColor colorLightGray
-
+      "box-shadow" -: "inset 0 0 0.250em 0 rgba(0, 0, 0, .10)"
   textarea ? do
     fontFamily ["Open Sans"] [sansSerif]

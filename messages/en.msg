@@ -33,8 +33,7 @@ SkillsTeamContent: I have been part of different development teams. Some of the 
 SkillsIdeas: Open to new ideas!
 SkillsIdeasContent: I love learning new stuff everyday, whether by myself or from other people.
 
-ExperimentsTechnologies: Technologies used:
-ExperimentsWhat: What I learnt?
+ViewOnGithub: View on Github
 
 ContactMessage: Need a freelancer? An employee? A consultant? Whatever you need, let me know!
 ContactName: Name
@@ -46,3 +45,5 @@ ContactSend: Send
 MailSent: Your email has been sent!
 MailError: There was an error validating the contact form
 MailServerError: Server error sending email
+
+IconsBy: Icons By

@@ -43,7 +43,7 @@ generalStyle = do
     margin (px 0) auto 0 auto
     maxWidth (px 1280)
 
-  section ? do
+  section # ".main-section" ? do
     marginBottom (em 4)
     star # lastChild <? marginBottom (px 0)
     -- (h1 M.<> h2 M.<> h3 M.<> h4 M.<> h5 M.<> h6) # firstChild <? do
@@ -53,8 +53,8 @@ generalStyle = do
     row
     padding (em 1) (em 2) (em 1) (em 2)
     fontFamily ["Open Sans"] [sansSerif]
-    backgroundColor colorPitchBlack
-    color colorLightGray
+    borderTop solid (px 1) colorLightGray
+    color colorGray
 
     h1 M.<> h2 M.<> h3 M.<> h4 ? do
       marginBottom (px 0)
@@ -66,11 +66,13 @@ generalStyle = do
       textAlign $ alignSide sideCenter
       query Q.screen [Q.minWidth breakSm] $ do
         textAlign $ alignSide sideLeft
-        columnRight 1 3
+        columnRight 1 2
 
     a ? do
-      fontWeight bold
       textDecoration none
+
+    p ? do
+      marginBottom (px 0)
 
 gotoPageStyle :: Css
 gotoPageStyle = do
@@ -106,8 +108,7 @@ aboutStyle = do
     "#about-text" ? do
       row
       "#about-developer" M.<> "#about-personal" ? do
-        column 1 2
-        each 2 $ marginRight (px 0)
+        columnGrid 1 2
 
 toolsetStyle :: Css
 toolsetStyle = do
@@ -124,10 +125,9 @@ toolsetStyle = do
       query Q.screen [Q.minWidth breakMd] $ do
         margin (em 3) 0 (em 3) 0
       query Q.screen [Q.minWidth breakMd, Q.maxWidth breakLg'] $ do
-        column 1 2
-        each 2 (marginRight (px 0))
+        columnGrid 1 2
       query Q.screen [Q.minWidth breakLg] $ do
-        column 1 4
+        columnGrid 1 4
 
 skillsetStyle :: Css
 skillsetStyle= do
@@ -144,20 +144,37 @@ skillsetStyle= do
 
 experimentListStyle :: Css
 experimentListStyle = do
-  "#experiment-list" |> li ? do
-    row
-    position relative
-    marginBottom (em 3)
-    lastChild & marginBottom (px 0)
 
-    ".experiment-aside" ? do
-      query Q.screen [Q.minWidth breakMd] $ column 1 3
+  "#experiment-list" ? do
+    row
+
+  "#experiment-list" |> li # ".experiment" ? do
+
+    margin (em 1) auto (em 1) auto
+
+    query Q.screen [Q.minWidth breakSm, Q.maxWidth breakLg'] $ do
+      columnGrid 1 2
+    query Q.screen [Q.minWidth breakLg] $ do
+      columnGrid 1 3
+
     ".experiment-content" ? do
-      padding (em 1) (em 1) (em 1) (em 1)
-      color colorWhite
-      backgroundColor colorDarkGray
-      borderRadius (em 0.125) (em 0.125) (em 0.125) (em 0.125)
-      query Q.screen [Q.minWidth breakMd] $ column 2 3
+      marginBottom (em 0.5)
+      star # lastChild ? marginBottom (px 0)
+
+    ".experiment-tags" ? do
+      li ? do
+        display inlineBlock
+        wordSpacing (em 1)
+        a ? do
+          let r = em 0.125
+          padding (em 0.250) (em 0.250) (em 0.250) (em 0.250)
+          borderRadius r r r r
+          color colorWhite
+          fontWeight bold
+          textDecoration none
+          backgroundColor colorGray
+          transitions [("background-color", ms 125, linear, ms 0), ("right", ms 250, linear, ms 0)]
+          hover & backgroundColor colorDarkGray
 
 contactStyle :: Css
 contactStyle = do

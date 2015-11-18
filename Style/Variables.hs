@@ -9,16 +9,16 @@ grayish' :: Double -> Color
 grayish' val = grayish $ unormalize val 255
 
 colorPitchBlack :: Color
-colorPitchBlack = grayish' 0.250
+colorPitchBlack = grayish' 0.275
 
 colorBlack :: Color
-colorBlack = grayish' 0.300
+colorBlack = grayish' 0.400
 
 colorDarkGray :: Color
-colorDarkGray = grayish' 0.450
+colorDarkGray = grayish' 0.525
 
 colorGray :: Color
-colorGray = grayish' 0.600
+colorGray = grayish' 0.650
 
 colorLightGray :: Color
 colorLightGray = grayish' 0.850

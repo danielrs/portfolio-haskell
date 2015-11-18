@@ -1,4 +1,3 @@
-<!-- BLACK ON WHITE -->
 <section .white-section>
   <.container>
 
@@ -66,55 +65,53 @@
             <h4>_{MsgSkillsIdeas}
             <p>_{MsgSkillsIdeasContent}
 
-<!-- WHITE ON BLACK -->
-<section .black-section>
-  <.container>
-
-    <section #experiments-section>
+    <section #experiments-section .main-section>
       <h2 #experiments>_{MsgNavExperiments}
+      <p>Quizás alguno de mis proyectos personales te puede interesar:
       <ul #experiment-list>
-        <li>
-          <aside .experiment-aside>
-            <h3>Portafolio
-            <p>
-              Entrada para éste sitio web, el código fuente se puede encontrar en #
-              <a href="https://github.com/DanielRS/portfolio">Github
-            <h4>_{MsgExperimentsTechnologies}
-            <ul>
+
+        <li .experiment>
+          <article>
+            <h4>Portfolio website
+            <section .experiment-content>
+              <p>Éste sitio web! Hecho con programación funcional; back-end y front-end.
+            <ul .experiment-tags>
               <li>
-                <a href="https://www.haskell.org/">Haskell
-                <p>Lenguaje de programación funcional para el back-end
+                <a target="_blank" href="https://www.haskell.org/">Haskell
               <li>
-                <a href="http://www.yesodweb.com/">Yesod
-                <p>Web-framework para Haskell
+                <a target="_blank" href="http://www.yesodweb.com/">Yesod
               <li>
-                <a href="http://fvisser.nl/clay/">Clay
-                <p>Un pre-procesador de CSS y lenguaje específico de dominio (DSL) en Haskell
-          <.experiment-content>
-            <p>Hacer éste sitio web utilizando <strong>Haskell</strong> fue una gran experiencia! El sistema de tipos estático produce programas casi libres de errores una vez compilados. Definitivamente usaré <strong>Haskell</strong> y <strong>Yesod</strong> nuevamente.
-            <h4>_{MsgExperimentsWhat}
-            <p>Haskell es muy bueno para desarrollo web, las plantillas shakespeare y el sistema i18n (internacionalización) son excelentes.
-        <li>
-          <aside .experiment-aside>
-            <h3>Dwarf Engine
-            <p>
-              Motor de juegos, el código fuente se puede ver en #
-              <a href="https://github.com/DanielRS/DwarfEngine">Github
-            <h4>_{MsgExperimentsTechnologies}
-            <ul>
+                <a target="_blank" href="http://fvisser.nl/clay/">Clay
+            <p .experiment-link>
+              <a href="https://github.com/DanielRS/portfolio" .view-on-github>_{MsgViewOnGithub}
+
+        <li .experiment>
+          <article>
+            <h4>Dwarf Engine
+            <section .experiment-content>
+              <p>Motor de juegos simple y ligero. Hecho con fines educativos, para aprender como funcionan los motores de juegos.
+            <ul .experiment-tags>
               <li>
-                <a href="https://isocpp.org/">C++
-                <p>Lenguaje de programación de bajo nivel
+                <a target="_blank" href="https://isocpp.org/">C++
               <li>
-                <a href="http://www.lua.org/">Lua
-                <p>Languaje interpretado de alto nivel, buena sinérgia con C / C++
+                <a target="_blank" href="http://www.lua.org/">Lua
               <li>
-                <a href="https://www.opengl.org/">OpenGL
-                <p>Utilizado para el renderizado en todas las plataformas
-          <.experiment-content>
-            <p>Cuando estaba aprendiendo a programar me gustaba mucho hacer juegos, inclusive probe varios motores populares como <strong>LibGDX</strong>, <strong>Polycode</strong>, <strong>XNA</strong> y <strong>Unreal Engine</strong>. Pensé que tratar de hacer un motor por cuenta propia sería una gran experiencia de aprendizaje, y asi fué!
-            <h4>_{MsgExperimentsWhat}
-            <p>Desarrollar éste motor me enseño mucho sobre diseño de arquitectura de sotware, estructuras de datos, compilación, FFI (Foreign Function Interface), renderizado y texturizado
+                <a target="_blank" href="https://www.python.org/">OpenGL
+            <p .experiment-link>
+            <a href="https://github.com/DanielRS/DwarfEngine" .view-on-github>_{MsgViewOnGithub}
+
+        <li .experiment>
+          <article>
+            <h4>typing.js
+            <section .experiment-content>
+              <p>Plugin de jQuery para animar escritura de texto. Ligero y fácil de usar.
+            <ul .experiment-tags>
+              <li>
+                <a target="_blank" href="https://www.javascript.com/">Javascript
+              <li>
+                <a target="_blank" href="https://jquery.com/">jQuery
+            <p .experiment-link>
+              <a href="https://github.com/DanielRS/typing.js" .view-on-github>_{MsgViewOnGithub}
 
     <section #contact-section>
       <h2 #contact>_{MsgNavContact}

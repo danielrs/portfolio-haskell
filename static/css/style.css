@@ -4,13 +4,12 @@ input[type='button'],
 input[type='submit'],
 button
 {
-  padding            : 0.25em 0.5em 0.25em 0.5em;
+  padding            : 0.29999em 0.5em 0.29999em 0.5em;
   font-size          : 1em;
-  border             : solid 1px rgb(153,153,153);
+  border             : solid 1px rgb(165,165,165);
   border-radius      : 0.125em 0.125em 0.125em 0.125em;
-  font-weight        : bold;
-  color              : rgb(248,248,248);
-  background-color   : rgb(153,153,153);
+  color              : rgb(133,133,133);
+  background-color   : rgb(216,216,216);
   -webkit-transition : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
   -moz-transition    : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
   -ms-transition     : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
@@ -22,16 +21,14 @@ input[type='button']:hover,
 input[type='submit']:hover,
 button:hover
 {
-  border-color     : rgb(216,216,216);
-  background-color : rgb(216,216,216);
+  background-color : rgb(248,248,248);
 }
 
 input[type='button']:active,
 input[type='submit']:active,
 button:active
 {
-  border-color     : rgb(114,114,114);
-  background-color : rgb(114,114,114);
+  background-color : rgb(216,216,216);
 }
 
 select
@@ -46,21 +43,20 @@ textarea
 {
   padding            : 1em 1em 1em 1em;
   font-size          : 1em;
-  border             : none 0px rgba(0,0,0,0.0000);
-  background-color   : rgb(153,153,153);
-  -webkit-transition : background-color 75.0ms linear 0.0s;
-  -moz-transition    : background-color 75.0ms linear 0.0s;
-  -ms-transition     : background-color 75.0ms linear 0.0s;
-  -o-transition      : background-color 75.0ms linear 0.0s;
-  transition         : background-color 75.0ms linear 0.0s;
+  border             : solid 1px rgb(216,216,216);
+  background-color   : rgb(248,248,248);
+  -webkit-transition : box-shadow 75.0ms linear 0.0s;
+  -moz-transition    : box-shadow 75.0ms linear 0.0s;
+  -ms-transition     : box-shadow 75.0ms linear 0.0s;
+  -o-transition      : box-shadow 75.0ms linear 0.0s;
+  transition         : box-shadow 75.0ms linear 0.0s;
 }
 
 input[type='text']:focus,
 input[type='email']:focus,
 textarea:focus
 {
-  outline          : solid 0px rgba(0,0,0,0.0000);
-  background-color : rgb(216,216,216);
+  box-shadow : inset 0 0 0.250em 0 rgba(0, 0, 0, .10);
 }
 
 textarea
@@ -114,7 +110,7 @@ header
 
 #name a
 {
-  color           : rgb(114,114,114);
+  color           : rgb(133,133,133);
   text-decoration : none;
 }
 
@@ -122,7 +118,7 @@ header
 {
   font-family   : "Inconsolata", monospace;
   margin-bottom : 0.125em;
-  color         : rgb(153,153,153);
+  color         : rgb(165,165,165);
 }
 
 #tagline__messages
@@ -159,12 +155,12 @@ header
 
 #social li a
 {
-  color : rgb(153,153,153);
+  color : rgb(165,165,165);
 }
 
 #social li a:hover
 {
-  color : rgb(114,114,114);
+  color : rgb(133,133,133);
 }
 
 #main-nav
@@ -210,13 +206,13 @@ header
 
 #main-nav ul li a
 {
-  color           : rgb(153,153,153);
+  color           : rgb(165,165,165);
   text-decoration : none;
 }
 
 #main-nav ul li a:hover
 {
-  color : rgb(114,114,114);
+  color : rgb(133,133,133);
 }
 
 @media screen and (min-width: 480px)
@@ -236,7 +232,7 @@ header
   right              : 2em;
   padding            : 0.25em 0.25em 0.25em 0.25em;
   text-align         : center;
-  background-color   : rgb(153,153,153);
+  background-color   : rgb(165,165,165);
   -webkit-transition : top 125.0ms linear 0.0ms;
   -moz-transition    : top 125.0ms linear 0.0ms;
   -ms-transition     : top 125.0ms linear 0.0ms;
@@ -309,7 +305,7 @@ header
 
 #main-nav-wrapper.main-nav-wrapper--fixed #main-nav
 {
-  background-color : rgb(153,153,153);
+  background-color : rgb(165,165,165);
 }
 
 #main-nav-wrapper.main-nav-wrapper--fixed #main-nav ul li a
@@ -350,7 +346,7 @@ header
 body
 {
   font-family : "Open Sans", sans-serif;
-  color       : rgb(76,76,76);
+  color       : rgb(102,102,102);
 }
 
 h1
@@ -379,7 +375,7 @@ h4
 
 h4
 {
-  color : rgb(153,153,153);
+  color : rgb(133,133,133);
 }
 
 h4.black-section
@@ -412,7 +408,7 @@ strong
 a
 {
   font-family        : "Slabo 27px", serif;
-  color              : rgb(114,114,114);
+  color              : rgb(133,133,133);
   -webkit-transition : color 125.0ms linear 0.0ms;
   -moz-transition    : color 125.0ms linear 0.0ms;
   -ms-transition     : color 125.0ms linear 0.0ms;
@@ -422,17 +418,17 @@ a
 
 a:visited
 {
-  color : rgb(153,153,153);
+  color : rgb(165,165,165);
 }
 
 a:hover
 {
-  color : rgb(76,76,76);
+  color : rgb(102,102,102);
 }
 
 a:active
 {
-  color : rgb(76,76,76);
+  color : rgb(102,102,102);
 }
 
 ul
@@ -442,6 +438,7 @@ ul
   list-style-type     : none;
   list-style-image    : none;
   list-style-position : none;
+  margin-bottom       : 1.5em;
 }
 
 ul li
@@ -456,7 +453,7 @@ ul li
 
 .black-section h4
 {
-  color : rgb(153,153,153);
+  color : rgb(165,165,165);
 }
 
 .black-section a
@@ -490,7 +487,7 @@ ul li
   padding          : 0.5em 1em 0.5em 1em;
   font-weight      : bold;
   color            : rgb(248,248,248);
-  background-color : rgb(153,153,153);
+  background-color : rgb(165,165,165);
   border-radius    : 0.125em 0.125em 0.125em 0.125em;
 }
 
@@ -543,7 +540,7 @@ body
 .black-section
 {
   padding          : 3rem 2rem 2rem 2rem;
-  background-color : rgb(76,76,76);
+  background-color : rgb(102,102,102);
   color            : rgb(248,248,248);
 }
 
@@ -553,12 +550,12 @@ body
   max-width : 1280px;
 }
 
-section
+section.main-section
 {
   margin-bottom : 4em;
 }
 
-section > :last-child
+section.main-section > :last-child
 {
   margin-bottom : 0px;
 }
@@ -575,8 +572,8 @@ footer
   zoom               : 1;
   padding            : 1em 2em 1em 2em;
   font-family        : "Open Sans", sans-serif;
-  background-color   : rgb(63,63,63);
-  color              : rgb(216,216,216);
+  border-top         : solid 1px rgb(216,216,216);
+  color              : rgb(165,165,165);
 }
 
 footer:before
@@ -629,8 +626,8 @@ footer #footer-copyright
   -ms-box-sizing     : border-box;
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
-  width              : 30.66666%;
-  margin-right       : 4%;
+  width              : 47%;
+  margin-right       : 6%;
   float              : right;
 }
 
@@ -644,8 +641,12 @@ footer #footer-copyright:first-child
 }
 footer a
 {
-  font-weight     : bold;
   text-decoration : none;
+}
+
+footer p
+{
+  margin-bottom : 0px;
 }
 
 #go-page-top
@@ -657,7 +658,7 @@ footer a
   color              : rgb(248,248,248);
   font-weight        : bold;
   text-decoration    : none;
-  background-color   : rgb(153,153,153);
+  background-color   : rgb(165,165,165);
   border-radius      : 0.125em 0px 0px 0px;
   -webkit-transition : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
   -moz-transition    : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
@@ -669,7 +670,7 @@ footer a
 
 #go-page-top:hover
 {
-  background-color : rgb(114,114,114);
+  background-color : rgb(133,133,133);
 }
 
 #go-page-top.go-page-top--hide
@@ -768,6 +769,11 @@ ul#toolset li:nth-child(2n)
   margin-right : 0px;
 }
 
+ul#toolset li:nth-child(2n + 1)
+{
+  clear : left;
+}
+
 }
 @media screen and (min-width: 1024px)
 {
@@ -787,6 +793,16 @@ ul#toolset li
 ul#toolset li:last-child
 {
   margin-right : 0px;
+}
+
+ul#toolset li:nth-child(4n)
+{
+  margin-right : 0px;
+}
+
+ul#toolset li:nth-child(4n + 1)
+{
+  clear : left;
 }
 
 }
@@ -863,7 +879,7 @@ ul#toolset li:last-child
   margin : 2em 0px 2em 0px;
 }
 
-#experiment-list > li
+#experiment-list
 {
   display            : block;
   -webkit-box-sizing : border-box;
@@ -873,32 +889,97 @@ ul#toolset li:last-child
   box-sizing         : border-box;
   width              : 100%;
   zoom               : 1;
-  position           : relative;
-  margin-bottom      : 3em;
 }
 
-#experiment-list > li:before
+#experiment-list:before
 {
   content : "";
   display : table;
 }
 
-#experiment-list > li:after
+#experiment-list:after
 {
   content : "";
   display : table;
   clear   : both;
 }
 
-#experiment-list > li:last-child
+#experiment-list > li.experiment
+{
+  margin : 1em auto 1em auto;
+}
+
+#experiment-list > li.experiment .experiment-content
+{
+  margin-bottom : 0.5em;
+}
+
+#experiment-list > li.experiment .experiment-content :last-child
 {
   margin-bottom : 0px;
 }
 
 
-@media screen and (min-width: 768px)
+#experiment-list > li.experiment .experiment-tags li
 {
-#experiment-list > li .experiment-aside
+  display      : inline-block;
+  word-spacing : 1em;
+}
+
+#experiment-list > li.experiment .experiment-tags li a
+{
+  padding            : 0.25em 0.25em 0.25em 0.25em;
+  border-radius      : 0.125em 0.125em 0.125em 0.125em;
+  color              : rgb(248,248,248);
+  font-weight        : bold;
+  text-decoration    : none;
+  background-color   : rgb(165,165,165);
+  -webkit-transition : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
+  -moz-transition    : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
+  -ms-transition     : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
+  -o-transition      : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
+  transition         : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
+}
+
+#experiment-list > li.experiment .experiment-tags li a:hover
+{
+  background-color : rgb(133,133,133);
+}
+
+@media screen and (min-width: 480px) and (max-width: 1023px)
+{
+#experiment-list > li.experiment
+{
+  display            : block;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing    : border-box;
+  -ms-box-sizing     : border-box;
+  -o-box-sizing      : border-box;
+  box-sizing         : border-box;
+  width              : 47%;
+  margin-right       : 6%;
+  float              : left;
+}
+
+#experiment-list > li.experiment:last-child
+{
+  margin-right : 0px;
+}
+
+#experiment-list > li.experiment:nth-child(2n)
+{
+  margin-right : 0px;
+}
+
+#experiment-list > li.experiment:nth-child(2n + 1)
+{
+  clear : left;
+}
+
+}
+@media screen and (min-width: 1024px)
+{
+#experiment-list > li.experiment
 {
   display            : block;
   -webkit-box-sizing : border-box;
@@ -911,38 +992,19 @@ ul#toolset li:last-child
   float              : left;
 }
 
-#experiment-list > li .experiment-aside:last-child
+#experiment-list > li.experiment:last-child
 {
   margin-right : 0px;
 }
 
-}
-#experiment-list > li .experiment-content
-{
-  padding          : 1em 1em 1em 1em;
-  color            : rgb(248,248,248);
-  background-color : rgb(114,114,114);
-  border-radius    : 0.125em 0.125em 0.125em 0.125em;
-}
-
-@media screen and (min-width: 768px)
-{
-#experiment-list > li .experiment-content
-{
-  display            : block;
-  -webkit-box-sizing : border-box;
-  -moz-box-sizing    : border-box;
-  -ms-box-sizing     : border-box;
-  -o-box-sizing      : border-box;
-  box-sizing         : border-box;
-  width              : 65.33333%;
-  margin-right       : 4%;
-  float              : left;
-}
-
-#experiment-list > li .experiment-content:last-child
+#experiment-list > li.experiment:nth-child(3n)
 {
   margin-right : 0px;
+}
+
+#experiment-list > li.experiment:nth-child(3n + 1)
+{
+  clear : left;
 }
 
 }
@@ -1090,6 +1152,12 @@ ul#toolset li:last-child
 #about-text #about-personal:nth-child(2n)
 {
   margin-right : 0px;
+}
+
+#about-text #about-developer:nth-child(2n + 1),
+#about-text #about-personal:nth-child(2n + 1)
+{
+  clear : left;
 }
 
 }

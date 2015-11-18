@@ -34,7 +34,7 @@ defaultStyle = do
     margin 0 0 (em 1.5) 0
 
   h4 ? do
-    color colorGray
+    color colorDarkGray
     ".black-section" & color colorLightGray
 
   h5 M.<> h6 ? do
@@ -60,6 +60,7 @@ defaultStyle = do
 
   ul ? do
     noListStyle
+    marginBottom (em 1.5)
 
 blackSectionStyle :: Css
 blackSectionStyle = do

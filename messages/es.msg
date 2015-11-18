@@ -33,8 +33,7 @@ SkillsTeamContent: He sido parte de varios equipos de desarrollo. Varios de los 
 SkillsIdeas: Abierto a nuevas ideas!
 SkillsIdeasContent: Me encanta aprender cosas nuevas todos los dias, ya sea por mi mísmo o a través de otras personas.
 
-ExperimentsTechnologies: Tecnologías usadas:
-ExperimentsWhat: Qué aprendí?
+ViewOnGithub: Ver en Github
 
 ContactMessage: Necesitas un freelancer? Un empleado? Un consultor? Sea lo que sea, házmelo saber!
 ContactName: Nombre
@@ -46,3 +45,5 @@ ContactSend: Enviar
 MailSent: Su correo a sido enviado!
 MailError: Ha ocurrido un error validando el formulario de contacto
 MailServerError: Error en el servidor enviando correo
+
+IconsBy: Iconos cortesía de

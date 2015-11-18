@@ -45,6 +45,9 @@ row = do
 column :: Integer -> Integer -> Css
 column = columnLeft
 
+columnGrid :: Integer -> Integer -> Css
+columnGrid = columnLeftGrid
+
 columnGap :: Integer -> Integer -> Integer -> Css
 columnGap colSpan totalCols baseGap = do
   let
@@ -74,7 +77,13 @@ columnRight colSpan totalCols = do
   float floatRight
   firstChild & marginRight (px 0)
 
-each :: Integer -> Css -> Css
-each n css =
-  let txt = pack $ show n ++ "n"
-  in nthChild txt & css
+columnLeftGrid :: Integer -> Integer -> Css
+columnLeftGrid colSpan totalCols = do
+
+    let
+      rule = pack $ show totalCols ++ "n"
+      rule' = pack $ show totalCols ++ "n + 1"
+
+    columnLeft colSpan totalCols
+    nthChild rule & marginRight (px 0)
+    nthChild rule' & clear clearLeft

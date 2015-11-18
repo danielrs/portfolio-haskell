@@ -8,15 +8,18 @@
           <option value=es>Español
           <input type=submit value=_{MsgLangSwitchButton}>
 
-    <nav #footer-nav>
-      <ul>
-        <li>
-          <a href=@{HomeR}>Home
+    <!-- <nav #footer-nav> -->
+      <!-- <ul> -->
+      <!--   <li> -->
+      <!--     <a href=@{HomeR}>Home -->
           <!-- <a href=@{HomeR}>Blog -->
 
     <#footer-copyright>
-      <h3>#{appCopyrightName $ appSettings master} #
+      <h3>
+        <a href=@{HomeR}>#{appCopyrightName $ appSettings master} #
         <small>&copy; #{appCopyrightYear $ appSettings master}
+      <p>_{MsgIconsBy} #
+        <a target="_blank" href="https://www.behance.net/gabrielbuitrago">Gabriel Buitrago
 
     $maybe analytics <- appAnalytics $ appSettings master
       <script>
