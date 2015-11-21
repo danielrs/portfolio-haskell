@@ -1,8 +1,20 @@
 module Style.Variables where
 
 import Style.Util.Import
-import Clay (Size, Abs, px)
+import Clay (Size, Abs, Time, px)
 import Clay.Color
+import Clay.Time (ms)
+
+-- Transitions
+
+speedFast :: Time
+speedFast = ms 125
+
+speedMedium :: Time
+speedMedium = ms 250
+
+speedSlow :: Time
+speedSlow = ms 500
 
 -- Colors
 grayish' :: Double -> Color

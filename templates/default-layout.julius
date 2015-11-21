@@ -129,9 +129,9 @@ $(document).ready(function() {
 		$('#main-nav > ul > li > a[href="' + window.location.hash + '"]').trigger('click');
 	}
 	// Main nav toggle
-	$('#main-nav').addClass('main-nav--hidden');
+	$('#main-nav-wrapper').addClass('main-nav-wrapper--hide-nav');
 	$('#main-nav__toggle').click(function() {
-		$('#main-nav').toggleClass('main-nav--hidden');
+		$('#main-nav-wrapper').toggleClass('main-nav-wrapper--hide-nav');
 	});
 
 	// Scroll events
@@ -152,13 +152,15 @@ $(document).ready(function() {
 			this.dummy({ updateOnResize: true });
 			// Nav bar
 			this.addClass('main-nav-wrapper--fixed');
-			this.css('height', $('#main-nav').height());
+			this.css('height', $('#main-nav').outerHeight());
 			// Go top
 			$goPageTop.removeClass('go-page-top--hide');
 		}
 	);
 	$(window).resize(function() {
-		$('#main-nav-wrapper').height($('#main-nav').outerHeight(true));
+		var $navWrapper = $('#main-nav-wrapper');
+		if ($navWrapper.hasClass('main-nav-wrapper--fixed')) $navWrapper.height($('#main-nav').outerHeight());
+		else $navWrapper.height('auto');
 	});
 
 	// When #go-page-top is clicked go back top

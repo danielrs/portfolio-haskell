@@ -5,6 +5,7 @@ import System.IO (writeFile)
 import Data.Text.Lazy (unpack)
 
 -- Import all sub-styles here
+import qualified Style.Form as Form
 import qualified Style.Header as Header
 import qualified Style.Text as Text
 import qualified Style.Layout as Layout
@@ -17,6 +18,7 @@ writeStylesheet file css =
 -- Add all sub-styles here
 stylesheet :: Css
 stylesheet = do
+  Form.stylesheet
   Header.stylesheet
   Text.stylesheet
   Layout.stylesheet

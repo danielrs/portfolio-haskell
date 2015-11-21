@@ -70,96 +70,91 @@ socialStyle = do
 
 navbarStyle :: Css
 navbarStyle = do
-  "#main-nav" ? do
-    position relative
-    top (pct 0)
-    margin 0 0 (em 4) 0
-    backgroundColor $ rgba 0 0 0 0
-    transitions
-      [ ("background-color", ms 125, linear, ms 0)
-      , ("top", ms 125, linear, ms 0)]
 
-    ul ? do
-      display inlineBlock
-      margin (px 0) 0 0 0
-      padding (px 0) 0 0 0
-      listStyle none none none
+  -- NORMAL
+  "#main-nav-wrapper" ? do
+    clearfix -- prevent margin collapse
+    "#main-nav" ? do
+      position relative
+      top (pct 0)
+      margin 0 0 (em 4) 0
+      backgroundColor $ rgba 0 0 0 0
+      transitions
+        [ ("background-color", ms 125, linear, ms 0)
+        , ("top", ms 125, linear, ms 0)]
 
-      li ? do
-        display block
-        margin (em 1) (em 2) (em 1) (em 2)
-        transition "transform" (ms 125) linear (ms 0)
+      ul ? do
+        display inlineBlock
+        margin (px 0) 0 0 0
+        padding (px 0) 0 0 0
+        listStyle none none none
 
-        hover & transform (scale 1.125 1.125)
+        li ? do
+          display block
+          margin (em 1) (em 2) (em 1) (em 2)
+          transition "transform" (ms 125) linear (ms 0)
 
-        a ? do
-          color colorGray
-          textDecoration none
-          hover & color colorDarkGray
+          hover & transform (scale 1.125 1.125)
 
-        query Q.screen [Q.minWidth breakSm] $ do
-          display inlineBlock
+          a ? do
+            color colorGray
+            textDecoration none
+            hover & color colorDarkGray
 
+          query Q.screen [Q.minWidth breakSm] $ do
+            display inlineBlock
     "#main-nav__toggle" ? do
-      let p = em 0.250
-
-      cursor pointer
+      let
+        r = em 0.125
+        p = em 0.250
       display none
-
+      cursor pointer
       position absolute
-      top $ pct 100
-      right $ em 2
+      top (pct 100)
+      right (em 1)
       padding p p p p
-
+      borderRadius 0 0 r r
       textAlign $ alignSide sideCenter
-
       backgroundColor colorGray
-      transition "top" (ms 125) linear (ms 0)
-
-      query Q.screen [Q.minWidth breakMd] $ display none
-
+      transition "background-color" speedFast linear (ms 0)
+      zIndex 100
+      hover & backgroundColor colorDarkGray
     "#main-nav__arrow" ? do
       let r = em 0.125
       position relative
       display inlineBlock
-
       top (em (-0.5))
       border solid (em 0.75) transparent
+      borderLeftWidth (em 1)
+      borderRightWidth (em 1)
       borderBottomColor colorWhite
       borderRadius r r r r
 
-    -- HIDDEN NAV
-    ".main-nav--hidden" & do
-
+  -- FIXED
+  "#main-nav-wrapper.main-nav-wrapper--fixed" ? do
+    position fixed
+    top (px 0)
+    left (px 0)
+    right (px 0)
+    zIndex 100
+    "#main-nav" ? do
+      backgroundColor colorGray
+      ul Clay.** li Clay.** a ? do
+        color colorLightGray
+      ul Clay.** li Clay.** (a # hover M.<> a # ".main-nav__active") ? do
+        color colorWhite
+    query Q.screen [Q.maxWidth breakSm'] $ do
       "#main-nav__toggle" ? do
-        top (pct 95)
-        hover & top (pct 100)
+        display block
 
+  -- FIXED HIDDEN
+  "#main-nav-wrapper.main-nav-wrapper--fixed.main-nav-wrapper--hide-nav" ? do
+    query Q.screen [Q.maxWidth breakSm'] $ do
+      pointerEvents none
+      "#main-nav" ? do
+        pointerEvents auto
+        top (pct (-100))
       "#main-nav__arrow" ? do
         top (em 0.5)
         borderBottomColor transparent
         borderTopColor colorWhite
-
-  "#main-nav-wrapper" ? do
-    clearfix
-
-    ".main-nav-wrapper--fixed" & do
-      position fixed
-      top (px 0)
-      left (px 0)
-      right (px 0)
-      zIndex 100
-
-      "#main-nav" ? do
-        backgroundColor colorGray
-        ul Clay.** li Clay.** a ? do
-          color colorLightGray
-        ul Clay.** li Clay.** (a # hover M.<> a # ".main-nav__active") ? do
-          color colorWhite
-
-      "#main-nav.main-nav--hidden" ? do; top $ pct (-100)
-      "#main-nav__toggle" ? display block
-
-      query Q.screen [Q.minWidth breakSm] $ do
-       "#main-nav.main-nav--hidden" ? do; top $ pct 0
-       "#main-nav__toggle" ? display none

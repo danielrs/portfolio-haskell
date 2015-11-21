@@ -59,7 +59,7 @@ gotoPageStyle = do
     textDecoration none
     backgroundColor colorGray
     borderRadius r 0 0 0
-    transitions [("background-color", ms 125, linear, ms 0), ("right", ms 250, linear, ms 0)]
+    transitions [("background-color", speedFast, linear, ms 0), ("right", speedMedium, linear, ms 0)]
     zIndex 9
 
     hover & do
@@ -143,7 +143,7 @@ experimentListStyle = do
           fontWeight bold
           textDecoration none
           backgroundColor colorGray
-          transitions [("background-color", ms 125, linear, ms 0), ("right", ms 250, linear, ms 0)]
+          transition "background-color" speedFast linear (ms 0)
           hover & backgroundColor colorDarkGray
 
 contactStyle :: Css
