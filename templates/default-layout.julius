@@ -82,7 +82,7 @@
 				dummyId = '#' + dummyId + settings.suffix;
 
 				$dummy = $('<div>', { id: dummyId.substr(1) });
-				$dummy.height(this_.outerHeight());
+				$dummy.height(this_.outerHeight(true));
 				if (settings.after) this_.after($dummy);
 				else this_.before($dummy);
 
@@ -90,7 +90,7 @@
 
 				// Set events
 
-				function updateDummy() { $(dummyId).height(this_.outerHeight()); };
+				function updateDummy() { $(dummyId).height(this_.outerHeight(true)); };
 
 				if (settings.updateRate > 0) {
 					function update() {
@@ -158,7 +158,7 @@ $(document).ready(function() {
 		}
 	);
 	$(window).resize(function() {
-		$('#main-nav-wrapper').height($('#main-nav').height());
+		$('#main-nav-wrapper').height($('#main-nav').outerHeight(true));
 	});
 
 	// When #go-page-top is clicked go back top

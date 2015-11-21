@@ -1,11 +1,10 @@
 ^{headerWidget}
 
-<a #go-page-top href="#page-top">_{MsgGoTop}
-
-$maybe msg <- mmsg
-  <div #message .message--fixed>
-    <span>#{msg}
-
-^{widget}
+<#main-content>
+  <a #go-page-top href="#page-top">_{MsgGoTop}
+  $maybe msg <- mmsg
+    <div #message .message--fixed>
+      <span>#{msg}
+  ^{widget}
 
 ^{footerWidget}

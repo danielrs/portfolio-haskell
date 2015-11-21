@@ -1,48 +1,47 @@
-<section .white-section>
-  <.container>
+<.container>
+  <section #about-section .main-section>
+    <h2 #about>_{MsgNavAbout}
+    <#about-text>
+      <#about-developer>
+        <p>
+          Hola! Soy Daniel, desarrollador de software. Mis lenguajes de programación favoritos son #
+          <a href="http://www.cplusplus.com/">C++,
+          <a href="https://www.python.org/">Python,
+          \ y
+          <a href="https://www.haskell.org/">Haskell;
+          \ pero puedo usar y disfrutar la mayoría de ellos. Después de todos los programadores no deberían depender de un lenguaje en específico, cierto?
+      <#about-personal>
+        <p>
+          En mi tiempo libre me gusta aprender cualquier cosa que me pueda ser útil, como nuevos lenguajes de programación, herramientas y metodologías de desarrollo.
 
-    <section #about-section>
-      <h2 #about>_{MsgNavAbout}
-      <#about-text>
-        <#about-developer>
-          <p>
-            Hola! Soy Daniel, desarrollador de software. Mis lenguajes de programación favoritos son #
-            <a href="http://www.cplusplus.com/">C++,
-            <a href="https://www.python.org/">Python,
-            \ y
-            <a href="https://www.haskell.org/">Haskell;
-            \ pero puedo usar y disfrutar la mayoría de ellos. Después de todos los programadores no deberían depender de un lenguaje en específico, cierto?
-        <#about-personal>
-          <p>
-            En mi tiempo libre me gusta aprender cualquier cosa que me pueda ser útil, como nuevos lenguajes de programación, herramientas y metodologías de desarrollo.
+    <h3>_{MsgToolset}
 
-      <h3>_{MsgToolset}
+    <ul #toolset>
+      <li>
+        <h4>
+          <a href="http://www.vim.org/">Vim
+        <p>_{MsgToolsetVim}
+      <li>
+        <h4>
+          <a href="https://github.com/ggreer/the_silver_searcher">Ag
+        <p>_{MsgToolsetAg}
+      <li>
+        <h4>
+          <a href="https://git-scm.com/">Git
+        <p>_{MsgToolsetGit}
+      <li>
+        <h4>
+          <a href="https://www.archlinux.org/">Archlinux
+        <p>_{MsgToolsetArch}
 
-      <ul #toolset>
-        <li>
-          <h4>
-            <a href="http://www.vim.org/">Vim
-          <p>_{MsgToolsetVim}
-        <li>
-          <h4>
-            <a href="https://github.com/ggreer/the_silver_searcher">Ag
-          <p>_{MsgToolsetAg}
-        <li>
-          <h4>
-            <a href="https://git-scm.com/">Git
-          <p>_{MsgToolsetGit}
-        <li>
-          <h4>
-            <a href="https://www.archlinux.org/">Archlinux
-          <p>_{MsgToolsetArch}
+    <p>
+      _{MsgToolsetDotfiles}
+      <a href="https://github.com/DanielRS/dotfiles">dotfiles
+      .
 
-      <p>
-        _{MsgToolsetDotfiles}
-        <a href="https://github.com/DanielRS/dotfiles">dotfiles
-        .
-
-    <section #skills-section>
-      <h2 #skills>_{MsgNavSkills}
+  <section #skills-section .main-section>
+    <h2 #skills>_{MsgNavSkills}
+    <div #skills__columns>
       <div #skills__professional>
         <h3>_{MsgSkillsProfessional}
         <ul .skillset>
@@ -65,60 +64,57 @@
             <h4>_{MsgSkillsIdeas}
             <p>_{MsgSkillsIdeasContent}
 
-    <section #experiments-section .main-section>
-      <h2 #experiments>_{MsgNavExperiments}
-      <p>Quizás alguno de mis proyectos personales te puede interesar:
-      <ul #experiment-list>
+  <section #experiments-section .main-section>
+    <h2 #experiments>_{MsgNavExperiments}
+    <p>Quizás alguno de mis proyectos personales te puede interesar:
+    <ul #experiment-list>
 
-        <li .experiment>
-          <article>
-            <h4>Portfolio website
-            <section .experiment-content>
-              <p>Éste sitio web! Hecho con programación funcional; back-end y front-end.
-            <ul .experiment-tags>
-              <li>
-                <a target="_blank" href="https://www.haskell.org/">Haskell
-              <li>
-                <a target="_blank" href="http://www.yesodweb.com/">Yesod
-              <li>
-                <a target="_blank" href="http://fvisser.nl/clay/">Clay
-            <p .experiment-link>
-              <a href="https://github.com/DanielRS/portfolio" .view-on-github>_{MsgViewOnGithub}
+      <li .experiment>
+        <article>
+          <h4>Portfolio website
+          <p>Éste sitio es un experimento! Y fue hecho con Haskell y programación funcional
+          <ul .experiment-tags>
+            <li>
+              <a target="_blank" href="https://www.haskell.org/">Haskell
+            <li>
+              <a target="_blank" href="http://www.yesodweb.com/">Yesod
+            <li>
+              <a target="_blank" href="http://fvisser.nl/clay/">Clay
+          <span .experiment-link>
+            <a href="https://github.com/DanielRS/portfolio" .view-on-github>_{MsgViewOnGithub}
 
-        <li .experiment>
-          <article>
-            <h4>Dwarf Engine
-            <section .experiment-content>
-              <p>Motor de juegos simple y ligero. Hecho con fines educativos, para aprender como funcionan los motores de juegos.
-            <ul .experiment-tags>
-              <li>
-                <a target="_blank" href="https://isocpp.org/">C++
-              <li>
-                <a target="_blank" href="http://www.lua.org/">Lua
-              <li>
-                <a target="_blank" href="https://www.python.org/">OpenGL
-            <p .experiment-link>
+      <li .experiment>
+        <article>
+          <h4>Dwarf Engine
+          <p>Motor de juegos simple y ligero. Hecho con fines educativos, para aprender como funcionan los motores de juegos.
+          <ul .experiment-tags>
+            <li>
+              <a target="_blank" href="https://isocpp.org/">C++
+            <li>
+              <a target="_blank" href="http://www.lua.org/">Lua
+            <li>
+              <a target="_blank" href="https://www.opengl.org/">OpenGL
+          <span .experiment-link>
             <a href="https://github.com/DanielRS/DwarfEngine" .view-on-github>_{MsgViewOnGithub}
 
-        <li .experiment>
-          <article>
-            <h4>typing.js
-            <section .experiment-content>
-              <p>Plugin de jQuery para animar escritura de texto. Ligero y fácil de usar.
-            <ul .experiment-tags>
-              <li>
-                <a target="_blank" href="https://www.javascript.com/">Javascript
-              <li>
-                <a target="_blank" href="https://jquery.com/">jQuery
-            <p .experiment-link>
-              <a href="https://github.com/DanielRS/typing.js" .view-on-github>_{MsgViewOnGithub}
+      <li .experiment>
+        <article>
+          <h4>typing.js
+          <p>Plugin de jQuery para animar escritura de texto. Ligero y fácil de usar.
+          <ul .experiment-tags>
+            <li>
+              <a target="_blank" href="https://www.javascript.com/">Javascript
+            <li>
+              <a target="_blank" href="https://jquery.com/">jQuery
+          <span .experiment-link>
+            <a href="https://github.com/DanielRS/typing.js" .view-on-github>_{MsgViewOnGithub}
 
-    <section #contact-section>
-      <h2 #contact>_{MsgNavContact}
-      <#contact-text>
-        <#contact-about>
-          <p>_{MsgContactMessage}
-        <form #contact-form method=post enctype=#{enctype}>
-          ^{contactWidget}
-      <!-- <h3>Need me email?
-      <p>In order to prevent spam my email is not shown here. However, you can get it by running the following Haskell script: -->
+  <section #contact-section .main-section>
+    <h2 #contact>_{MsgNavContact}
+    <#contact-text>
+      <#contact-about>
+        <p>_{MsgContactMessage}
+      <form #contact-form method=post enctype=#{enctype}>
+        ^{contactWidget}
+    <!-- <h3>Need me email?
+    <p>In order to prevent spam my email is not shown here. However, you can get it by running the following Haskell script: -->

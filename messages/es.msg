@@ -46,4 +46,4 @@ MailSent: Su correo a sido enviado!
 MailError: Ha ocurrido un error validando el formulario de contacto
 MailServerError: Error en el servidor enviando correo
 
-IconsBy: Iconos cortesía de
+IconsBy: Iconos por

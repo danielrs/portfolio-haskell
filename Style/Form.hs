@@ -52,8 +52,8 @@ fieldStyle = do
     fontSize (em 1)
     border solid (px 1) colorLightGray
     backgroundColor colorWhite
-    transition "box-shadow" (ms 75) linear 0
+    transition "border-color" (ms 75) linear 0
     focus & do
-      "box-shadow" -: "inset 0 0 0.250em 0 rgba(0, 0, 0, .10)"
+      borderColor colorDarkGray
   textarea ? do
     fontFamily ["Open Sans"] [sansSerif]

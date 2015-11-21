@@ -19,6 +19,7 @@ stylesheet = do
   skillsetStyle
   experimentListStyle
   contactStyle
+  footerStyle
 
 generalStyle :: Css
 generalStyle = do
@@ -30,49 +31,20 @@ generalStyle = do
     margin (px 0) 0 0 0
     padding (px 0) 0 0 0
 
-  ".white-section" M.<> ".black-section" ? margin (px 0) 0 0 0
-  ".white-section" ? do
-    padding (Clay.rem 2) (Clay.rem 2) (Clay.rem 2) (Clay.rem 2)
-    firstChild & paddingTop (px 0)
-  ".black-section" ? do
-    padding (Clay.rem 3) (Clay.rem 2) (Clay.rem 2) (Clay.rem 2)
-    backgroundColor colorBlack
-    color colorWhite
+  "#main-content" ? do
+    let p = Clay.rem 2
+    padding 0 p 0 p
 
   ".container" ? do
     margin (px 0) auto 0 auto
     maxWidth (px 1280)
 
   section # ".main-section" ? do
-    marginBottom (em 4)
+    marginBottom (Clay.rem 3)
     star # lastChild <? marginBottom (px 0)
     -- (h1 M.<> h2 M.<> h3 M.<> h4 M.<> h5 M.<> h6) # firstChild <? do
     --   textAlign $ alignSide sideCenter
 
-  footer ? do
-    row
-    padding (em 1) (em 2) (em 1) (em 2)
-    fontFamily ["Open Sans"] [sansSerif]
-    borderTop solid (px 1) colorLightGray
-    color colorGray
-
-    h1 M.<> h2 M.<> h3 M.<> h4 ? do
-      marginBottom (px 0)
-      small ? do
-        fontWeight normal
-
-    "#footer-lang" M.<> "#footer-nav" M.<> "#footer-copyright" ? do
-      padding (em 1) 0 (em 1) 0
-      textAlign $ alignSide sideCenter
-      query Q.screen [Q.minWidth breakSm] $ do
-        textAlign $ alignSide sideLeft
-        columnRight 1 2
-
-    a ? do
-      textDecoration none
-
-    p ? do
-      marginBottom (px 0)
 
 gotoPageStyle :: Css
 gotoPageStyle = do
@@ -131,7 +103,7 @@ toolsetStyle = do
 
 skillsetStyle :: Css
 skillsetStyle= do
-  "#skills-section" ? do
+  "#skills__columns" ? do
     row
     "#skills__professional" M.<> "#skills__personal" ? do
       query Q.screen [Q.minWidth breakMd] $ column 1 2
@@ -150,16 +122,14 @@ experimentListStyle = do
 
   "#experiment-list" |> li # ".experiment" ? do
 
-    margin (em 1) auto (em 1) auto
+    margin (em 2) auto (em 2) auto
 
     query Q.screen [Q.minWidth breakSm, Q.maxWidth breakLg'] $ do
       columnGrid 1 2
     query Q.screen [Q.minWidth breakLg] $ do
       columnGrid 1 3
 
-    ".experiment-content" ? do
-      marginBottom (em 0.5)
-      star # lastChild ? marginBottom (px 0)
+    p # lastOfType ? marginBottom (em 0.5)
 
     ".experiment-tags" ? do
       li ? do
@@ -199,3 +169,30 @@ contactStyle = do
       "resize" -:  "none"
 
     textarea ? minHeight (px 240)
+
+footerStyle :: Css
+footerStyle = do
+  footer ? do
+    row
+    padding (em 1) (em 2) (em 1) (em 2)
+    fontFamily ["Open Sans"] [sansSerif]
+    borderTop solid (px 1) colorLightGray
+    color colorGray
+
+    h1 M.<> h2 M.<> h3 M.<> h4 ? do
+      marginBottom (px 0)
+      small ? do
+        fontWeight normal
+
+    "#footer-lang" M.<> "#footer-nav" M.<> "#footer-copyright" ? do
+      padding (em 1) 0 (em 1) 0
+      textAlign $ alignSide sideCenter
+      query Q.screen [Q.minWidth breakSm] $ do
+        textAlign $ alignSide sideLeft
+        columnRight 1 2
+
+    a ? do
+      textDecoration none
+
+    p ? do
+      marginBottom (px 0)

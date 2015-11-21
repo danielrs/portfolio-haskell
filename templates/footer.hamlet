@@ -1,12 +1,11 @@
 <footer>
   <.container>
-
     <#footer-lang>
       <form action=@{LangR} method=post>
         <select name=lang>
           <option value=en>English
           <option value=es>Español
-          <input type=submit value=_{MsgLangSwitchButton}>
+        <input type=submit value=_{MsgLangSwitchButton} />
 
     <!-- <nav #footer-nav> -->
       <!-- <ul> -->

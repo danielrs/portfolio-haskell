@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
-
 module Style.Text (stylesheet) where
+
 import Clay
 import qualified Clay.Elements as E
 import qualified Clay.Media as Q
@@ -27,7 +27,7 @@ defaultStyle = do
   h2 ? fontSize (em 2)
   h1 M.<> h2 ? do
     fontFamily ["Slabo 27px"] [serif]
-    margin 0 0 (em 2) 0
+    margin 0 0 (em 1.5) 0
 
   h3 M.<> h4 ? do
     fontFamily ["Open Sans"] [sansSerif]

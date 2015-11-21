@@ -46,4 +46,4 @@ MailSent: Your email has been sent!
 MailError: There was an error validating the contact form
 MailServerError: Server error sending email
 
-IconsBy: Icons By
+IconsBy: Icons by

@@ -10,11 +10,16 @@ import qualified Data.Monoid as M
 
 stylesheet :: Css
 stylesheet = do
-
   header ? do
     padding (Clay.rem 2) (Clay.rem 2) 0 (Clay.rem 2)
     textAlign $ alignSide sideCenter
+  profileStyle
+  taglineStyle
+  socialStyle
+  navbarStyle
 
+profileStyle :: Css
+profileStyle = do
   "#profile" ? do
     margin 0 0 (em 1) 0
     img ? do
@@ -33,12 +38,14 @@ stylesheet = do
       query Q.screen [Q.minWidth breakMd] $ do
         maxWidth (px 192)
         maxHeight (px 192)
-
   "#name" ? do
     marginBottom (em 0.050)
     a ? do
       color colorDarkGray
       textDecoration none
+
+taglineStyle :: Css
+taglineStyle = do
   "#tagline" ? do
     fontFamily ["Inconsolata"] [monospace]
     marginBottom (em 0.125)
@@ -46,11 +53,14 @@ stylesheet = do
   "#tagline__messages" ? do
     display none
 
+socialStyle :: Css
+socialStyle = do
   "#social" ? do
     noListStyle
     display inlineBlock
     margin 0 0 (em 3) 0
     padding (em 0) 0 0 0
+    fontSize (em 0.85)
     li ? do
       display inlineBlock
       margin 0 (em 1) 0 (em 1)
@@ -58,14 +68,12 @@ stylesheet = do
         color colorGray
         hover & color colorDarkGray
 
-  navbarStyle
-
 navbarStyle :: Css
 navbarStyle = do
   "#main-nav" ? do
     position relative
     top (pct 0)
-    margin 0 0 (em 2) 0
+    margin 0 0 (em 4) 0
     backgroundColor $ rgba 0 0 0 0
     transitions
       [ ("background-color", ms 125, linear, ms 0)
@@ -120,35 +128,38 @@ navbarStyle = do
       borderBottomColor colorWhite
       borderRadius r r r r
 
-  "#main-nav" # ".main-nav--hidden" ? do
-    "#main-nav__toggle" ? do
-      top (pct 95)
-      hover & top (pct 100)
-    "#main-nav__arrow" ? do
-      top (em 0.5)
-      borderBottomColor transparent
-      borderTopColor colorWhite
+    -- HIDDEN NAV
+    ".main-nav--hidden" & do
+
+      "#main-nav__toggle" ? do
+        top (pct 95)
+        hover & top (pct 100)
+
+      "#main-nav__arrow" ? do
+        top (em 0.5)
+        borderBottomColor transparent
+        borderTopColor colorWhite
 
   "#main-nav-wrapper" ? do
-    clearfix -- Prevent margin collapse
+    clearfix
 
-  "#main-nav-wrapper.main-nav-wrapper--fixed" ? do
-    position fixed
-    top (px 0)
-    left (px 0)
-    right (px 0)
-    zIndex 100
+    ".main-nav-wrapper--fixed" & do
+      position fixed
+      top (px 0)
+      left (px 0)
+      right (px 0)
+      zIndex 100
 
-    "#main-nav" ? do
-      backgroundColor colorGray
-      ul Clay.** li Clay.** a ? do
-        color colorLightGray
-      ul Clay.** li Clay.** (a # hover M.<> a # ".main-nav__active") ? do
-        color colorWhite
+      "#main-nav" ? do
+        backgroundColor colorGray
+        ul Clay.** li Clay.** a ? do
+          color colorLightGray
+        ul Clay.** li Clay.** (a # hover M.<> a # ".main-nav__active") ? do
+          color colorWhite
 
-    "#main-nav.main-nav--hidden" ? do; top $ pct (-100)
-    "#main-nav__toggle" ? display block
+      "#main-nav.main-nav--hidden" ? do; top $ pct (-100)
+      "#main-nav__toggle" ? display block
 
-    query Q.screen [Q.minWidth breakSm] $ do
-     "#main-nav.main-nav--hidden" ? do; top $ pct 0
-     "#main-nav__toggle" ? display none
+      query Q.screen [Q.minWidth breakSm] $ do
+       "#main-nav.main-nav--hidden" ? do; top $ pct 0
+       "#main-nav__toggle" ? display none
