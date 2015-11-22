@@ -1,14 +1,22 @@
 module Foundation where
 
 import Import.NoFoundation
+
 import Database.Persist.Sql (ConnectionPool, runSqlPool)
+
 import Text.Hamlet          (hamletFile)
 import Text.Jasmine         (minifym)
-import Yesod.Auth.BrowserId (authBrowserId)
+
+import Yesod.Auth
+import Yesod.Auth.Email
 import Yesod.Auth.Message   (AuthMessage (InvalidLogin))
+
 import Yesod.Default.Util   (addStaticContentExternal)
 import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
+
+import Mail.Hailgun
+import Yesod.Hailgun
 
 -- Adds messages folder
 mkMessage "App" "messages" "en"
@@ -145,11 +153,27 @@ instance YesodAuth App where
             Nothing -> UserError InvalidLogin
 
     -- You can add other plugins like BrowserID, email or OAuth here
-    authPlugins _ = [authBrowserId def]
+    authPlugins _ = [authEmail]
 
     authHttpManager = getHttpManager
 
 instance YesodAuthPersist App
+
+instance YesodAuthEmail App where
+  type AuthEmailId App = EmailId
+  afterPasswordRoute _ = HomeR
+  addUnverified email verkey = runDB $ do
+    userId <- insert $ User email Nothing
+    emailId <- insert $ Email email (Just userId) (Just verkey)
+    return emailId
+  sendVerifyEmail email _ verurl = undefined
+  getVerifyKey = undefined
+  setVerifyKey uid key = undefined
+  verifyAccount uid = undefined
+  getPassword = undefined
+  setPassword uid pass = undefined
+  getEmailCreds email = undefined
+  getEmail = undefined
 
 -- This instance is required to use forms. You can modify renderMessage to
 -- achieve customized and internationalized form validation messages.
@@ -158,6 +182,11 @@ instance RenderMessage App FormMessage where
 
 unsafeHandler :: App -> Handler a -> IO a
 unsafeHandler = Unsafe.fakeHandlerGetLogger appLogger
+
+instance YesodHailgun App where
+  hailgunContext app = HailgunContext (appMailgunDomain settings) (appMailgunApiKey settings) Nothing
+    where
+      settings = appSettings app
 
 -- Note: Some functionality previously present in the scaffolding has been
 -- moved to documentation in the Wiki. Following are some hopefully helpful

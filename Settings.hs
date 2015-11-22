@@ -53,9 +53,10 @@ data AppSettings = AppSettings
     -- ^ Copyright text to appear in the footer of the page
     , appAnalytics              :: Maybe Text
     -- ^ Google Analytics code
-    , appMailSendTo :: Text
-    , appMailApiKey :: String
-    , appMailDomain :: String
+    , appEmail :: Text
+    , appMailgunApiKey :: String
+    , appMailgunDomain :: String
+    -- ^ Custom
     }
 
 instance FromJSON AppSettings where
@@ -83,9 +84,9 @@ instance FromJSON AppSettings where
         appCopyrightYear          <- o .: "copyright-year"
         appAnalytics              <- o .:? "analytics"
 
-        appMailSendTo             <- o .: "mail-send-to"
-        appMailApiKey             <- o .: "mail-api-key"
-        appMailDomain             <- o .: "mail-domain"
+        appEmail             <- o .: "email"
+        appMailgunApiKey             <- o .: "mailgun-api-key"
+        appMailgunDomain             <- o .: "mailgun-domain"
 
         return AppSettings {..}
 

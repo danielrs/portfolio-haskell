@@ -3,6 +3,7 @@ module Handler.Home where
 import Import
 import Mail.Hailgun
 import Text.Shakespeare.I18n
+import Yesod.Hailgun
 
 -- This is a handler function for the GET request method on the HomeR
 -- resource pattern. All of your resource patterns are defined in
@@ -60,20 +61,8 @@ postHomeR = do
   $logInfo "Email POST request received"
   case result of
     FormSuccess contact -> do
-      settings <- appSettings <$> getYesod
-      let
-        context = HailgunContext
-          (appMailDomain settings)
-          (appMailApiKey settings)
-          Nothing
-        Right message = hailgunMessage
-          (title contact)
-          (TextOnly $ encodeUtf8 . unTextarea . content $ contact)
-          (encodeUtf8 . email $ contact)
-          (MessageRecipients [encodeUtf8 . appMailSendTo $ settings] [] [])
-          []
-
-      sendRes <- liftIO $ sendEmail context message
+      sendTo <- appEmail . appSettings <$> getYesod
+      sendRes <- sendMail (title contact) (unTextarea . content $ contact) (email contact) [sendTo]
       case sendRes of
         Left err -> do
           setMessage $ render MsgMailServerError
@@ -83,7 +72,6 @@ postHomeR = do
           setMessage $ render MsgMailSent
           $logInfo "Email sent correctly!"
           redirect HomeR
-
     _ -> do
       setMessage $ render MsgMailError
       $logWarn "Form validation error"

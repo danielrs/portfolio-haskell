@@ -12,7 +12,7 @@ Flag library-only
     Default:       False
 
 library
-    hs-source-dirs: ., app
+    hs-source-dirs: ., app, Modules
     exposed-modules: Application
                      Foundation
                      Import
@@ -25,6 +25,7 @@ library
                      Handler.Lang
                      -- Handler.Blog
                      Text.Shakespeare.I18n
+                     Yesod.Hailgun
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT

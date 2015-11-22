@@ -8,10 +8,10 @@ port:           "_env:OPENSHIFT_DIY_PORT:3000"
 approot:        "_env:OPENSHIFT_DIY_URL:http://localhost:3000"
 ip-from-header: "_env:IP_FROM_HEADER:false"
 
-# Extra settings for Mailgun contact form
-mail-send-to: "_env:MAILGUN_TO:ers.daniel+portfolio@gmail.com"
-mail-api-key: "_env:MAILGUN_API_KEY:123abc"
-mail-domain: "_env:MAILGUN_DOMAIN:sandbox.mailgun.org"
+# Extra settings for Mailgun
+email: "_env:EMAIL:info@danielrs.me"
+mailgun-api-key: "_env:MAILGUN_API_KEY:123abc"
+mailgun-domain: "_env:MAILGUN_DOMAIN:sandbox.mailgun.org"
 
 # Optional values with the following production defaults.
 # In development, they default to the inverse.
