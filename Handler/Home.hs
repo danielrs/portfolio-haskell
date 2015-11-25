@@ -62,7 +62,15 @@ postHomeR = do
   case result of
     FormSuccess contact -> do
       sendTo <- appEmail . appSettings <$> getYesod
-      sendRes <- sendMail (title contact) (unTextarea . content $ contact) (email contact) [sendTo]
+      sendRes <- sendHtmlMail
+        (title contact)
+        [shamlet|
+          <p>
+            <strong>Message sent by #{name contact}
+          <p>#{unTextarea $ content $ contact}
+        |]
+        (email contact)
+        [sendTo]
       case sendRes of
         Left err -> do
           setMessage $ render MsgMailServerError

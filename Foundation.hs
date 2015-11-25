@@ -166,7 +166,21 @@ instance YesodAuthEmail App where
     userId <- insert $ User email Nothing
     emailId <- insert $ Email email (Just userId) (Just verkey)
     return emailId
-  sendVerifyEmail email _ verurl = undefined
+
+  sendVerifyEmail email _ verurl = do
+    sender <- appEmail . appSettings <$> getYesod
+    res <- sendHtmlMail
+      "Verify your account"
+      [shamlet|
+        <p>You can verify your account clicking the following link:
+        <p>
+          <a href=#{verurl}>#{verurl}
+        <p>Bye!
+      |]
+      sender
+      [email]
+    return ()
+
   getVerifyKey = undefined
   setVerifyKey uid key = undefined
   verifyAccount uid = undefined

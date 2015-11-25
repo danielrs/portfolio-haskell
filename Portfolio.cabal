@@ -89,6 +89,7 @@ library
                  -- Extra
                  , clay
                  , hailgun
+                 , blaze-html
 
 executable         Portfolio
     if flag(library-only)

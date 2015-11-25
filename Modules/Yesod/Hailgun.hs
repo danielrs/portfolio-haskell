@@ -1,27 +1,35 @@
-module Yesod.Hailgun where
+module Yesod.Hailgun (
+  YesodHailgun(
+    hailgunContext
+    , sendMail
+    , sendHtmlMail
+  )
+) where
 
 import Yesod
 import Mail.Hailgun
 import Data.Text (Text)
 import Data.Text.Encoding (encodeUtf8)
 import Prelude
+import Text.Blaze.Html.Renderer.Utf8 (renderHtml)
+import Data.ByteString.Lazy (toStrict)
 
 class (Yesod master) => YesodHailgun master where
 
   hailgunContext :: master ->  HailgunContext
 
-  sendMail ::
+  sendRawMail ::
     Text -- title
-    -> Text -- body
+    -> MessageContent -- body
     -> Text -- sender
     -> [Text] -- recipients
     -> HandlerT master IO (Either HailgunErrorResponse HailgunSendResponse)
-  sendMail title body sender recipients = do
+  sendRawMail title body sender recipients = do
     master <- getYesod
     let
       emessage = hailgunMessage
         title
-        (TextOnly $ encodeUtf8 body)
+        body
         (encodeUtf8 sender)
         (MessageRecipients (encodeUtf8 <$> recipients) [] [])
         []
@@ -31,3 +39,22 @@ class (Yesod master) => YesodHailgun master where
       Right message -> do
         response <- liftIO $ sendEmail (hailgunContext master) message
         return response
+
+  sendMail ::
+    Text -- title
+    -> Text -- body
+    -> Text -- sender
+    -> [Text] -- recipients
+    -> HandlerT master IO (Either HailgunErrorResponse HailgunSendResponse)
+  sendMail title body sender recipients =
+    sendRawMail title (TextOnly $ encodeUtf8 body) sender recipients
+
+  sendHtmlMail ::
+    Text -- title
+    -> Html -- body
+    -> Text -- sender
+    -> [Text] -- recipients
+    -> HandlerT master IO (Either HailgunErrorResponse HailgunSendResponse)
+  sendHtmlMail title bodyHtml sender recipients =
+    sendRawMail title (TextAndHTML rendered rendered) sender recipients
+    where rendered = toStrict . renderHtml $ bodyHtml
