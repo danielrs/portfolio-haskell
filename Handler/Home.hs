@@ -4,6 +4,7 @@ import Import
 import Mail.Hailgun
 import Text.Shakespeare.I18n
 import Yesod.Hailgun
+import Text.Hamlet (shamletFile)
 
 -- This is a handler function for the GET request method on the HomeR
 -- resource pattern. All of your resource patterns are defined in
@@ -58,17 +59,14 @@ postHomeR :: Handler Html
 postHomeR = do
   ((result, contactWidget), enctype) <- runFormPost contactForm
   render <- (toHtml .) <$>  getMessageRender
+  langs <- languages
   $logInfo "Email POST request received"
   case result of
     FormSuccess contact -> do
       sendTo <- appEmail . appSettings <$> getYesod
       sendRes <- sendHtmlMail
         (title contact)
-        [shamlet|
-          <p>
-            <strong>Message sent by #{name contact}
-          <p>#{unTextarea $ content $ contact}
-        |]
+        ($(shamletFilei18n "templates/email/contact" ["en", "es"] ".hamlet") langs)
         (email contact)
         [sendTo]
       case sendRes of

@@ -1,12 +1,25 @@
 module Text.Shakespeare.I18n
 (
-  hamletFilei18n,
-  whamletFilei18n
+  shamletFilei18n
+  , hamletFilei18n
+  , whamletFilei18n
 ) where
 
 import Import.NoFoundation
 import Language.Haskell.TH
 import Text.Hamlet
+
+-- Returns a function that takes a list of preferred languages and returns
+-- the first one that matches the given list; returns default otherwise
+shamletFilei18n :: FilePath -> [String] -> String -> Q Exp
+shamletFilei18n _ [] _ = err
+shamletFilei18n basename supportedLangs extension =
+  [|
+    let
+      widgets@((_, defaultWidget):_) = $(shamletMultifileSuffix basename supportedLangs extension)
+    in
+      (\langs -> fromMaybe defaultWidget $ multiLookup langs widgets)
+  |]
 
 -- Returns a function that takes a list of preferred languages and returns
 -- the first one that matches the given list; returns default otherwise
@@ -35,6 +48,10 @@ whamletFilei18n basename supportedLangs extension =
 err :: Q Exp
 err = error "At least 1 language has to be supported."
 
+-- returns a list of simple hamlet files with the given suffixes
+shamletMultifileSuffix :: FilePath -> [String] -> String -> Q Exp
+shamletMultifileSuffix = shakespeareMultifileSuffix shamletFileSuffix
+
 -- returns a list of hamlet files with the given suffixes
 hamletMultifileSuffix :: FilePath -> [String] -> String -> Q Exp
 hamletMultifileSuffix = shakespeareMultifileSuffix hamletFileSuffix
@@ -42,6 +59,11 @@ hamletMultifileSuffix = shakespeareMultifileSuffix hamletFileSuffix
 -- returns a list of whamlet files with the given suffixes
 whamletMultifileSuffix :: FilePath -> [String] -> String -> Q Exp
 whamletMultifileSuffix = shakespeareMultifileSuffix whamletFileSuffix
+
+-- returns a simple hamlet file with given suffix
+shamletFileSuffix :: FilePath -> String -> String -> Q Exp
+shamletFileSuffix basename suffix extension =
+    [| $(shamletFile $ basename ++ "-" ++ suffix ++ extension) |]
 
 -- returns a hamletFile with given suffix
 hamletFileSuffix :: FilePath -> String -> String -> Q Exp

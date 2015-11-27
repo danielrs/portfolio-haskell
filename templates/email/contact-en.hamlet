@@ -1,0 +1,6 @@
+<p>
+  Message sent by #
+  #{name contact} #
+  :
+<p>
+  #{unTextarea $ content $ contact}

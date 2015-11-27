@@ -1,0 +1,6 @@
+<p>Verifica la cuenta haciendo click en el siguiente link:
+<p>
+  <a href="#{verurl}">#{verurl}
+<p>
+  Saludos, #
+  <a href="http://www.danielrs.me"}>Daniel Rivas

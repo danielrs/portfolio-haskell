@@ -10,8 +10,10 @@ ip-from-header: "_env:IP_FROM_HEADER:false"
 
 # Extra settings for Mailgun
 email: "_env:EMAIL:info@danielrs.me"
-mailgun-api-key: "_env:MAILGUN_API_KEY:123abc"
-mailgun-domain: "_env:MAILGUN_DOMAIN:sandbox.mailgun.org"
+# mailgun-api-key: "_env:MAILGUN_API_KEY:123abc"
+# mailgun-domain: "_env:MAILGUN_DOMAIN:sandbox.mailgun.org"
+mailgun-api-key: "_env:MAILGUN_API_KEY:key-715e52eb38a705e30ab5b1ff075a81db"
+mailgun-domain: "danielrs.me"
 
 # Optional values with the following production defaults.
 # In development, they default to the inverse.

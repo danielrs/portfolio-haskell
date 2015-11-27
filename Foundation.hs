@@ -4,7 +4,7 @@ import Import.NoFoundation
 
 import Database.Persist.Sql (ConnectionPool, runSqlPool)
 
-import Text.Hamlet          (hamletFile)
+import Text.Hamlet          (hamletFile, shamletFile)
 import Text.Jasmine         (minifym)
 
 import Yesod.Auth
@@ -17,6 +17,7 @@ import qualified Yesod.Core.Unsafe as Unsafe
 
 import Mail.Hailgun
 import Yesod.Hailgun
+import Text.Shakespeare.I18n
 
 -- Adds messages folder
 mkMessage "App" "messages" "en"
@@ -137,7 +138,7 @@ instance YesodPersistRunner App where
     getDBRunner = defaultGetDBRunner appConnPool
 
 instance YesodAuth App where
-    type AuthId App = UserId
+    type AuthId App = EmailId
 
     -- Where to send a user after successful login
     loginDest _ = HomeR
@@ -147,9 +148,9 @@ instance YesodAuth App where
     redirectToReferer _ = True
 
     authenticate creds = runDB $ do
-        x <- getBy $ UniqueUser $ credsIdent creds
+        x <- getBy $ UniqueEmail $ credsIdent creds
         return $ case x of
-            Just (Entity uid _) -> Authenticated uid
+            Just (Entity emailId _) -> Authenticated emailId
             Nothing -> UserError InvalidLogin
 
     -- You can add other plugins like BrowserID, email or OAuth here
@@ -164,30 +165,54 @@ instance YesodAuthEmail App where
   afterPasswordRoute _ = HomeR
   addUnverified email verkey = runDB $ do
     userId <- insert $ User email Nothing
-    emailId <- insert $ Email email (Just userId) (Just verkey)
+    emailId <- insert $ Email email userId (Just verkey) False
     return emailId
-
   sendVerifyEmail email _ verurl = do
+    langs <- languages
     sender <- appEmail . appSettings <$> getYesod
     res <- sendHtmlMail
       "Verify your account"
-      [shamlet|
-        <p>You can verify your account clicking the following link:
-        <p>
-          <a href=#{verurl}>#{verurl}
-        <p>Bye!
-      |]
+      ($(shamletFilei18n "templates/email/verify" ["en", "es"] ".hamlet") langs)
       sender
       [email]
     return ()
-
-  getVerifyKey = undefined
-  setVerifyKey uid key = undefined
-  verifyAccount uid = undefined
-  getPassword = undefined
-  setPassword uid pass = undefined
-  getEmailCreds email = undefined
-  getEmail = undefined
+  getVerifyKey = runDB . fmap (join . fmap emailVerkey) . get
+  setVerifyKey uid key = runDB $ update uid [EmailVerkey =. Just key]
+  verifyAccount emailId = runDB $ do
+    memail <- get emailId
+    case memail of
+      Nothing -> return Nothing
+      Just email -> do
+        update emailId [EmailVerified =. True]
+        return $ Just emailId
+  getPassword emailId = runDB $ do
+    memail <- get emailId
+    case memail of
+      Nothing -> return Nothing
+      Just email -> do
+        mpass <- (join . fmap userPassword) <$> get (emailUserId email)
+        return mpass
+  setPassword uid pass = runDB $ do
+    memail <- get uid
+    case memail of
+      Just email ->
+        update (emailUserId email) [UserPassword =. Just pass]
+      _ -> return ()
+  getEmailCreds email = runDB $ do
+    memail <- getBy $ UniqueEmail email
+    case memail of
+      Nothing -> return Nothing
+      Just (Entity emailId email) -> do
+        muser <- get (emailUserId email)
+        case muser of
+          Nothing -> return Nothing
+          Just user -> return $ Just EmailCreds
+            { emailCredsId = emailId
+            , emailCredsAuthId = Just emailId
+            , emailCredsStatus = isJust $ userPassword user
+            , emailCredsVerkey = emailVerkey email
+            , emailCredsEmail = emailEmail email }
+  getEmail = runDB . fmap (fmap emailEmail) . get
 
 -- This instance is required to use forms. You can modify renderMessage to
 -- achieve customized and internationalized form validation messages.

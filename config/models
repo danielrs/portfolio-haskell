@@ -5,8 +5,10 @@ User
     deriving Typeable
 Email
     email Text
-    user UserId Maybe
+    userId UserId
     verkey Text Maybe
+	verified Bool
     UniqueEmail email
+	UniqueEmailUser userId
 
  -- By default this file is used in Model.hs (which is imported by Foundation.hs)

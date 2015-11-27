@@ -8,6 +8,6 @@
 	100% { opacity: 1; }
 }
 
-.typejs__caret {
+.typingjs__caret {
 	animation: blink 1s linear 0s infinite;
 }
