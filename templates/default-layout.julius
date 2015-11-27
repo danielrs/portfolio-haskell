@@ -176,5 +176,7 @@ $(document).ready(function() {
 	$message.delay(4000).fadeOut();
 
 	// Tagline typing
+	var taglineMessages = _.map($('ul#tagline__messages > li'), function(obj) { return $(obj).text() });
 	$('#tagline').type({ sentences: taglineMessages });
+
 });
