@@ -17,16 +17,17 @@ stylesheet = do
 
 defaultStyle :: Css
 defaultStyle = do
-  importUrl "https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Lato:400,700|Inconsolata:400,700"
+
+  importUrl "https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Roboto+Slab:400,700|Inconsolata:400,700"
+
   body ? do
-    -- fontSize (em 1.125)
     fontFamily ["Open Sans"] [sansSerif]
     color colorBlack
 
   h1 ? fontSize (em 2.250)
   h2 ? fontSize (em 2)
   h1 M.<> h2 ? do
-    fontFamily ["Lato"] [serif]
+    fontFamily ["Roboto Slab"] [serif]
     margin 0 0 (em 1.5) 0
 
   h3 M.<> h4 ? do
@@ -51,7 +52,7 @@ defaultStyle = do
     fontWeight bold
 
   a ? do
-    fontFamily ["Lato"] [serif]
+    fontFamily ["Roboto Slab"] [serif]
     color colorDarkGray
     transition "color" (ms 125) linear (ms 0)
     visited & color colorGray
