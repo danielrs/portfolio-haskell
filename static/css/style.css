@@ -1,5 +1,5 @@
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Slabo+27px|Inconsolata:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Lato:400,700|Inconsolata:400,700);
 input[type='button'],
 input[type='submit'],
 button
@@ -117,6 +117,7 @@ header
 #tagline
 {
   font-family   : "Inconsolata", monospace;
+  font-weight   : normal;
   margin-bottom : 0.125em;
   color         : rgb(165,165,165);
 }
@@ -353,7 +354,7 @@ h2
 h1,
 h2
 {
-  font-family : "Slabo 27px", serif;
+  font-family : "Lato", serif;
   margin      : 0px 0px 1.5em 0px;
 }
 
@@ -398,7 +399,7 @@ strong
 
 a
 {
-  font-family        : "Slabo 27px", serif;
+  font-family        : "Lato", serif;
   color              : rgb(133,133,133);
   -webkit-transition : color 125.0ms linear 0.0ms;
   -moz-transition    : color 125.0ms linear 0.0ms;

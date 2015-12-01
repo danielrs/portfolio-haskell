@@ -48,6 +48,7 @@ taglineStyle :: Css
 taglineStyle = do
   "#tagline" ? do
     fontFamily ["Inconsolata"] [monospace]
+    fontWeight normal
     marginBottom (em 0.125)
     color colorGray
   "#tagline__messages" ? do
