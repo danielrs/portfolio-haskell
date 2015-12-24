@@ -18,9 +18,9 @@ writeStylesheet file css =
 -- Add all sub-styles here
 stylesheet :: Css
 stylesheet = do
+  Text.stylesheet
   Form.stylesheet
   Header.stylesheet
-  Text.stylesheet
   Layout.stylesheet
 
 main :: IO ()

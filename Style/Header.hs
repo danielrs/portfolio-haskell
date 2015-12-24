@@ -41,6 +41,8 @@ profileStyle = do
   "#name" ? do
     marginBottom (em 0.050)
     a ? do
+      fontFamily ["Pacifico"] [cursive]
+      fontWeight normal
       color colorDarkGray
       textDecoration none
 
@@ -116,7 +118,7 @@ navbarStyle = do
       padding p p p p
       borderRadius 0 0 r r
       textAlign $ alignSide sideCenter
-      backgroundColor colorGray
+      backgroundColor colorLightGray
       transition "background-color" speedFast linear (ms 0)
       zIndex 100
       hover & backgroundColor colorDarkGray
@@ -139,11 +141,8 @@ navbarStyle = do
     right (px 0)
     zIndex 100
     "#main-nav" ? do
-      backgroundColor colorGray
-      ul Clay.** li Clay.** a ? do
-        color colorLightGray
-      ul Clay.** li Clay.** (a # hover M.<> a # ".main-nav__active") ? do
-        color colorWhite
+      backgroundColor colorWhite
+      borderBottom solid (px 1) colorLightGray
     query Q.screen [Q.maxWidth breakSm'] $ do
       "#main-nav__toggle" ? do
         display block

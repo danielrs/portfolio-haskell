@@ -37,7 +37,7 @@ generalStyle = do
 
   ".container" ? do
     margin (px 0) auto 0 auto
-    maxWidth (px 1280)
+    maxWidth (px 1024)
 
   section # ".main-section" ? do
     marginBottom (Clay.rem 3)

@@ -18,7 +18,7 @@ stylesheet = do
 defaultStyle :: Css
 defaultStyle = do
 
-  importUrl "https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Roboto+Slab:400,700|Inconsolata:400,700"
+  importUrl "https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,400italic,700|Roboto+Slab:400,700|Inconsolata:400,700"
 
   body ? do
     fontFamily ["Open Sans"] [sansSerif]
