@@ -36,12 +36,12 @@ exports.throttleImpl = function(ms, fn) {
 			clearTimeout(timeout);
 			timeout = setTimeout(function() {
 				last = now;
-				fn();
+				fn(arguments);
 			}, ms);
 		}
 		else {
 			last = now;
-			fn();
+			fn(arguments);
 		}
 	}
 }

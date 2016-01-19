@@ -11,14 +11,18 @@ import DOM.Timer
 import Control.Monad.Eff.Throttle
 import Control.Monad.Eff.UUID
 
+type EventCallback = forall eff a. JQueryEvent -> JQuery -> Eff (dom :: DOM | eff) a
+
 eventThrottledMaybe ::	forall eff.
-	Throttled (JQueryEvent -> JQuery -> Eff (dom :: DOM | eff) Unit)
+	Throttled EventCallback
 	-> JQueryEvent
 	-> JQuery
 	-> Eff (dom :: DOM | eff) Unit
 eventThrottledMaybe callback event el = do
 	fn <- callback
- 	(fromMaybe (\_ _ -> return unit) (fn)) event el
+ 	case fn of
+		Nothing -> return unit
+		Just fn -> fn event el >>= \_ -> return unit
 
 eventThrottled :: forall eff a.
 	Eff (dom :: DOM | eff) a
@@ -34,6 +38,19 @@ foreign import document    :: forall eff. Eff (dom :: DOM | eff) JQuery
 foreign import offset      :: forall eff. JQuery -> Eff (dom :: DOM | eff) Offset
 foreign import scrollTop   :: forall eff. JQuery -> Eff (dom :: DOM | eff) Number
 foreign import outerHeight :: forall eff. Boolean -> JQuery -> Eff (dom :: DOM | eff) Int
+
+{-- onScrollSection :: forall eff. EventCallback -> EventCallback -> JQuery -> Eff (dom :: DOM | eff) JQuery --}
+{-- onScrollSection before after checkpoint = do --}
+{-- 	doc <- document --}
+{-- 	let --}
+{--  		onScroll = do --}
+{-- 		 	scrollTop <- scrollTop doc --}
+{-- 			checkpointOffset <- offset checkpoint --}
+{-- 	 		if scrollTop < checkpointOffset.top --}
+{-- 			 	then before --}
+{-- 		 		else after --}
+{-- 	on "scroll" (eventThrottled (throttle 75 onScroll)) doc --}
+{--  	return checkpoint --}
 
 mirrorHeight :: forall eff. Int -> JQuery -> Eff (dom :: DOM, random :: RANDOM, timer :: Timer | eff) JQuery
 mirrorHeight updateInterval el = do
