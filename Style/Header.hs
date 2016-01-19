@@ -10,9 +10,11 @@ import qualified Data.Monoid as M
 
 stylesheet :: Css
 stylesheet = do
-  header ? do
+
+  "#header" ? do
     padding (Clay.rem 2) (Clay.rem 2) 0 (Clay.rem 2)
     textAlign $ alignSide sideCenter
+
   profileStyle
   taglineStyle
   socialStyle

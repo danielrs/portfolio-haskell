@@ -1,10 +1,17 @@
 <footer>
   <.container>
+
     <#footer-lang>
       <form action=@{LangR} method=post>
         <select name=lang>
-          <option value=en>English
-          <option value=es>Español
+          $if selectedLanguage "en"
+            <option value=en selected>English
+          $else
+            <option value=en>English
+          $if selectedLanguage "es"
+            <option value=es selected>Español
+          $else
+            <option value=es>Español
         <input type=submit value=_{MsgLangSwitchButton} />
 
     <!-- <nav #footer-nav> -->

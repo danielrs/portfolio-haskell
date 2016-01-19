@@ -124,10 +124,8 @@ experimentListStyle = do
 
     margin (em 2) auto (em 2) auto
 
-    query Q.screen [Q.minWidth breakSm, Q.maxWidth breakLg'] $ do
+    query Q.screen [Q.minWidth breakSm] $ do
       columnGrid 1 2
-    query Q.screen [Q.minWidth breakLg] $ do
-      columnGrid 1 3
 
     p # lastOfType ? marginBottom (em 0.5)
 

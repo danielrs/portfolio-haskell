@@ -12,12 +12,10 @@ import Style.Util.Mixins
 stylesheet :: Css
 stylesheet = do
   defaultStyle
-  blackSectionStyle
   notificationStyle
 
 defaultStyle :: Css
 defaultStyle = do
-
   importUrl "https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,400italic,700|Roboto+Slab:400,700|Inconsolata:400,700"
 
   body ? do
@@ -26,17 +24,11 @@ defaultStyle = do
 
   h1 ? fontSize (em 2.250)
   h2 ? fontSize (em 2)
-  h1 M.<> h2 ? do
-    fontFamily ["Roboto Slab"] [serif]
-    margin 0 0 (em 1.5) 0
 
-  h3 M.<> h4 ? do
-    fontFamily ["Open Sans"] [sansSerif]
+  h1 M.<> h2 M.<> h3 M.<> h4 ? do
     margin 0 0 (em 1.5) 0
-
   h4 ? do
     color colorDarkGray
-    ".black-section" & color colorLightGray
 
   h5 M.<> h6 ? do
     margin 0 0 (em 1) 0
@@ -52,7 +44,6 @@ defaultStyle = do
     fontWeight bold
 
   a ? do
-    fontFamily ["Roboto Slab"] [serif]
     color colorDarkGray
     transition "color" (ms 125) linear (ms 0)
     visited & color colorGray
@@ -62,18 +53,6 @@ defaultStyle = do
   ul ? do
     noListStyle
     marginBottom (em 1.5)
-
-blackSectionStyle :: Css
-blackSectionStyle = do
-  ".black-section" ? do
-    h4 ? do
-      color colorGray
-
-    a ? do
-      color colorLightGray
-      visited & color colorLightGray
-      hover & color colorWhite
-      active & color colorWhite
 
 notificationStyle :: Css
 notificationStyle = do

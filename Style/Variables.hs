@@ -20,6 +20,9 @@ speedSlow = ms 500
 grayish' :: Double -> Color
 grayish' val = grayish $ unormalize val 255
 
+colorPrimary :: Color
+colorPrimary = hexColor "#00aadd"
+
 colorPitchBlack :: Color
 colorPitchBlack = grayish' 0.275
 
@@ -36,7 +39,7 @@ colorLightGray :: Color
 colorLightGray = grayish' 0.850
 
 colorWhite :: Color
-colorWhite = grayish' 0.975
+colorWhite = grayish' 0.990
 
 -- Media Queries Breakpoints
 breakSm, breakMd, breakLg, breakXl :: Size Abs

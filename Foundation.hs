@@ -69,8 +69,11 @@ instance Yesod App where
     defaultLayout widget = do
         master <- getYesod
         mmsg <- getMessage
+        (lang:_) <- languages
 
         let
+          selectedLanguage :: Text -> Bool
+          selectedLanguage l = if l `isPrefixOf` lang then True else False
           headerWidget = $(whamletFile "templates/header.hamlet")
           footerWidget = $(whamletFile "templates/footer.hamlet")
 
@@ -83,10 +86,10 @@ instance Yesod App where
         pc <- widgetToPageContent $ do
             addStylesheet $ StaticR css_style_css
             addStylesheet $ StaticR css_type_css
-            addScript $ StaticR js_components_jquery_dist_jquery_min_js
-            addScript $ StaticR js_components_underscore_underscore_min_js
-            addScript $ StaticR js_components_typing_js_typing_js
-            addScript $ StaticR js_main_js
+            addScriptRemote "https://cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"
+            addScriptRemote "https://cdn.jsdelivr.net/underscorejs/1.8.3/underscore-min.js"
+            addScriptRemote "https://cdn.rawgit.com/DanielRS/typing.js/master/dist/typing.min.js"
+            addScript $ StaticR js_bundle_js
             $(widgetFile "default-layout")
         withUrlRenderer $(hamletFile "templates/default-layout-wrapper.hamlet")
 
@@ -224,8 +227,7 @@ unsafeHandler = Unsafe.fakeHandlerGetLogger appLogger
 
 instance YesodHailgun App where
   hailgunContext app = HailgunContext (appMailgunDomain settings) (appMailgunApiKey settings) Nothing
-    where
-      settings = appSettings app
+    where settings = appSettings app
 
 -- Note: Some functionality previously present in the scaffolding has been
 -- moved to documentation in the Wiki. Following are some hopefully helpful

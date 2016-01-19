@@ -19,3 +19,8 @@ cabal.sandbox.config
 *.keter
 
 .vagrant/
+purescript/node_modules/
+purescript/bower_components/
+purescript/output/
+purescript/.psci_modules/
+purescript/.psci

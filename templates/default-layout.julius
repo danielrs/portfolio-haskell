@@ -1,182 +1,182 @@
-// Calls 'before' when elemId is not yet out-of viewport from the top
-// otherwise calls 'after'
-(function($) {
-	var created = 0;
-	var index = {}; // holds id -> scope pairs
+// // Calls 'before' when elemId is not yet out-of viewport from the top
+// // otherwise calls 'after'
+// (function($) {
+// 	var created = 0;
+// 	var index = {}; // holds id -> scope pairs
 
-	$.fn.scrollCall = function(before, after, options) {
-		var $doc = $(document);
+// 	$.fn.scrollCall = function(before, after, options) {
+// 		var $doc = $(document);
 
-		// SETTINGS
-		var settings = {
-			continuous: false,
-			checkpointAfter: false
-		}
-		$.extend(settings, options);
+// 		// SETTINGS
+// 		var settings = {
+// 			continuous: false,
+// 			checkpointAfter: false
+// 		}
+// 		$.extend(settings, options);
 
-		// Creates a checkpoint before each selected element
-		this.each(function() {
-			var checkpointId = '#scrollcall-checkpoint-' + created;
-			var $checkpoint = $('<div>', {
-				id : checkpointId.substr(1),
-				class : 'scrollcall-checkpoint'
-			});
-			if (!settings.checkpointAfter)
-				$(this).before($checkpoint);
-			else
-				$(this).after($checkpoint);
+// 		// Creates a checkpoint before each selected element
+// 		this.each(function() {
+// 			var checkpointId = '#scrollcall-checkpoint-' + created;
+// 			var $checkpoint = $('<div>', {
+// 				id : checkpointId.substr(1),
+// 				class : 'scrollcall-checkpoint'
+// 			});
+// 			if (!settings.checkpointAfter)
+// 				$(this).before($checkpoint);
+// 			else
+// 				$(this).after($checkpoint);
 
-			index[checkpointId] = $(this);
-			created++;
-		});
+// 			index[checkpointId] = $(this);
+// 			created++;
+// 		});
 
-		// Calls before/after events for each checkpoint
-		$doc.scroll(function() {
-			$.each(index, function(checkpointId, scope) {
-				if ($doc.scrollTop() < $(checkpointId).offset().top) {
-					if (!$(checkpointId).data('before-done') || settings.continuous) before.call(scope);
-					$(checkpointId).data('before-done', true);
-					$(checkpointId).data('after-done', false);
-				} else {
-					if (!$(checkpointId).data('after-done') || settings.continuous) after.call(scope);
-					$(checkpointId).data('before-done', false);
-					$(checkpointId).data('after-done', true);
-				}
-			});
-		});
-		$(window).resize(function() {
-			$doc.trigger('scroll');
-		});
-		$doc.trigger('scroll');
-	};
-})(jQuery);
+// 		// Calls before/after events for each checkpoint
+// 		$doc.scroll(function() {
+// 			$.each(index, function(checkpointId, scope) {
+// 				if ($doc.scrollTop() < $(checkpointId).offset().top) {
+// 					if (!$(checkpointId).data('before-done') || settings.continuous) before.call(scope);
+// 					$(checkpointId).data('before-done', true);
+// 					$(checkpointId).data('after-done', false);
+// 				} else {
+// 					if (!$(checkpointId).data('after-done') || settings.continuous) after.call(scope);
+// 					$(checkpointId).data('before-done', false);
+// 					$(checkpointId).data('after-done', true);
+// 				}
+// 			});
+// 		});
+// 		$(window).resize(function() {
+// 			$doc.trigger('scroll');
+// 		});
+// 		$doc.trigger('scroll');
+// 	};
+// })(jQuery);
 
-(function($) {
+// (function($) {
 
-	$.fn.dummy = function(options) {
+// 	$.fn.dummy = function(options) {
 
-		function guid() {
-			function S4() {
-				return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-			}
-			return (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
-		}
+// 		function guid() {
+// 			function S4() {
+// 				return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+// 			}
+// 			return (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+// 		}
 
-		var settings = {
-			suffix: "--dummy",
-			updateRate: 0,
-			updateOnResize: false,
-			after: false
-		};
-		$.extend(settings, options);
+// 		var settings = {
+// 			suffix: "--dummy",
+// 			updateRate: 0,
+// 			updateOnResize: false,
+// 			after: false
+// 		};
+// 		$.extend(settings, options);
 
-		return this.each(function() {
+// 		return this.each(function() {
 
-			var this_ = $(this);
-			var id = this_.attr('id');
-			var dummyId = this_.data('dummy');
+// 			var this_ = $(this);
+// 			var id = this_.attr('id');
+// 			var dummyId = this_.data('dummy');
 
-			// Create dummy
-			if (dummyId === undefined) {
-				dummyId = id ? id : guid();
-				dummyId = '#' + dummyId + settings.suffix;
+// 			// Create dummy
+// 			if (dummyId === undefined) {
+// 				dummyId = id ? id : guid();
+// 				dummyId = '#' + dummyId + settings.suffix;
 
-				$dummy = $('<div>', { id: dummyId.substr(1) });
-				$dummy.height(this_.outerHeight(true));
-				if (settings.after) this_.after($dummy);
-				else this_.before($dummy);
+// 				$dummy = $('<div>', { id: dummyId.substr(1) });
+// 				$dummy.height(this_.outerHeight(true));
+// 				if (settings.after) this_.after($dummy);
+// 				else this_.before($dummy);
 
-				this_.data('dummy', dummyId);
+// 				this_.data('dummy', dummyId);
 
-				// Set events
+// 				// Set events
 
-				function updateDummy() { $(dummyId).height(this_.outerHeight(true)); };
+// 				function updateDummy() { $(dummyId).height(this_.outerHeight(true)); };
 
-				if (settings.updateRate > 0) {
-					function update() {
-						updateDummy();
-						setTimeout(update, settings.updateRate);
-					}
-					update();
-				}
-				else if (settings.updateOnResize) {
-					$(window).resize(updateDummy);
-				}
-			} // if
-		});
-	}
-})(jQuery);
+// 				if (settings.updateRate > 0) {
+// 					function update() {
+// 						updateDummy();
+// 						setTimeout(update, settings.updateRate);
+// 					}
+// 					update();
+// 				}
+// 				else if (settings.updateOnResize) {
+// 					$(window).resize(updateDummy);
+// 				}
+// 			} // if
+// 		});
+// 	}
+// })(jQuery);
 
-$(document).ready(function() {
+// $(document).ready(function() {
 
-	var $doc = $(document);
-	var $body = $('html, body');
-	var $goPageTop = $('#go-page-top');
-	var fontSize = parseInt($('body').css('font-size'));
+// 	var $doc = $(document);
+// 	var $body = $('html, body');
+// 	var $goPageTop = $('#go-page-top');
+// 	var fontSize = parseInt($('body').css('font-size'));
 
-	// Main nav click scroll
-	$('#main-nav > ul > li > a').each(function() {
-		var id = $(this).attr('href');
-		$(this).on('click', function(e) {
-			history.replaceState(null, '', id);
-			var offset = $(id).offset().top - 2*fontSize - $('#main-nav ul').height();
-			e.preventDefault();
-			$body.stop();
-			$body.animate({scrollTop: offset});
-		});
-	});
-	if (window.location.hash) {
-		$('#main-nav > ul > li > a[href="' + window.location.hash + '"]').trigger('click');
-	}
-	// Main nav toggle
-	$('#main-nav-wrapper').addClass('main-nav-wrapper--hide-nav');
-	$('#main-nav__toggle').click(function() {
-		$('#main-nav-wrapper').toggleClass('main-nav-wrapper--hide-nav');
-	});
+// 	// Main nav click scroll
+// 	$('#main-nav > ul > li > a').each(function() {
+// 		var id = $(this).attr('href');
+// 		$(this).on('click', function(e) {
+// 			history.replaceState(null, '', id);
+// 			var offset = $(id).offset().top - 2*fontSize - $('#main-nav ul').height();
+// 			e.preventDefault();
+// 			$body.stop();
+// 			$body.animate({scrollTop: offset});
+// 		});
+// 	});
+// 	if (window.location.hash) {
+// 		$('#main-nav > ul > li > a[href="' + window.location.hash + '"]').trigger('click');
+// 	}
+// 	// Main nav toggle
+// 	$('#main-nav-wrapper').addClass('main-nav-wrapper--hide-nav');
+// 	$('#main-nav__toggle').click(function() {
+// 		$('#main-nav-wrapper').toggleClass('main-nav-wrapper--hide-nav');
+// 	});
 
-	// Scroll events
-	$('#main-nav-wrapper').scrollCall(
-		function() {
-			// Nav bar
-			this.removeClass('main-nav-wrapper--fixed');
-			this.css('height', 'auto');
-			// Go top
-			$goPageTop.addClass('go-page-top--hide');
-			// Remove dummy
-			var $dummy = $($('#main-nav-wrapper').data('dummy'));
-			$dummy.remove();
-			this.removeData('dummy');
-		},
-		function() {
-			// Add dummy
-			this.dummy({ updateOnResize: true });
-			// Nav bar
-			this.addClass('main-nav-wrapper--fixed');
-			this.css('height', $('#main-nav').outerHeight());
-			// Go top
-			$goPageTop.removeClass('go-page-top--hide');
-		}
-	);
-	$(window).resize(function() {
-		var $navWrapper = $('#main-nav-wrapper');
-		if ($navWrapper.hasClass('main-nav-wrapper--fixed')) $navWrapper.height($('#main-nav').outerHeight());
-		else $navWrapper.height('auto');
-	});
+// 	// Scroll events
+// 	$('#main-nav-wrapper').scrollCall(
+// 		function() {
+// 			// Nav bar
+// 			this.removeClass('main-nav-wrapper--fixed');
+// 			this.css('height', 'auto');
+// 			// Go top
+// 			$goPageTop.addClass('go-page-top--hide');
+// 			// Remove dummy
+// 			var $dummy = $($('#main-nav-wrapper').data('dummy'));
+// 			$dummy.remove();
+// 			this.removeData('dummy');
+// 		},
+// 		function() {
+// 			// Add dummy
+// 			this.dummy({ updateOnResize: true });
+// 			// Nav bar
+// 			this.addClass('main-nav-wrapper--fixed');
+// 			this.css('height', $('#main-nav').outerHeight());
+// 			// Go top
+// 			$goPageTop.removeClass('go-page-top--hide');
+// 		}
+// 	);
+// 	$(window).resize(function() {
+// 		var $navWrapper = $('#main-nav-wrapper');
+// 		if ($navWrapper.hasClass('main-nav-wrapper--fixed')) $navWrapper.height($('#main-nav').outerHeight());
+// 		else $navWrapper.height('auto');
+// 	});
 
-	// When #go-page-top is clicked go back top
-	$goPageTop.click(function(e) {
-		e.preventDefault();
-		history.replaceState(null, '', window.location.origin);
-		$body.animate({ scrollTop: 0});
-	});
+// 	// When #go-page-top is clicked go back top
+// 	$goPageTop.click(function(e) {
+// 		e.preventDefault();
+// 		history.replaceState(null, '', window.location.origin);
+// 		$body.animate({ scrollTop: 0});
+// 	});
 
-	// Message notification
-	var $message = $('#message');
-	$message.addClass('message--fixed');
-	$message.delay(4000).fadeOut();
+// 	// Message notification
+// 	var $message = $('#message');
+// 	$message.addClass('message--fixed');
+// 	$message.delay(4000).fadeOut();
 
-	// Tagline typing
-	var taglineMessages = _.map($('ul#tagline__messages > li'), function(obj) { return $(obj).text() });
-	$('#tagline').type({ sentences: taglineMessages });
+// 	// Tagline typing
+// 	var taglineMessages = _.map($('ul#tagline__messages > li'), function(obj) { return $(obj).text() });
+// 	$('#tagline').type({ sentences: taglineMessages });
 
-});
+// });

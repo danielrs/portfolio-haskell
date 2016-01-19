@@ -17,27 +17,16 @@ h2
 }
 
 h1,
-h2
-{
-  font-family : "Roboto Slab", serif;
-  margin      : 0px 0px 1.5em 0px;
-}
-
+h2,
 h3,
 h4
 {
-  font-family : "Open Sans", sans-serif;
-  margin      : 0px 0px 1.5em 0px;
+  margin : 0px 0px 1.5em 0px;
 }
 
 h4
 {
   color : rgb(133,133,133);
-}
-
-h4.black-section
-{
-  color : rgb(216,216,216);
 }
 
 h5,
@@ -64,7 +53,6 @@ strong
 
 a
 {
-  font-family        : "Roboto Slab", serif;
   color              : rgb(133,133,133);
   -webkit-transition : color 125.0ms linear 0.0ms;
   -moz-transition    : color 125.0ms linear 0.0ms;
@@ -107,32 +95,6 @@ ul li
   list-style-position : none;
 }
 
-
-.black-section h4
-{
-  color : rgb(165,165,165);
-}
-
-.black-section a
-{
-  color : rgb(216,216,216);
-}
-
-.black-section a:visited
-{
-  color : rgb(216,216,216);
-}
-
-.black-section a:hover
-{
-  color : rgb(248,248,248);
-}
-
-.black-section a:active
-{
-  color : rgb(248,248,248);
-}
-
 #message
 {
   text-align : center;
@@ -143,7 +105,7 @@ ul li
   display          : inline-block;
   padding          : 0.5em 1em 0.5em 1em;
   font-weight      : bold;
-  color            : rgb(248,248,248);
+  color            : rgb(252,252,252);
   background-color : rgb(165,165,165);
   border-radius    : 0.125em 0.125em 0.125em 0.125em;
 }
@@ -187,7 +149,7 @@ input[type='button']:hover,
 input[type='submit']:hover,
 button:hover
 {
-  background-color : rgb(248,248,248);
+  background-color : rgb(252,252,252);
 }
 
 input[type='button']:active,
@@ -210,7 +172,7 @@ textarea
   padding            : 1em 1em 1em 1em;
   font-size          : 1em;
   border             : solid 1px rgb(216,216,216);
-  background-color   : rgb(248,248,248);
+  background-color   : rgb(252,252,252);
   -webkit-transition : border-color 75.0ms linear 0.0s;
   -moz-transition    : border-color 75.0ms linear 0.0s;
   -ms-transition     : border-color 75.0ms linear 0.0s;
@@ -230,7 +192,7 @@ textarea
   font-family : "Open Sans", sans-serif;
 }
 
-header
+#header
 {
   padding    : 2rem 2rem 0% 2rem;
   text-align : center;
@@ -443,7 +405,7 @@ header
   border              : solid 0.75em rgba(0,0,0,0.0000);
   border-left-width   : 1em;
   border-right-width  : 1em;
-  border-bottom-color : rgb(248,248,248);
+  border-bottom-color : rgb(252,252,252);
   border-radius       : 0.125em 0.125em 0.125em 0.125em;
 }
 
@@ -458,7 +420,7 @@ header
 
 #main-nav-wrapper.main-nav-wrapper--fixed #main-nav
 {
-  background-color : rgb(248,248,248);
+  background-color : rgb(252,252,252);
   border-bottom    : solid 1px rgb(216,216,216);
 }
 
@@ -489,14 +451,14 @@ header
 {
   top                 : 0.5em;
   border-bottom-color : rgba(0,0,0,0.0000);
-  border-top-color    : rgb(248,248,248);
+  border-top-color    : rgb(252,252,252);
 }
 
 }
 html,
 body
 {
-  background-color : rgb(248,248,248);
+  background-color : rgb(252,252,252);
 }
 
 body
@@ -532,7 +494,7 @@ section.main-section > :last-child
   padding            : 0.5em 1em 0.5em 1em;
   bottom             : 0px;
   right              : 0px;
-  color              : rgb(248,248,248);
+  color              : rgb(252,252,252);
   font-weight        : bold;
   text-decoration    : none;
   background-color   : rgb(165,165,165);
@@ -802,7 +764,7 @@ ul#toolset li:nth-child(4n + 1)
 {
   padding            : 0.25em 0.25em 0.25em 0.25em;
   border-radius      : 0.125em 0.125em 0.125em 0.125em;
-  color              : rgb(248,248,248);
+  color              : rgb(252,252,252);
   font-weight        : bold;
   text-decoration    : none;
   background-color   : rgb(165,165,165);
@@ -818,7 +780,7 @@ ul#toolset li:nth-child(4n + 1)
   background-color : rgb(133,133,133);
 }
 
-@media screen and (min-width: 480px) and (max-width: 1023px)
+@media screen and (min-width: 480px)
 {
 #experiment-list > li.experiment
 {
@@ -844,37 +806,6 @@ ul#toolset li:nth-child(4n + 1)
 }
 
 #experiment-list > li.experiment:nth-child(2n + 1)
-{
-  clear : left;
-}
-
-}
-@media screen and (min-width: 1024px)
-{
-#experiment-list > li.experiment
-{
-  display            : block;
-  -webkit-box-sizing : border-box;
-  -moz-box-sizing    : border-box;
-  -ms-box-sizing     : border-box;
-  -o-box-sizing      : border-box;
-  box-sizing         : border-box;
-  width              : 30.66666%;
-  margin-right       : 4%;
-  float              : left;
-}
-
-#experiment-list > li.experiment:last-child
-{
-  margin-right : 0px;
-}
-
-#experiment-list > li.experiment:nth-child(3n)
-{
-  margin-right : 0px;
-}
-
-#experiment-list > li.experiment:nth-child(3n + 1)
 {
   clear : left;
 }
