@@ -61,3 +61,13 @@ exports.smoothScroll = function(speed) {
 		}
 	}
 }
+
+exports.listToArray = function(ob) {
+	return function() {
+		var arr = [];
+		ob.each(function() {
+			arr.push($(this).text());
+		});
+		return arr;
+	}
+}

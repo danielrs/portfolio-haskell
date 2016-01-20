@@ -572,6 +572,16 @@ var PS = { };
 		  }
 	  }
   }
+
+  exports.listToArray = function(ob) {
+	  return function() {
+		  var arr = [];
+		  ob.each(function() {
+			  arr.push($(this).text());
+		  });
+		  return arr;
+	  }
+  }
  
 })(PS["UI.Import"] = PS["UI.Import"] || {});
 (function(exports) {
@@ -641,7 +651,7 @@ var PS = { };
                                   if (!_18) {
                                       return after;
                                   };
-                                  throw new Error("Failed pattern match at UI.Import line 40, column 17 - line 46, column 9: " + [ _18.constructor.name ]);
+                                  throw new Error("Failed pattern match at UI.Import line 41, column 17 - line 47, column 9: " + [ _18.constructor.name ]);
                               })()();
                           };
                           return function __do() {
@@ -658,6 +668,7 @@ var PS = { };
   exports["mirrorHeight"] = mirrorHeight;
   exports["onScrollCheckpoint"] = onScrollCheckpoint;
   exports["eventThrottled"] = eventThrottled;
+  exports["listToArray"] = $foreign.listToArray;
   exports["smoothScroll"] = $foreign.smoothScroll;
   exports["getAttr"] = $foreign.getAttr;
   exports["height"] = $foreign.height;
@@ -764,20 +775,21 @@ var PS = { };
   var Control_Monad_Eff = PS["Control.Monad.Eff"];
   var Control_Monad_Eff_JQuery = PS["Control.Monad.Eff.JQuery"];
   var DOM = PS["DOM"];
-  var Control_Monad_Eff_JQuery_Typing = PS["Control.Monad.Eff.JQuery.Typing"];     
-  var sentences = [ "I'm a programmer", "Hello", "I'm Daniel", "I'm Daniel, and..", "I'm a programmer" ];
+  var Control_Monad_Eff_JQuery_Typing = PS["Control.Monad.Eff.JQuery.Typing"];
+  var UI_Import = PS["UI.Import"];     
   var main = function __do() {
-      var _0 = Control_Monad_Eff_JQuery.select("#tagline")();
+      var _1 = Control_Monad_Eff_JQuery.select("#tagline")();
+      var _0 = Prelude[">>="](Control_Monad_Eff.bindEff)(Control_Monad_Eff_JQuery.select("#tagline-messages li"))(UI_Import.listToArray)();
       Control_Monad_Eff_JQuery_Typing.typing((function () {
-          var _2 = {};
-          for (var _3 in Control_Monad_Eff_JQuery_Typing.defaultTypingSettings) {
-              if (Control_Monad_Eff_JQuery_Typing.defaultTypingSettings.hasOwnProperty(_3)) {
-                  _2[_3] = Control_Monad_Eff_JQuery_Typing.defaultTypingSettings[_3];
+          var _4 = {};
+          for (var _5 in Control_Monad_Eff_JQuery_Typing.defaultTypingSettings) {
+              if (Control_Monad_Eff_JQuery_Typing.defaultTypingSettings.hasOwnProperty(_5)) {
+                  _4[_5] = Control_Monad_Eff_JQuery_Typing.defaultTypingSettings[_5];
               };
           };
-          _2.sentences = sentences;
-          return _2;
-      })())(_0)();
+          _4.sentences = _0;
+          return _4;
+      })())(_1)();
       return Prelude["return"](Control_Monad_Eff.applicativeEff)(Prelude.unit)();
   };
   exports["main"] = main;;

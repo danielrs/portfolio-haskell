@@ -55,7 +55,7 @@ taglineStyle = do
     fontWeight normal
     marginBottom (em 0.125)
     color colorGray
-  "#tagline__messages" ? do
+  "#tagline-messages" ? do
     display none
 
 socialStyle :: Css

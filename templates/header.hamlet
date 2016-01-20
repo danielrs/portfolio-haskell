@@ -9,7 +9,7 @@
       <a href=@{HomeR}>Daniel Rivas
 
     <h2 #tagline>_{MsgTagline0}
-    <ul #tagline__messages>
+    <ul #tagline-messages>
       <li>_{MsgTagline1}
       <li>_{MsgTagline2}
       <li>_{MsgTagline3}

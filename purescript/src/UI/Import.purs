@@ -22,15 +22,16 @@ eventThrottled :: forall eff a.
 eventThrottled callback _ _ = callback >>= \_ -> return unit
 
 type Offset = {top :: Int, left :: Int}
-foreign import createEl		 :: forall attr eff. String -> { | attr } -> Eff (dom :: DOM | eff) JQuery
-foreign import window      :: forall eff. Eff (dom :: DOM | eff) JQuery
-foreign import document    :: forall eff. Eff (dom :: DOM | eff) JQuery
-foreign import offset      :: forall eff. JQuery -> Eff (dom :: DOM | eff) Offset
-foreign import scrollTop   :: forall eff. JQuery -> Eff (dom :: DOM | eff) Int
-foreign import height 		 :: forall eff. JQuery -> Eff (dom :: DOM | eff) Int
-foreign import outerHeight :: forall eff. Boolean -> JQuery -> Eff (dom :: DOM | eff) Int
-foreign import getAttr 		 :: forall eff. String -> JQuery -> Eff (dom :: DOM | eff) Foreign
+foreign import createEl     :: forall attr eff. String -> { | attr } -> Eff (dom :: DOM | eff) JQuery
+foreign import window       :: forall eff. Eff (dom :: DOM | eff) JQuery
+foreign import document     :: forall eff. Eff (dom :: DOM | eff) JQuery
+foreign import offset       :: forall eff. JQuery -> Eff (dom :: DOM | eff) Offset
+foreign import scrollTop    :: forall eff. JQuery -> Eff (dom :: DOM | eff) Int
+foreign import height       :: forall eff. JQuery -> Eff (dom :: DOM | eff) Int
+foreign import outerHeight  :: forall eff. Boolean -> JQuery -> Eff (dom :: DOM | eff) Int
+foreign import getAttr      :: forall eff. String -> JQuery -> Eff (dom :: DOM | eff) Foreign
 foreign import smoothScroll :: forall eff. Int -> Int -> JQuery -> Eff (dom :: DOM | eff) JQuery
+foreign import listToArray  :: forall eff. JQuery -> Eff (dom :: DOM | eff) (Array String)
 
 onScrollCheckpoint ::
 	forall a eff. Int -> Callback eff a -> Callback eff a -> JQuery -> Eff (dom :: DOM | eff) JQuery

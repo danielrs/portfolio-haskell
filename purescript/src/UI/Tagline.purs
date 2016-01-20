@@ -6,12 +6,11 @@ import Control.Monad.Eff.JQuery (select)
 import DOM(DOM())
 
 import Control.Monad.Eff.JQuery.Typing
-
-sentences :: Array String
-sentences = ["I'm a programmer", "Hello", "I'm Daniel", "I'm Daniel, and..", "I'm a programmer"]
+import UI.Import
 
 main :: forall eff. Eff (dom :: DOM | eff) Unit
 main = do
 	tagline <- select "#tagline"
+ 	sentences <- select "#tagline-messages li" >>= listToArray
 	typing (defaultTypingSettings {sentences = sentences}) tagline
  	return unit
