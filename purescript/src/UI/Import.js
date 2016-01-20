@@ -30,10 +30,34 @@ exports.scrollTop = function(ob) {
 	}
 }
 
+exports.height = function(ob) {
+	return function() {
+		return ob.height();
+	}
+}
+
 exports.outerHeight = function(includeMargin) {
 	return function(ob) {
 		return function() {
 			return ob.outerHeight(includeMargin);
+		}
+	}
+}
+
+exports.getAttr = function(attr) {
+	return function(ob) {
+		return function() {
+			return ob.attr(attr);
+		}
+	}
+}
+
+exports.smoothScroll = function(speed) {
+	return function(top) {
+		return function(ob) {
+			return function() {
+				return ob.animate({ scrollTop: top }, speed);
+			}
 		}
 	}
 }

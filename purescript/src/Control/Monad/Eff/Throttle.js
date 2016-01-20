@@ -12,21 +12,6 @@ exports.debounceImpl = function(ms, fn) {
 	}
 }
 
-exports.debounceMaybeImpl = function(nothing, just, ms, fn) {
-	var last = Date.now();
-	return function() {
-		const now = Date.now();
-		if (now >= last + ms) {
-			last = now;
-			return just(fn);
-		}
-		else {
-			last = now;
-			return nothing;
-		}
-	}
-}
-
 exports.throttleImpl = function(ms, fn) {
 	var last = Date.now(),
 			timeout = undefined;
@@ -42,20 +27,6 @@ exports.throttleImpl = function(ms, fn) {
 		else {
 			last = now;
 			fn(arguments);
-		}
-	}
-}
-
-exports.throttleMaybeImpl = function(nothing, just, ms, fn) {
-	var	last = Date.now();
-	return function() {
-		const now = Date.now();
-		if (now >= last + ms) {
-			last = now;
-			return just(fn);
-		}
-		else {
-			return nothing;
 		}
 	}
 }
