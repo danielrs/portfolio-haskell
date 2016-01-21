@@ -30,7 +30,8 @@ foreign import scrollTop    :: forall eff. JQuery -> Eff (dom :: DOM | eff) Int
 foreign import height       :: forall eff. JQuery -> Eff (dom :: DOM | eff) Int
 foreign import outerHeight  :: forall eff. Boolean -> JQuery -> Eff (dom :: DOM | eff) Int
 foreign import getAttr      :: forall eff. String -> JQuery -> Eff (dom :: DOM | eff) Foreign
-foreign import smoothScroll :: forall eff. Int -> Int -> JQuery -> Eff (dom :: DOM | eff) JQuery
+foreign import animate 			:: forall prop eff. { | prop } -> Int -> JQuery -> Eff (dom :: DOM | eff) JQuery
+foreign import animateStop  :: forall eff. JQuery -> Eff (dom :: DOM | eff) JQuery
 foreign import listToArray  :: forall eff. JQuery -> Eff (dom :: DOM | eff) (Array String)
 
 onScrollCheckpoint ::

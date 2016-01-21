@@ -297,7 +297,8 @@ textarea
 
 #main-nav-wrapper
 {
-  zoom : 1;
+  zoom   : 1;
+  margin : 0px 0px 4em 0px;
 }
 
 #main-nav-wrapper:before
@@ -317,13 +318,13 @@ textarea
 {
   position           : relative;
   top                : 0%;
-  margin             : 0px 0px 4em 0px;
+  margin             : 0px 0px 0px 0px;
   background-color   : rgba(0,0,0,0.0000);
-  -webkit-transition : background-color 125.0ms linear 0.0ms,top 125.0ms linear 0.0ms;
-  -moz-transition    : background-color 125.0ms linear 0.0ms,top 125.0ms linear 0.0ms;
-  -ms-transition     : background-color 125.0ms linear 0.0ms,top 125.0ms linear 0.0ms;
-  -o-transition      : background-color 125.0ms linear 0.0ms,top 125.0ms linear 0.0ms;
-  transition         : background-color 125.0ms linear 0.0ms,top 125.0ms linear 0.0ms;
+  -webkit-transition : top 125.0ms linear 0.0ms;
+  -moz-transition    : top 125.0ms linear 0.0ms;
+  -ms-transition     : top 125.0ms linear 0.0ms;
+  -o-transition      : top 125.0ms linear 0.0ms;
+  transition         : top 125.0ms linear 0.0ms;
 }
 
 #main-nav-wrapper #main-nav ul

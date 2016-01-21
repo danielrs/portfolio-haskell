@@ -79,15 +79,13 @@ navbarStyle = do
   -- NORMAL
   "#main-nav-wrapper" ? do
     clearfix -- prevent margin collapse
+    margin 0 0 (em 4) 0
     "#main-nav" ? do
       position relative
       top (pct 0)
-      margin 0 0 (em 4) 0
+      margin (px 0) 0 0 0
       backgroundColor $ rgba 0 0 0 0
-      transitions
-        [ ("background-color", ms 125, linear, ms 0)
-        , ("top", ms 125, linear, ms 0)]
-
+      transition "top" (ms 125) linear (ms 0)
       ul ? do
         display inlineBlock
         margin (px 0) 0 0 0

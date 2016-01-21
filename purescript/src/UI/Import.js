@@ -52,13 +52,19 @@ exports.getAttr = function(attr) {
 	}
 }
 
-exports.smoothScroll = function(speed) {
-	return function(top) {
+exports.animate = function(prop) {
+	return function(speed) {
 		return function(ob) {
 			return function() {
-				return ob.animate({ scrollTop: top }, speed);
+				return ob.animate(prop, speed);
 			}
 		}
+	}
+}
+
+exports.animateStop = function(ob) {
+	return function() {
+		return ob.stop();
 	}
 }
 

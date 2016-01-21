@@ -403,6 +403,7 @@ var PS = { };
   exports["preventDefault"] = $foreign.preventDefault;
   exports["on"] = $foreign.on;
   exports["before"] = $foreign.before;
+  exports["toggleClass"] = $foreign.toggleClass;
   exports["css"] = $foreign.css;
   exports["select"] = $foreign.select;
   exports["ready"] = $foreign.ready;;
@@ -563,13 +564,19 @@ var PS = { };
 	  }
   }
 
-  exports.smoothScroll = function(speed) {
-	  return function(top) {
+  exports.animate = function(prop) {
+	  return function(speed) {
 		  return function(ob) {
 			  return function() {
-				  return ob.animate({ scrollTop: top }, speed);
+				  return ob.animate(prop, speed);
 			  }
 		  }
+	  }
+  }
+
+  exports.animateStop = function(ob) {
+	  return function() {
+		  return ob.stop();
 	  }
   }
 
@@ -651,7 +658,7 @@ var PS = { };
                                   if (!_18) {
                                       return after;
                                   };
-                                  throw new Error("Failed pattern match at UI.Import line 41, column 17 - line 47, column 9: " + [ _18.constructor.name ]);
+                                  throw new Error("Failed pattern match at UI.Import line 42, column 17 - line 48, column 9: " + [ _18.constructor.name ]);
                               })()();
                           };
                           return function __do() {
@@ -669,11 +676,13 @@ var PS = { };
   exports["onScrollCheckpoint"] = onScrollCheckpoint;
   exports["eventThrottled"] = eventThrottled;
   exports["listToArray"] = $foreign.listToArray;
-  exports["smoothScroll"] = $foreign.smoothScroll;
+  exports["animateStop"] = $foreign.animateStop;
+  exports["animate"] = $foreign.animate;
   exports["getAttr"] = $foreign.getAttr;
   exports["height"] = $foreign.height;
   exports["offset"] = $foreign.offset;
   exports["document"] = $foreign.document;
+  exports["window"] = $foreign.window;
   exports["createEl"] = $foreign.createEl;;
  
 })(PS["UI.Import"] = PS["UI.Import"] || {});
@@ -688,74 +697,97 @@ var PS = { };
   var Data_Either = PS["Data.Either"];
   var DOM = PS["DOM"];
   var DOM_Timer = PS["DOM.Timer"];
+  var Control_Monad_Eff_Throttle = PS["Control.Monad.Eff.Throttle"];
   var UI_Import = PS["UI.Import"];     
   var smoothScrollMain = function __do() {
-      var _12 = Control_Monad_Eff_JQuery.select("html")();
-      var _11 = Control_Monad_Eff_JQuery.select("#main-nav")();
-      var _10 = Control_Monad_Eff_JQuery.select("#main-nav ul li a, #go-page-top")();
+      var _15 = Control_Monad_Eff_JQuery.select("html, body")();
+      var _14 = Control_Monad_Eff_JQuery.select("#main-nav")();
+      var _13 = Control_Monad_Eff_JQuery.select("#main-nav ul li a, #go-page-top")();
       return (function () {
           var clicked = function (event) {
               return function (link) {
                   return function __do() {
-                      var _9 = UI_Import.getAttr("href")(link)();
+                      var _12 = UI_Import.getAttr("href")(link)();
                       return (function () {
-                          var _17 = Data_Foreign.readString(_9);
-                          if (_17 instanceof Data_Either.Left) {
+                          var _22 = Data_Foreign.readString(_12);
+                          if (_22 instanceof Data_Either.Left) {
                               return Prelude["return"](Control_Monad_Eff.applicativeEff)(Prelude.unit);
                           };
-                          if (_17 instanceof Data_Either.Right) {
+                          if (_22 instanceof Data_Either.Right) {
                               return function __do() {
                                   Control_Monad_Eff_JQuery.preventDefault(event)();
-                                  var _8 = UI_Import.height(_11)();
-                                  var _7 = Prelude[">>="](Control_Monad_Eff.bindEff)(Control_Monad_Eff_JQuery.select(_17.value0))(UI_Import.offset)();
-                                  UI_Import.smoothScroll(250)(_7.top - _8 - 16)(_12)();
+                                  var _11 = UI_Import.height(_14)();
+                                  var _10 = Prelude[">>="](Control_Monad_Eff.bindEff)(Control_Monad_Eff_JQuery.select(_22.value0))(UI_Import.offset)();
+                                  Prelude[">>="](Control_Monad_Eff.bindEff)(UI_Import.animateStop(_15))(UI_Import.animate({
+                                      scrollTop: _10.top - _11 - 16
+                                  })(250))();
                                   return Prelude["return"](Control_Monad_Eff.applicativeEff)(Prelude.unit)();
                               };
                           };
-                          throw new Error("Failed pattern match at UI.Navigation line 64, column 13 - line 75, column 9: " + [ _17.constructor.name ]);
+                          throw new Error("Failed pattern match at UI.Navigation line 77, column 13 - line 88, column 9: " + [ _22.constructor.name ]);
                       })()();
                   };
               };
           };
           return function __do() {
-              Control_Monad_Eff_JQuery.on("click")(clicked)(_10)();
+              Control_Monad_Eff_JQuery.on("click")(clicked)(_13)();
               return Prelude["return"](Control_Monad_Eff.applicativeEff)(Prelude.unit)();
           };
       })()();
   };
   var navbarMain = function __do() {
-      var _4 = UI_Import.document();
-      var _3 = Control_Monad_Eff_JQuery.select("#main-nav-wrapper")();
-      var _2 = Control_Monad_Eff_JQuery.select("#main-nav")();
-      var _1 = UI_Import.createEl("div")({
+      var _7 = UI_Import.window();
+      var _6 = UI_Import.document();
+      var _5 = Control_Monad_Eff_JQuery.select("#main-nav-wrapper")();
+      var _4 = Control_Monad_Eff_JQuery.select("#main-nav")();
+      var _3 = Control_Monad_Eff_JQuery.select("#main-nav__toggle")();
+      var _2 = UI_Import.createEl("div")({
           id: "main-nav-checkpoint"
       })();
-      Control_Monad_Eff_JQuery.before(_1)(_3)();
-      var _0 = UI_Import.mirrorHeight(75)(_3)();
-      Control_Monad_Eff_JQuery.before(_0)(_3)();
-      var scrolledBefore = function __do() {
-          Control_Monad_Eff_JQuery.removeClass("main-nav-wrapper--fixed")(_3)();
+      Control_Monad_Eff_JQuery.before(_2)(_5)();
+      var _1 = UI_Import.mirrorHeight(75)(_5)();
+      Control_Monad_Eff_JQuery.before(_1)(_5)();
+      var updateHeight = function __do() {
+          var _0 = UI_Import.height(_4)();
           return Control_Monad_Eff_JQuery.css({
+              height: _0
+          })(_5)();
+      };
+      var toggled = function (_16) {
+          return function (_17) {
+              return function __do() {
+                  Control_Monad_Eff_JQuery.toggleClass("main-nav-wrapper--hide-nav")(_5)();
+                  return updateHeight();
+              };
+          };
+      };
+      var scrolledBefore = function __do() {
+          Control_Monad_Eff_JQuery.removeClass("main-nav-wrapper--fixed")(_5)();
+          Control_Monad_Eff_JQuery.css({
               display: "none"
-          })(_0)();
+          })(_1)();
+          return updateHeight();
       };
       var scrolledAfter = function __do() {
-          Control_Monad_Eff_JQuery.addClass("main-nav-wrapper--fixed")(_3)();
-          return Control_Monad_Eff_JQuery.css({
+          Control_Monad_Eff_JQuery.addClass("main-nav-wrapper--fixed")(_5)();
+          Control_Monad_Eff_JQuery.css({
               display: "block"
-          })(_0)();
+          })(_1)();
+          return updateHeight();
       };
-      UI_Import.onScrollCheckpoint(75)(scrolledBefore)(scrolledAfter)(_1)();
+      UI_Import.onScrollCheckpoint(75)(scrolledBefore)(scrolledAfter)(_2)();
+      Control_Monad_Eff_JQuery.on("click")(toggled)(_3)();
+      Control_Monad_Eff_JQuery.on("resize")(UI_Import.eventThrottled(Control_Monad_Eff_Throttle.throttle(75)(updateHeight)))(_7)();
       return Prelude["return"](Control_Monad_Eff.applicativeEff)(Prelude.unit)();
   };
   var goTopMain = function __do() {
-      var _6 = Control_Monad_Eff_JQuery.select("#go-page-top")();
-      var _5 = Control_Monad_Eff_JQuery.select("#main-nav-checkpoint")();
+      var _9 = Control_Monad_Eff_JQuery.select("#go-page-top")();
+      var _8 = Control_Monad_Eff_JQuery.select("#main-nav-checkpoint")();
       return (function () {
-          var scrolledBefore = Control_Monad_Eff_JQuery.addClass("go-page-top--hide")(_6);
-          var scrolledAfter = Control_Monad_Eff_JQuery.removeClass("go-page-top--hide")(_6);
+          var scrolledBefore = Control_Monad_Eff_JQuery.addClass("go-page-top--hide")(_9);
+          var scrolledAfter = Control_Monad_Eff_JQuery.removeClass("go-page-top--hide")(_9);
           return function __do() {
-              UI_Import.onScrollCheckpoint(75)(scrolledBefore)(scrolledAfter)(_5)();
+              UI_Import.onScrollCheckpoint(75)(scrolledBefore)(scrolledAfter)(_8)();
               return Prelude["return"](Control_Monad_Eff.applicativeEff)(Prelude.unit)();
           };
       })()();
