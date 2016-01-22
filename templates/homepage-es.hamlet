@@ -72,7 +72,7 @@
       <li .experiment>
         <article>
           <h4>Portfolio website
-          <p>Éste sitio es un experimento! Y fue hecho con Haskell y programación funcional
+          <p>Éste sitio es un experimento! Fue hecho con programación funcional en mente.
           <ul .experiment-tags>
             <li>
               <a target="_blank" href="https://www.haskell.org/">Haskell
@@ -80,6 +80,8 @@
               <a target="_blank" href="http://www.yesodweb.com/">Yesod
             <li>
               <a target="_blank" href="http://fvisser.nl/clay/">Clay
+            <li>
+              <a target="_blank" href="http://www.purescript.org/">Purescript
           <span .experiment-link>
             <a href="https://github.com/DanielRS/portfolio" .view-on-github>_{MsgViewOnGithub}
 

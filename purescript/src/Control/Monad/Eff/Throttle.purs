@@ -2,7 +2,6 @@ module Control.Monad.Eff.Throttle where
 
 import Prelude (Unit())
 import Control.Monad.Eff (Eff())
-import Data.Maybe
 import Data.Function
 
 foreign import debounceImpl      :: forall eff a. Fn2 Int (Eff ( | eff) a) (Eff ( | eff) Unit)

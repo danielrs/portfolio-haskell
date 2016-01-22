@@ -133,11 +133,12 @@ input[type='submit'],
 button
 {
   padding            : 0.29999em 0.5em 0.29999em 0.5em;
-  font-size          : 1em;
   border             : solid 1px rgb(165,165,165);
   border-radius      : 0.125em 0.125em 0.125em 0.125em;
+  font-size          : 0.9em;
+  text-transform     : uppercase;
   color              : rgb(133,133,133);
-  background-color   : rgb(216,216,216);
+  background-color   : rgba(0,0,0,0.0000);
   -webkit-transition : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
   -moz-transition    : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
   -ms-transition     : background-color 125.0ms linear 0.0s,color 125.0ms linear 0.0s,border-color 125.0ms linear 0.0s;
@@ -149,14 +150,16 @@ input[type='button']:hover,
 input[type='submit']:hover,
 button:hover
 {
-  background-color : rgb(252,252,252);
+  color            : rgb(252,252,252);
+  background-color : rgb(165,165,165);
 }
 
 input[type='button']:active,
 input[type='submit']:active,
 button:active
 {
-  background-color : rgb(216,216,216);
+  color            : rgb(252,252,252);
+  background-color : rgb(133,133,133);
 }
 
 select
@@ -491,14 +494,19 @@ section.main-section > :last-child
 
 #go-page-top
 {
+  color              : rgb(252,252,252);
+  background-color   : rgb(165,165,165);
+  -webkit-transition : background-color 125.0ms linear 0.0ms;
+  -moz-transition    : background-color 125.0ms linear 0.0ms;
+  -ms-transition     : background-color 125.0ms linear 0.0ms;
+  -o-transition      : background-color 125.0ms linear 0.0ms;
+  transition         : background-color 125.0ms linear 0.0ms;
   position           : fixed;
   padding            : 0.5em 1em 0.5em 1em;
   bottom             : 0px;
   right              : 0px;
-  color              : rgb(252,252,252);
   font-weight        : bold;
   text-decoration    : none;
-  background-color   : rgb(165,165,165);
   border-radius      : 0.125em 0px 0px 0px;
   -webkit-transition : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
   -moz-transition    : background-color 125.0ms linear 0.0ms,right 250.0ms linear 0.0ms;
@@ -576,7 +584,7 @@ ul#toolset li
   margin : 2em auto 2em auto;
 }
 
-@media screen and (min-width: 768px)
+@media screen and (min-width: 480px)
 {
 ul#toolset li
 {
@@ -584,7 +592,7 @@ ul#toolset li
 }
 
 }
-@media screen and (min-width: 768px) and (max-width: 1023px)
+@media screen and (min-width: 480px) and (max-width: 767px)
 {
 ul#toolset li
 {
@@ -595,27 +603,23 @@ ul#toolset li
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   width              : 47%;
-  margin-right       : 6%;
   float              : left;
+  margin-left        : 6%;
 }
 
-ul#toolset li:last-child
+ul#toolset li:first-child
 {
-  margin-right : 0px;
-}
-
-ul#toolset li:nth-child(2n)
-{
-  margin-right : 0px;
+  margin-left : 0%;
 }
 
 ul#toolset li:nth-child(2n + 1)
 {
-  clear : left;
+  margin-left : 0%;
+  clear       : left;
 }
 
 }
-@media screen and (min-width: 1024px)
+@media screen and (min-width: 768px)
 {
 ul#toolset li
 {
@@ -626,23 +630,19 @@ ul#toolset li
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   width              : 22.75%;
-  margin-right       : 3%;
   float              : left;
+  margin-left        : 3%;
 }
 
-ul#toolset li:last-child
+ul#toolset li:first-child
 {
-  margin-right : 0px;
-}
-
-ul#toolset li:nth-child(4n)
-{
-  margin-right : 0px;
+  margin-left : 0%;
 }
 
 ul#toolset li:nth-child(4n + 1)
 {
-  clear : left;
+  margin-left : 0%;
+  clear       : left;
 }
 
 }
@@ -684,14 +684,14 @@ ul#toolset li:nth-child(4n + 1)
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   width              : 47%;
-  margin-right       : 6%;
   float              : left;
+  margin-left        : 6%;
 }
 
-#skills__columns #skills__professional:last-child,
-#skills__columns #skills__personal:last-child
+#skills__columns #skills__professional:first-child,
+#skills__columns #skills__personal:first-child
 {
-  margin-right : 0px;
+  margin-left : 0%;
 }
 
 }
@@ -749,6 +749,11 @@ ul#toolset li:nth-child(4n + 1)
   margin : 2em auto 2em auto;
 }
 
+#experiment-list > li.experiment h4
+{
+  text-transform : uppercase;
+}
+
 #experiment-list > li.experiment p:last-of-type
 {
   margin-bottom : 0.5em;
@@ -763,17 +768,21 @@ ul#toolset li:nth-child(4n + 1)
 
 #experiment-list > li.experiment .experiment-tags li a
 {
-  padding            : 0.25em 0.25em 0.25em 0.25em;
-  border-radius      : 0.125em 0.125em 0.125em 0.125em;
   color              : rgb(252,252,252);
-  font-weight        : bold;
-  text-decoration    : none;
   background-color   : rgb(165,165,165);
   -webkit-transition : background-color 125.0ms linear 0.0ms;
   -moz-transition    : background-color 125.0ms linear 0.0ms;
   -ms-transition     : background-color 125.0ms linear 0.0ms;
   -o-transition      : background-color 125.0ms linear 0.0ms;
   transition         : background-color 125.0ms linear 0.0ms;
+  display            : inline-block;
+  padding            : 0.25em 0.5em 0.25em 0.5em;
+  margin-bottom      : 0.25em;
+  border-radius      : 0.125em 0.125em 0.125em 0.125em;
+  color              : rgb(252,252,252);
+  font-size          : 0.9rem;
+  text-decoration    : none;
+  text-transform     : uppercase;
 }
 
 #experiment-list > li.experiment .experiment-tags li a:hover
@@ -792,23 +801,19 @@ ul#toolset li:nth-child(4n + 1)
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   width              : 47%;
-  margin-right       : 6%;
   float              : left;
+  margin-left        : 6%;
 }
 
-#experiment-list > li.experiment:last-child
+#experiment-list > li.experiment:first-child
 {
-  margin-right : 0px;
-}
-
-#experiment-list > li.experiment:nth-child(2n)
-{
-  margin-right : 0px;
+  margin-left : 0%;
 }
 
 #experiment-list > li.experiment:nth-child(2n + 1)
 {
-  clear : left;
+  margin-left : 0%;
+  clear       : left;
 }
 
 }
@@ -849,13 +854,13 @@ ul#toolset li:nth-child(4n + 1)
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   width              : 30.66666%;
-  margin-right       : 4%;
   float              : left;
+  margin-left        : 4%;
 }
 
-#contact-text #contact-about:last-child
+#contact-text #contact-about:first-child
 {
-  margin-right : 0px;
+  margin-left : 0%;
 }
 
 #contact-text #contact-form
@@ -867,13 +872,13 @@ ul#toolset li:nth-child(4n + 1)
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   width              : 65.33333%;
-  margin-right       : 4%;
   float              : left;
+  margin-left        : 4%;
 }
 
-#contact-text #contact-form:last-child
+#contact-text #contact-form:first-child
 {
-  margin-right : 0px;
+  margin-left : 0%;
 }
 
 }
@@ -950,7 +955,6 @@ footer h4 small
 }
 
 footer #footer-lang,
-footer #footer-nav,
 footer #footer-copyright
 {
   padding    : 1em 0px 1em 0px;
@@ -960,26 +964,9 @@ footer #footer-copyright
 @media screen and (min-width: 480px)
 {
 footer #footer-lang,
-footer #footer-nav,
 footer #footer-copyright
 {
-  text-align         : left;
-  display            : block;
-  -webkit-box-sizing : border-box;
-  -moz-box-sizing    : border-box;
-  -ms-box-sizing     : border-box;
-  -o-box-sizing      : border-box;
-  box-sizing         : border-box;
-  width              : 47%;
-  margin-right       : 6%;
-  float              : right;
-}
-
-footer #footer-lang:first-child,
-footer #footer-nav:first-child,
-footer #footer-copyright:first-child
-{
-  margin-right : 0px;
+  text-align : left;
 }
 
 }
@@ -993,6 +980,46 @@ footer p
   margin-bottom : 0px;
 }
 
+@media screen and (min-width: 480px)
+{
+
+footer #footer-lang
+{
+  display            : block;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing    : border-box;
+  -ms-box-sizing     : border-box;
+  -o-box-sizing      : border-box;
+  box-sizing         : border-box;
+  width              : 30.66666%;
+  float              : right;
+  margin-right       : 4%;
+}
+
+footer #footer-lang:first-child
+{
+  margin-right : 0%;
+}
+
+footer #footer-copyright
+{
+  display            : block;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing    : border-box;
+  -ms-box-sizing     : border-box;
+  -o-box-sizing      : border-box;
+  box-sizing         : border-box;
+  width              : 65.33333%;
+  float              : right;
+  margin-right       : 4%;
+}
+
+footer #footer-copyright:first-child
+{
+  margin-right : 0%;
+}
+
+}
 @media screen and (min-width: 768px)
 {
 
@@ -1031,26 +1058,21 @@ footer p
   -o-box-sizing      : border-box;
   box-sizing         : border-box;
   width              : 47%;
-  margin-right       : 6%;
   float              : left;
+  margin-left        : 6%;
 }
 
-#about-text #about-developer:last-child,
-#about-text #about-personal:last-child
+#about-text #about-developer:first-child,
+#about-text #about-personal:first-child
 {
-  margin-right : 0px;
-}
-
-#about-text #about-developer:nth-child(2n),
-#about-text #about-personal:nth-child(2n)
-{
-  margin-right : 0px;
+  margin-left : 0%;
 }
 
 #about-text #about-developer:nth-child(2n + 1),
 #about-text #about-personal:nth-child(2n + 1)
 {
-  clear : left;
+  margin-left : 0%;
+  clear       : left;
 }
 
 }

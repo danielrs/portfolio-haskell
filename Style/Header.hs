@@ -4,8 +4,8 @@ module Style.Header (stylesheet) where
 
 import Clay
 import qualified Clay.Media as Q
-import Style.Variables
 import Style.Util.Mixins
+import Style.Util.Settings
 import qualified Data.Monoid as M
 
 stylesheet :: Css

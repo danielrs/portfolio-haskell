@@ -8,7 +8,7 @@ import qualified Data.Monoid as M
 
 import Style.Util.Import
 import Style.Util.Mixins
-import Style.Variables
+import Style.Util.Settings
 
 stylesheet :: Css
 stylesheet = do
@@ -50,20 +50,16 @@ gotoPageStyle :: Css
 gotoPageStyle = do
   "#go-page-top" ? do
     let r = em 0.125
+    softButtonBase
     position fixed
     padding (em 0.5) (em 1) (em 0.5) (em 1)
     bottom (px 0)
     right (px 0)
-    color colorWhite
     fontWeight bold
     textDecoration none
-    backgroundColor colorGray
     borderRadius r 0 0 0
     transitions [("background-color", speedFast, linear, ms 0), ("right", speedMedium, linear, ms 0)]
     zIndex 9
-
-    hover & do
-      backgroundColor colorDarkGray
 
     query Q.screen [Q.minWidth breakSm] $ do
       padding (em 1) (em 1) (em 1) (em 1)
@@ -94,11 +90,11 @@ toolsetStyle = do
       width (pct 80)
       margin (em 2) auto (em 2) auto
 
-      query Q.screen [Q.minWidth breakMd] $ do
+      query Q.screen [Q.minWidth breakSm] $ do
         margin (em 3) 0 (em 3) 0
-      query Q.screen [Q.minWidth breakMd, Q.maxWidth breakLg'] $ do
+      query Q.screen [Q.minWidth breakSm, Q.maxWidth breakMd'] $ do
         columnGrid 1 2
-      query Q.screen [Q.minWidth breakLg] $ do
+      query Q.screen [Q.minWidth breakMd] $ do
         columnGrid 1 4
 
 skillsetStyle :: Css
@@ -116,17 +112,14 @@ skillsetStyle= do
 
 experimentListStyle :: Css
 experimentListStyle = do
-
-  "#experiment-list" ? do
-    row
-
+  "#experiment-list" ? row
   "#experiment-list" |> li # ".experiment" ? do
-
     margin (em 2) auto (em 2) auto
 
     query Q.screen [Q.minWidth breakSm] $ do
       columnGrid 1 2
 
+    h4 ? textTransform uppercase
     p # lastOfType ? marginBottom (em 0.5)
 
     ".experiment-tags" ? do
@@ -135,18 +128,18 @@ experimentListStyle = do
         wordSpacing (em 1)
         a ? do
           let r = em 0.125
-          padding (em 0.250) (em 0.250) (em 0.250) (em 0.250)
+          softButtonBase
+          display inlineBlock
+          padding (em 0.250) (em 0.5) (em 0.250) (em 0.5)
+          marginBottom (em 0.250)
           borderRadius r r r r
           color colorWhite
-          fontWeight bold
+          fontSize (Clay.rem 0.9)
           textDecoration none
-          backgroundColor colorGray
-          transition "background-color" speedFast linear (ms 0)
-          hover & backgroundColor colorDarkGray
+          textTransform uppercase
 
 contactStyle :: Css
 contactStyle = do
-
   "#contact-text" ? do
     query Q.screen [Q.minWidth breakMd] $ do
       row
@@ -182,12 +175,13 @@ footerStyle = do
       small ? do
         fontWeight normal
 
-    "#footer-lang" M.<> "#footer-nav" M.<> "#footer-copyright" ? do
+    "#footer-lang" M.<> "#footer-copyright" ? do
       padding (em 1) 0 (em 1) 0
       textAlign $ alignSide sideCenter
-      query Q.screen [Q.minWidth breakSm] $ do
-        textAlign $ alignSide sideLeft
-        columnRight 1 2
+      query Q.screen [Q.minWidth breakSm] $ textAlign $ alignSide sideLeft
+    query Q.screen [Q.minWidth breakSm] $ do
+      "#footer-lang" ? columnRight 1 3
+      "#footer-copyright" ? columnRight 2 3
 
     a ? do
       textDecoration none

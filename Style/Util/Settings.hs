@@ -1,4 +1,4 @@
-module Style.Variables where
+module Style.Util.Settings where
 
 import Style.Util.Import
 import Clay (Size, Abs, Time, px)

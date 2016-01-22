@@ -17,6 +17,7 @@ main = do
 	navbarMain
  	goTopMain
 	smoothScrollMain
+ 	languageChangeMain
 
 navbarMain :: forall eff. Eff (dom :: DOM, random :: RANDOM, timer :: Timer | eff) Unit
 navbarMain = do
@@ -30,13 +31,15 @@ navbarMain = do
 	checkpoint <- createEl "div" {id: "main-nav-checkpoint"}
 	before checkpoint mainNavWrapper
 
-	mirror <- mirrorHeight 75 mainNavWrapper
+	mirror <- createEl "div" {class: "mirror", id: "main-nav-mirror"}
 	before mirror mainNavWrapper
 
 	let
  		updateHeight = do
 		 	navHeight <- height mainNav
 			css {height: navHeight} mainNavWrapper
+		 	wrapperHeight <- outerHeight true mainNavWrapper
+	 		css {height: wrapperHeight} mirror
  		toggled _ _ = do
 		 	toggleClass "main-nav-wrapper--hide-nav" mainNavWrapper
 			updateHeight
@@ -86,4 +89,14 @@ smoothScrollMain = do
 				return unit
 
 	on "click" clicked links
+	return unit
+
+languageChangeMain :: forall eff. Eff (dom :: DOM | eff) Unit
+languageChangeMain = do
+	form <- select "#footer-lang form"
+	sel <- find "select" form
+ 	find "input[type=submit]" form >>= remove
+
+	let changed _ _ = submit form
+ 	on "change" changed sel
 	return unit

@@ -6,8 +6,8 @@ import qualified Clay.Elements as E
 import qualified Clay.Media as Q
 import qualified Data.Monoid as M
 
-import Style.Variables
 import Style.Util.Mixins
+import Style.Util.Settings
 
 stylesheet :: Css
 stylesheet = do

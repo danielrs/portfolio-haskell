@@ -7,7 +7,7 @@ import qualified Clay.Media as Q
 import qualified Data.Monoid as M
 
 import Style.Util.Mixins
-import Style.Variables
+import Style.Util.Settings
 
 stylesheet :: Css
 stylesheet = do
@@ -22,11 +22,12 @@ buttonStyle = do
   M.<> button ? do
     let r = em 0.125
     padding (em 0.3) (em 0.5) (em 0.3) (em 0.5)
-    fontSize (em 1)
     border solid (px 1) colorGray
     borderRadius r r r r
+    fontSize (em 0.9)
+    textTransform uppercase
     color colorDarkGray
-    backgroundColor colorLightGray
+    backgroundColor transparent
 
     transitions
       [("background-color", ms 125, linear, 0)
@@ -34,9 +35,11 @@ buttonStyle = do
       , ("border-color", ms 125, linear, 0)]
 
     hover & do
-      backgroundColor colorWhite
+      color colorWhite
+      backgroundColor colorGray
     active & do
-      backgroundColor colorLightGray
+      color colorWhite
+      backgroundColor colorDarkGray
 
 selectStyle :: Css
 selectStyle = do

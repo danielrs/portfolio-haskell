@@ -52,6 +52,12 @@ exports.getAttr = function(attr) {
 	}
 }
 
+exports.submit = function(ob) {
+	return function() {
+		return ob.submit();
+	}
+}
+
 exports.animate = function(prop) {
 	return function(speed) {
 		return function(ob) {

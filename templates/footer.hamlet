@@ -3,6 +3,7 @@
 
     <#footer-lang>
       <form action=@{LangR} method=post>
+        <label for="lang">_{MsgLangLabel}
         <select name=lang>
           $if selectedLanguage "en"
             <option value=en selected>English
@@ -13,12 +14,6 @@
           $else
             <option value=es>Español
         <input type=submit value=_{MsgLangSwitchButton} />
-
-    <!-- <nav #footer-nav> -->
-      <!-- <ul> -->
-      <!--   <li> -->
-      <!--     <a href=@{HomeR}>Home -->
-          <!-- <a href=@{HomeR}>Blog -->
 
     <#footer-copyright>
       <h3>

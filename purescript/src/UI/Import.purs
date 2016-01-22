@@ -18,7 +18,7 @@ eventThrottled :: forall eff a.
 	Eff (dom :: DOM | eff) a
 	-> JQueryEvent
 	-> JQuery
-	-> Eff(dom :: DOM | eff) Unit
+	-> Eff (dom :: DOM | eff) Unit
 eventThrottled callback _ _ = callback >>= \_ -> return unit
 
 type Offset = {top :: Int, left :: Int}
@@ -30,6 +30,7 @@ foreign import scrollTop    :: forall eff. JQuery -> Eff (dom :: DOM | eff) Int
 foreign import height       :: forall eff. JQuery -> Eff (dom :: DOM | eff) Int
 foreign import outerHeight  :: forall eff. Boolean -> JQuery -> Eff (dom :: DOM | eff) Int
 foreign import getAttr      :: forall eff. String -> JQuery -> Eff (dom :: DOM | eff) Foreign
+foreign import submit 			:: forall eff. JQuery -> Eff (dom :: DOM | eff) JQuery
 foreign import animate 			:: forall prop eff. { | prop } -> Int -> JQuery -> Eff (dom :: DOM | eff) JQuery
 foreign import animateStop  :: forall eff. JQuery -> Eff (dom :: DOM | eff) JQuery
 foreign import listToArray  :: forall eff. JQuery -> Eff (dom :: DOM | eff) (Array String)
@@ -48,18 +49,3 @@ onScrollCheckpoint delay before after checkpoint = do
 	on "scroll" (eventThrottled (throttle delay onScroll)) doc
  	onScroll
  	return checkpoint
-
-mirrorHeight :: forall eff. Int -> JQuery -> Eff (dom :: DOM, random :: RANDOM, timer :: Timer | eff) JQuery
-mirrorHeight updateInterval target = do
-	win <- window
-	guid <- uuid
-	mirror <- createEl "div" {class: "mirror", id: "mirror-" ++ guid}
-
-	let update = do
-		targetHeight <- outerHeight true target
-		css {height: targetHeight} mirror
-		return unit
-	on "resize" (eventThrottled (throttle 75 update)) win
- 	update
-
-	return mirror

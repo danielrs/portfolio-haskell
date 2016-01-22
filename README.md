@@ -16,12 +16,12 @@ Pure functional programming language.
 
 ### Yesod
 
-Web develoment framework for Haskell
+Web develoment framework for Haskell.
 
 ### Clay
 
 CSS EDSL for Haskell. All the power of Haskell in a CSS Preprocessor.
 
-### Javascript
+### Purescript
 
-For the front-end, want to switch to something like Purescript or Haste.
+Functional language similar to Haskell; compiles to Javascript.

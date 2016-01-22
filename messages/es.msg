@@ -1,3 +1,4 @@
+LangLabel: Idioma
 LangSwitchButton: Cambiar
 
 Tagline0: Soy un programador
@@ -12,7 +13,7 @@ NavSkills: Habilidades
 NavExperiments: Experimentos
 NavContact: Contáctame
 
-Toolset: Herramientas
+Toolset: Herramientas esenciales
 ToolsetVim: El editor de texto que me enseña algo nuevo cada día!
 ToolsetAg: Uno de los mejores buscadores de código. Me ha ahorrado muchas horas de trabajo!
 ToolsetGit: Quién no está usando control de versiones hoy en día?
