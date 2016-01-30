@@ -72,7 +72,7 @@
       <li .experiment>
         <article>
           <h4>Portfolio website
-          <p>Éste sitio es un experimento! Fue hecho con programación funcional en mente.
+          <p>Éste sitio es un experimento! Fue hecho con <strong>programación funcional</strong> en mente.
           <ul .experiment-tags>
             <li>
               <a target="_blank" href="https://www.haskell.org/">Haskell
@@ -88,7 +88,7 @@
       <li .experiment>
         <article>
           <h4>Dwarf Engine
-          <p>Motor de juegos simple y ligero. Hecho con fines educativos, para aprender como funcionan los motores de juegos.
+          <p><strong>Motor de juegos</strong> simple y ligero. Hecho con fines educativos, para aprender como funcionan los motores de juegos.
           <ul .experiment-tags>
             <li>
               <a target="_blank" href="https://isocpp.org/">C++
@@ -102,7 +102,7 @@
       <li .experiment>
         <article>
           <h4>typing.js
-          <p>Plugin de jQuery para animar escritura de texto. Ligero y fácil de usar.
+          <p>Plugin de jQuery para <strong>animar escritura de texto</strong>. Ligero y fácil de usar.
           <ul .experiment-tags>
             <li>
               <a target="_blank" href="https://www.javascript.com/">Javascript
@@ -110,6 +110,18 @@
               <a target="_blank" href="https://jquery.com/">jQuery
           <span .experiment-link>
             <a href="https://github.com/DanielRS/typing.js" .view-on-github>_{MsgViewOnGithub}
+
+      <li .experiment>
+        <article>
+          <h4>Marquee
+          <p><strong>Parser de Markdown</strong> escrito en Haskell
+          <ul .experiment-tags>
+            <li>
+              <a target="_blank" href="https://www.haskell.org/">Haskell
+            <li>
+              <a target="_blank" href="https://hackage.haskell.org/package/parsec">Parsec
+          <span .experiment-link>
+            <a href="https://github.com/DanielRS/marquee" .view-on-github>_{MsgViewOnGithub}
 
   <section #contact-section .main-section>
     <h2 #contact>_{MsgNavContact}

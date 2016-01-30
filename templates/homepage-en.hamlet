@@ -72,7 +72,7 @@
       <li .experiment>
         <article>
           <h4>Portfolio website
-          <p>This website itself is an experiment! It was made with functional programming in mind
+          <p>This website itself is an experiment! It was made with <strong>functional programming</strong> in mind
           <ul .experiment-tags>
             <li>
               <a target="_blank" href="https://www.haskell.org/">Haskell
@@ -88,7 +88,7 @@
       <li .experiment>
         <article>
           <h4>Dwarf Engine
-          <p>Simple and light-weight game engine. Why not learn how stuff is made?
+          <p>Simple and light-weight <strong>game engine</strong>. Why not learn how stuff is made?
           <ul .experiment-tags>
             <li>
               <a target="_blank" href="https://isocpp.org/">C++
@@ -102,7 +102,7 @@
       <li .experiment>
         <article>
           <h4>typing.js
-          <p>jQuery plugin for animated typing effects. Aims to be light-weight and small in size.
+          <p>jQuery plugin for <strong>animated typing effects</strong>. Aims to be light-weight and small in size.
           <ul .experiment-tags>
             <li>
               <a target="_blank" href="https://www.javascript.com/">Javascript
@@ -110,6 +110,18 @@
               <a target="_blank" href="https://jquery.com/">jQuery
           <span .experiment-link>
             <a href="https://github.com/DanielRS/typing.js" .view-on-github>_{MsgViewOnGithub}
+
+      <li .experiment>
+        <article>
+          <h4>Marquee
+          <p><strong>Markdown parser</strong> written in Haskell
+          <ul .experiment-tags>
+            <li>
+              <a target="_blank" href="https://www.haskell.org/">Haskell
+            <li>
+              <a target="_blank" href="https://hackage.haskell.org/package/parsec">Parsec
+          <span .experiment-link>
+            <a href="https://github.com/DanielRS/marquee" .view-on-github>_{MsgViewOnGithub}
 
   <section #contact-section .main-section>
     <h2 #contact>_{MsgNavContact}
