@@ -26,12 +26,11 @@ profileStyle = do
     margin 0 0 (em 1) 0
     img ? do
       let rad = pct 50
-          side = em 8
       display inlineBlock
-      minWidth side
-      minHeight side
-      maxWidth side
-      maxHeight side
+      minWidth (px 128)
+      minHeight (px 128)
+      maxWidth (px 128)
+      maxHeight (px 128)
       opacity 0.80
       -- borderRadius rad rad rad rad
       -- backgroundColor colorLightGray

@@ -21,7 +21,7 @@
       <li>
         <a href="http://stackoverflow.com/users/3932019/danielrs">stack<strong>overflow</strong>
       <li>
-        <a href="https://www.linkedin.com/in/daniel-rivas-364a6592">LinkedIn
+        <a href="https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-primary-button">LinkedIn
       <li>
         <a href="https://twitter.com/devDanielRS">Twitter
 
@@ -34,6 +34,8 @@
         <ul>
           <li>
             <a href=#about>_{MsgNavAbout}
+          <li>
+            <a href=#skills>_{MsgNavSkills}
           <li>
             <a href=#experiments>_{MsgNavExperiments}
           <li>

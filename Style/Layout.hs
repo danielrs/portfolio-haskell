@@ -14,6 +14,9 @@ stylesheet :: Css
 stylesheet = do
   generalStyle
   gotoPageStyle
+  aboutStyle
+  toolsetStyle
+  skillsetStyle
   experimentListStyle
   contactStyle
   footerStyle
@@ -42,6 +45,7 @@ generalStyle = do
     -- (h1 M.<> h2 M.<> h3 M.<> h4 M.<> h5 M.<> h6) # firstChild <? do
     --   textAlign $ alignSide sideCenter
 
+
 gotoPageStyle :: Css
 gotoPageStyle = do
   "#go-page-top" ? do
@@ -66,20 +70,59 @@ gotoPageStyle = do
     ".go-page-top--hide" & do
       right (pct (-25))
 
+aboutStyle :: Css
+aboutStyle = do
+  query Q.screen [Q.minWidth breakMd] $ do
+    "#about-text" ? do
+      row
+      "#about-developer" M.<> "#about-personal" ? do
+        columnGrid 1 2
+
+toolsetStyle :: Css
+toolsetStyle = do
+  ul # "#toolset" ? do
+    noListStyle
+    row
+    margin (px 0) 0 0 0
+    textAlign $ alignSide sideCenter
+
+    li ? do
+      width (pct 80)
+      margin (em 2) auto (em 2) auto
+
+      query Q.screen [Q.minWidth breakSm] $ do
+        margin (em 3) 0 (em 3) 0
+      query Q.screen [Q.minWidth breakSm, Q.maxWidth breakMd'] $ do
+        columnGrid 1 2
+      query Q.screen [Q.minWidth breakMd] $ do
+        columnGrid 1 4
+
+skillsetStyle :: Css
+skillsetStyle= do
+  "#skills__columns" ? do
+    row
+    "#skills__professional" M.<> "#skills__personal" ? do
+      query Q.screen [Q.minWidth breakMd] $ column 1 2
+
+    ul # ".skillset" ? do
+      noListStyle
+      margin (px 0) 0 0 0
+      li ? do
+        margin (em 2) 0 (em 2) 0
+
 experimentListStyle :: Css
 experimentListStyle = do
   "#experiment-list" ? row
   "#experiment-list" |> li # ".experiment" ? do
     margin (em 2) auto (em 2) auto
 
-    query Q.screen [Q.minWidth breakMd] $ do
+    query Q.screen [Q.minWidth breakSm] $ do
       columnGrid 1 2
 
     h4 ? textTransform uppercase
     p # lastOfType ? marginBottom (em 0.5)
 
     ".experiment-tags" ? do
-      marginBottom (em 0.5)
       li ? do
         display inlineBlock
         wordSpacing (em 1)

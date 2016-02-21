@@ -13,7 +13,26 @@ NavSkills: Skills
 NavExperiments: Experiments
 NavContact: Contact me!
 
-Dotfiles: For more information about my development environment, you can check my
+Toolset: Essential tools
+ToolsetVim: The text editor that teaches me something new everyday!
+ToolsetAg: One of the best code search tools! It saved me countless hours!
+ToolsetGit: Who's not using version control nowadays?
+ToolsetArch: My development OS of choice!
+ToolsetDotfiles: If you are interested check my
+
+SkillsProfessional: Professional
+SkillsFullstack: Full-stack development
+SkillsFullstackContent: Front-end development, back-end development, API design and development, databases design and development, deployment.
+SkillsProgramming: C++ / Java / Python / Haskell
+SkillsProgrammingContent: Code analysis, optimization and development.
+SkillsDesign: UX Design
+SkillsDesignContent: Minimal yet comprehensive interfaces are my best bet.
+
+SkillsPersonal: Personal
+SkillsTeam: Team Player
+SkillsTeamContent: I have been part of different development teams. Some of the  products made include applications, websites and games.
+SkillsIdeas: Open to new ideas!
+SkillsIdeasContent: I love learning new stuff everyday, whether by myself or from other people.
 
 ViewOnGithub: View on Github
 
