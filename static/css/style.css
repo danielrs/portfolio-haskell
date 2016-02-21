@@ -209,10 +209,10 @@ textarea
 #profile img
 {
   display    : inline-block;
-  min-width  : 128px;
-  min-height : 128px;
-  max-width  : 128px;
-  max-height : 128px;
+  min-width  : 8em;
+  min-height : 8em;
+  max-width  : 8em;
+  max-height : 8em;
   opacity    : 0.8;
 }
 
