@@ -1,68 +1,19 @@
 <.container>
   <section #about-section .main-section>
     <h2 #about>_{MsgNavAbout}
-    <#about-text>
-      <#about-developer>
-        <p>
-          Hey there! I'm Daniel, software developer. My favorite programming languages are #
-          <a href="http://www.cplusplus.com/">C++,
-          <a href="https://www.python.org/">Python,
-          \ and
-          <a href="https://www.haskell.org/">Haskell;
-          \ but I can use and enjoy most of them. After all programmers should be language agnostic (right?).
-      <#about-personal>
-        <p>
-          On my free time I like to learn just about anything I can make use of, like new programming languages, tools, and development methodologies.
-
-    <h3>_{MsgToolset}
-
-    <ul #toolset>
-      <li>
-        <h4>
-          <a href="http://www.vim.org/">Vim
-        <p>_{MsgToolsetVim}
-      <li>
-        <h4>
-          <a href="https://github.com/ggreer/the_silver_searcher">Ag
-        <p>_{MsgToolsetAg}
-      <li>
-        <h4>
-          <a href="https://git-scm.com/">Git
-        <p>_{MsgToolsetGit}
-      <li>
-        <h4>
-          <a href="https://www.archlinux.org/">Archlinux
-        <p>_{MsgToolsetArch}
-
     <p>
-      _{MsgToolsetDotfiles}
+      Hey there! I'm Daniel, software engineer. I do a lot of stuff, but what I enjoy the most is <strong>programming</strong>. My favorite programming languages are
+      <a href="http://www.cplusplus.com/">C++
+      ,
+      <a href="https://www.haskell.org/">Haskell
+      , and
+      <a href="https://clojure.org/">Clojure
+      ; but I can use and enjoy most of them. After all programmers should be language agnostic (right?).
+    <p>
+      On my free time I like to work on pesonal projects, read books about development, or browser around reddit.
+      _{MsgDotfiles}
       <a href="https://github.com/DanielRS/dotfiles">dotfiles
       .
-
-  <section #skills-section .main-section>
-    <h2 #skills>_{MsgNavSkills}
-    <div #skills__columns>
-      <div #skills__professional>
-        <h3>_{MsgSkillsProfessional}
-        <ul .skillset>
-          <li>
-            <h4>_{MsgSkillsFullstack}
-            <p>_{MsgSkillsFullstackContent}
-          <li>
-            <h4>_{MsgSkillsProgramming}
-            <p>_{MsgSkillsProgrammingContent}
-          <li>
-            <h4>_{MsgSkillsDesign}
-            <p>_{MsgSkillsDesignContent}
-      <div #skills__personal>
-        <h3>_{MsgSkillsPersonal}
-        <ul .skillset>
-          <li>
-            <h4>_{MsgSkillsTeam}
-            <p>_{MsgSkillsTeamContent}
-          <li>
-            <h4>_{MsgSkillsIdeas}
-            <p>_{MsgSkillsIdeasContent}
 
   <section #experiments-section .main-section>
     <h2 #experiments>_{MsgNavExperiments}

@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,400italic,700|Roboto+Slab:400,700|Inconsolata:400,700);
 body
 {
+  font-size   : 1.1em;
   font-family : "Open Sans", sans-serif;
   color       : rgb(102,102,102);
 }
@@ -209,10 +210,10 @@ textarea
 #profile img
 {
   display    : inline-block;
-  min-width  : 128px;
-  min-height : 128px;
-  max-width  : 128px;
-  max-height : 128px;
+  min-width  : 8em;
+  min-height : 8em;
+  max-width  : 8em;
+  max-height : 8em;
   opacity    : 0.8;
 }
 
@@ -537,188 +538,6 @@ section.main-section > :last-child
 }
 
 }
-ul#toolset
-{
-  margin              : 0px 0px 0px 0px;
-  padding             : 0px 0px 0px 0px;
-  list-style-type     : none;
-  list-style-image    : none;
-  list-style-position : none;
-  display             : block;
-  -webkit-box-sizing  : border-box;
-  -moz-box-sizing     : border-box;
-  -ms-box-sizing      : border-box;
-  -o-box-sizing       : border-box;
-  box-sizing          : border-box;
-  width               : 100%;
-  zoom                : 1;
-  margin              : 0px 0px 0px 0px;
-  text-align          : center;
-}
-
-ul#toolset li
-{
-  margin              : 0px 0px 0px 0px;
-  padding             : 0px 0px 0px 0px;
-  list-style-type     : none;
-  list-style-image    : none;
-  list-style-position : none;
-}
-
-ul#toolset:before
-{
-  content : "";
-  display : table;
-}
-
-ul#toolset:after
-{
-  content : "";
-  display : table;
-  clear   : both;
-}
-
-ul#toolset li
-{
-  width  : 80%;
-  margin : 2em auto 2em auto;
-}
-
-@media screen and (min-width: 480px)
-{
-ul#toolset li
-{
-  margin : 3em 0px 3em 0px;
-}
-
-}
-@media screen and (min-width: 480px) and (max-width: 767px)
-{
-ul#toolset li
-{
-  display            : block;
-  -webkit-box-sizing : border-box;
-  -moz-box-sizing    : border-box;
-  -ms-box-sizing     : border-box;
-  -o-box-sizing      : border-box;
-  box-sizing         : border-box;
-  width              : 47%;
-  float              : left;
-  margin-left        : 6%;
-}
-
-ul#toolset li:first-child
-{
-  margin-left : 0%;
-}
-
-ul#toolset li:nth-child(2n + 1)
-{
-  margin-left : 0%;
-  clear       : left;
-}
-
-}
-@media screen and (min-width: 768px)
-{
-ul#toolset li
-{
-  display            : block;
-  -webkit-box-sizing : border-box;
-  -moz-box-sizing    : border-box;
-  -ms-box-sizing     : border-box;
-  -o-box-sizing      : border-box;
-  box-sizing         : border-box;
-  width              : 22.75%;
-  float              : left;
-  margin-left        : 3%;
-}
-
-ul#toolset li:first-child
-{
-  margin-left : 0%;
-}
-
-ul#toolset li:nth-child(4n + 1)
-{
-  margin-left : 0%;
-  clear       : left;
-}
-
-}
-#skills__columns
-{
-  display            : block;
-  -webkit-box-sizing : border-box;
-  -moz-box-sizing    : border-box;
-  -ms-box-sizing     : border-box;
-  -o-box-sizing      : border-box;
-  box-sizing         : border-box;
-  width              : 100%;
-  zoom               : 1;
-}
-
-#skills__columns:before
-{
-  content : "";
-  display : table;
-}
-
-#skills__columns:after
-{
-  content : "";
-  display : table;
-  clear   : both;
-}
-
-
-@media screen and (min-width: 768px)
-{
-#skills__columns #skills__professional,
-#skills__columns #skills__personal
-{
-  display            : block;
-  -webkit-box-sizing : border-box;
-  -moz-box-sizing    : border-box;
-  -ms-box-sizing     : border-box;
-  -o-box-sizing      : border-box;
-  box-sizing         : border-box;
-  width              : 47%;
-  float              : left;
-  margin-left        : 6%;
-}
-
-#skills__columns #skills__professional:first-child,
-#skills__columns #skills__personal:first-child
-{
-  margin-left : 0%;
-}
-
-}
-#skills__columns ul.skillset
-{
-  margin              : 0px 0px 0px 0px;
-  padding             : 0px 0px 0px 0px;
-  list-style-type     : none;
-  list-style-image    : none;
-  list-style-position : none;
-  margin              : 0px 0px 0px 0px;
-}
-
-#skills__columns ul.skillset li
-{
-  margin              : 0px 0px 0px 0px;
-  padding             : 0px 0px 0px 0px;
-  list-style-type     : none;
-  list-style-image    : none;
-  list-style-position : none;
-}
-
-#skills__columns ul.skillset li
-{
-  margin : 2em 0px 2em 0px;
-}
-
 #experiment-list
 {
   display            : block;
@@ -759,6 +578,10 @@ ul#toolset li:nth-child(4n + 1)
   margin-bottom : 0.5em;
 }
 
+#experiment-list > li.experiment .experiment-tags
+{
+  margin-bottom : 0.5em;
+}
 
 #experiment-list > li.experiment .experiment-tags li
 {
@@ -790,7 +613,7 @@ ul#toolset li:nth-child(4n + 1)
   background-color : rgb(133,133,133);
 }
 
-@media screen and (min-width: 480px)
+@media screen and (min-width: 768px)
 {
 #experiment-list > li.experiment
 {
@@ -1017,62 +840,6 @@ footer #footer-copyright
 footer #footer-copyright:first-child
 {
   margin-right : 0%;
-}
-
-}
-@media screen and (min-width: 768px)
-{
-
-#about-text
-{
-  display            : block;
-  -webkit-box-sizing : border-box;
-  -moz-box-sizing    : border-box;
-  -ms-box-sizing     : border-box;
-  -o-box-sizing      : border-box;
-  box-sizing         : border-box;
-  width              : 100%;
-  zoom               : 1;
-}
-
-#about-text:before
-{
-  content : "";
-  display : table;
-}
-
-#about-text:after
-{
-  content : "";
-  display : table;
-  clear   : both;
-}
-
-#about-text #about-developer,
-#about-text #about-personal
-{
-  display            : block;
-  -webkit-box-sizing : border-box;
-  -moz-box-sizing    : border-box;
-  -ms-box-sizing     : border-box;
-  -o-box-sizing      : border-box;
-  box-sizing         : border-box;
-  width              : 47%;
-  float              : left;
-  margin-left        : 6%;
-}
-
-#about-text #about-developer:first-child,
-#about-text #about-personal:first-child
-{
-  margin-left : 0%;
-}
-
-#about-text #about-developer:nth-child(2n + 1),
-#about-text #about-personal:nth-child(2n + 1)
-{
-  margin-left : 0%;
-  clear       : left;
 }
 
 }
