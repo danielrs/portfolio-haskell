@@ -31,20 +31,27 @@ generalStyle = do
     margin (px 0) 0 0 0
     padding (px 0) 0 0 0
 
-  "#main-content" ? do
-    let p = Clay.rem 2
-    padding 0 p 0 p
-
   ".container" ? do
     margin (px 0) auto 0 auto
-    maxWidth (px 1024)
+    maxWidth (px 1280)
 
   section # ".main-section" ? do
     marginBottom (Clay.rem 3)
     star # lastChild <? marginBottom (px 0)
-    -- (h1 M.<> h2 M.<> h3 M.<> h4 M.<> h5 M.<> h6) # firstChild <? do
-    --   textAlign $ alignSide sideCenter
 
+  -- Aside and content
+  "#main-container" ? do
+    let p = Clay.rem 2
+    padding p p 0 p
+
+  query Q.screen [Q.minWidth breakMd] $ do
+    "#main-container" ? row
+    "#aside" ? do
+      column 1 3
+      position relative
+      paddingRight (em 2)
+      borderRight solid (px 1) colorLightGray
+    "#content" ? column 2 3
 
 gotoPageStyle :: Css
 gotoPageStyle = do
@@ -91,10 +98,10 @@ toolsetStyle = do
       margin (em 2) auto (em 2) auto
 
       query Q.screen [Q.minWidth breakSm] $ do
-        margin (em 3) 0 (em 3) 0
-      query Q.screen [Q.minWidth breakSm, Q.maxWidth breakMd'] $ do
+        margin (em 3) auto (em 3) auto
+      query Q.screen [Q.minWidth breakSm, Q.maxWidth breakLg'] $ do
         columnGrid 1 2
-      query Q.screen [Q.minWidth breakMd] $ do
+      query Q.screen [Q.minWidth breakLg] $ do
         columnGrid 1 4
 
 skillsetStyle :: Css
@@ -123,6 +130,7 @@ experimentListStyle = do
     p # lastOfType ? marginBottom (em 0.5)
 
     ".experiment-tags" ? do
+      marginBottom (em 0.5)
       li ? do
         display inlineBlock
         wordSpacing (em 1)
@@ -141,7 +149,7 @@ experimentListStyle = do
 contactStyle :: Css
 contactStyle = do
   "#contact-text" ? do
-    query Q.screen [Q.minWidth breakMd] $ do
+    query Q.screen [Q.minWidth breakSm] $ do
       row
       "#contact-about" ? do
         column 1 3

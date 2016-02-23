@@ -1,18 +1,15 @@
 <.container>
   <section #about-section .main-section>
     <h2 #about>_{MsgNavAbout}
-    <#about-text>
-      <#about-developer>
-        <p>
-          Hola! Soy Daniel, desarrollador de software. Mis lenguajes de programación favoritos son #
-          <a href="http://www.cplusplus.com/">C++,
-          <a href="https://www.python.org/">Python,
-          \ y
-          <a href="https://www.haskell.org/">Haskell;
-          \ pero puedo usar y disfrutar la mayoría de ellos. Después de todos los programadores no deberían depender de un lenguaje en específico, cierto?
-      <#about-personal>
-        <p>
-          En mi tiempo libre me gusta aprender cualquier cosa que me pueda ser útil, como nuevos lenguajes de programación, herramientas y metodologías de desarrollo.
+    <p>
+      Hola! Soy Daniel, desarrollador de software. Hago muchas cosas, pero lo que mas disfruto es programación; Mis lenguajes favoritos son #
+      <a href="http://www.cplusplus.com/">C++,
+      <a href="https://www.haskell.org/">Haskell,
+      \ y
+      <a href="https://clojure.org/">Clojure;
+      \ pero puedo usar y disfrutar la mayoría de ellos. Después de todos los programadores no deberían depender de un lenguaje en específico, cierto?
+    <p>
+      Pasé mis primes años programando en lenguages imperativos, hasta un verano que descubrí y me enamoré de la programación funcional. En mi tiempo libre me gusta trabajar en proyectos personales, leer libros acerca de desarrollo, buscar lenguajes de programación funcionales, y navegar en reddit.
 
     <h3>_{MsgToolset}
 

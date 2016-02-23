@@ -30,6 +30,12 @@ exports.scrollTop = function(ob) {
 	}
 }
 
+exports.width = function(ob) {
+	return function() {
+		return ob.width();
+	}
+}
+
 exports.height = function(ob) {
 	return function() {
 		return ob.height();

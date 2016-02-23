@@ -23,7 +23,7 @@ ToolsetDotfiles: If you are interested check my
 SkillsProfessional: Professional
 SkillsFullstack: Full-stack development
 SkillsFullstackContent: Front-end development, back-end development, API design and development, databases design and development, deployment.
-SkillsProgramming: C++ / Java / Python / Haskell
+SkillsProgramming: C++ / Haskell / Clojure
 SkillsProgrammingContent: Code analysis, optimization and development.
 SkillsDesign: UX Design
 SkillsDesignContent: Minimal yet comprehensive interfaces are my best bet.

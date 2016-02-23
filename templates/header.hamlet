@@ -1,45 +1,44 @@
 <header #header>
-  <.container>
 
-    <figure #profile>
-      <a href=@{HomeR}>
-        <img alt="me" src="@{StaticR images_danielrs_logo_chaps_png}">
+  <figure #profile>
+    <a href=@{HomeR}>
+      <img alt="me" src="@{StaticR images_danielrs_logo_chaps_png}">
 
-    <h1 #name>
-      <a href=@{HomeR}>Daniel Rivas
+  <h1 #name>
+    <a href=@{HomeR}>Daniel Rivas
 
-    <h2 #tagline>_{MsgTagline0}
-    <ul #tagline-messages>
-      <li>_{MsgTagline1}
-      <li>_{MsgTagline2}
-      <li>_{MsgTagline3}
-      <li>_{MsgTagline0}
+  <h2 #tagline>_{MsgTagline0}
+  <ul #tagline-messages>
+    <li>_{MsgTagline1}
+    <li>_{MsgTagline2}
+    <li>_{MsgTagline3}
+    <li>_{MsgTagline0}
 
-    <ul #social>
-      <li>
-        <a href="https://github.com/DanielRS">Github
-      <li>
-        <a href="http://stackoverflow.com/users/3932019/danielrs">stack<strong>overflow</strong>
-      <li>
-        <a href="https://www.linkedin.com/in/daniel-rivas-364a6592">LinkedIn
-      <li>
-        <a href="https://twitter.com/devDanielRS">Twitter
+  <ul #social>
+    <li>
+      <a href="https://github.com/DanielRS">Github
+    <li>
+      <a href="http://stackoverflow.com/users/3932019/danielrs">stack<strong>overflow</strong>
+    <li>
+      <a href="https://www.linkedin.com/in/daniel-rivas-364a6592">LinkedIn
+    <li>
+      <a href="https://twitter.com/devDanielRS">Twitter
 
-    <#main-nav-wrapper>
-      <nav #main-nav>
+  <#main-nav-wrapper>
+    <nav #main-nav>
 
-        <div #main-nav__toggle>
-          <a #main-nav__arrow>
+      <div #main-nav__toggle>
+        <a #main-nav__arrow>
 
-        <ul>
-          <li>
-            <a href=#about>_{MsgNavAbout}
-          <li>
-            <a href=#skills>_{MsgNavSkills}
-          <li>
-            <a href=#experiments>_{MsgNavExperiments}
-          <li>
-            <a href=#contact>_{MsgNavContact}
-          <!-- <li> -->
-          <!--   <strong> -->
-          <!--     <a href="@{BlogR}">Blog -->
+      <ul>
+        <li>
+          <a href=#about>_{MsgNavAbout}
+        <li>
+          <a href=#skills>_{MsgNavSkills}
+        <li>
+          <a href=#experiments>_{MsgNavExperiments}
+        <li>
+          <a href=#contact>_{MsgNavContact}
+        <!-- <li> -->
+        <!--   <strong> -->
+        <!--     <a href="@{BlogR}">Blog -->

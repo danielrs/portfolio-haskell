@@ -12,8 +12,8 @@ stylesheet :: Css
 stylesheet = do
 
   "#header" ? do
-    padding (Clay.rem 2) (Clay.rem 2) 0 (Clay.rem 2)
     textAlign $ alignSide sideCenter
+    query Q.screen [Q.minWidth breakMd] $ textAlign $ alignSide sideRight
 
   profileStyle
   taglineStyle
@@ -26,21 +26,13 @@ profileStyle = do
     margin 0 0 (em 1) 0
     img ? do
       let rad = pct 50
-          side = em 8
+          side = em 10
       display inlineBlock
       minWidth side
       minHeight side
       maxWidth side
       maxHeight side
       opacity 0.80
-      -- borderRadius rad rad rad rad
-      -- backgroundColor colorLightGray
-      query Q.screen [Q.minWidth breakSm] $ do
-        maxWidth (px 160)
-        maxHeight (px 160)
-      query Q.screen [Q.minWidth breakMd] $ do
-        maxWidth (px 192)
-        maxHeight (px 192)
   "#name" ? do
     marginBottom (em 0.050)
     a ? do
@@ -94,8 +86,9 @@ navbarStyle = do
         listStyle none none none
 
         li ? do
+          let p = em 1
           display block
-          margin (em 1) (em 2) (em 1) (em 2)
+          margin p p p p
           transition "transform" (ms 125) linear (ms 0)
 
           hover & transform (scale 1.125 1.125)
@@ -105,8 +98,9 @@ navbarStyle = do
             textDecoration none
             hover & color colorDarkGray
 
-          query Q.screen [Q.minWidth breakSm] $ do
-            display inlineBlock
+          query Q.screen [Q.minWidth breakSm, Q.maxWidth breakMd'] $ display inlineBlock
+          query Q.screen [Q.minWidth breakMd] $ margin p 0 p 0
+
     "#main-nav__toggle" ? do
       let
         r = em 0.125
@@ -136,21 +130,21 @@ navbarStyle = do
 
   -- FIXED
   "#main-nav-wrapper.main-nav-wrapper--fixed" ? do
-    position fixed
-    top (px 0)
-    left (px 0)
-    right (px 0)
-    zIndex 100
-    "#main-nav" ? do
-      backgroundColor colorWhite
-      borderBottom solid (px 1) colorLightGray
-    query Q.screen [Q.maxWidth breakSm'] $ do
+    query Q.screen [Q.maxWidth breakMd'] $ do
+      position fixed
+      top (px 0)
+      left (px 0)
+      right (px 0)
+      zIndex 100
+      "#main-nav" ? do
+        backgroundColor colorWhite
+        borderBottom solid (px 1) colorLightGray
       "#main-nav__toggle" ? do
         display block
 
   -- FIXED HIDDEN
   "#main-nav-wrapper.main-nav-wrapper--fixed.main-nav-wrapper--hide-nav" ? do
-    query Q.screen [Q.maxWidth breakSm'] $ do
+    query Q.screen [Q.maxWidth breakMd'] $ do
       pointerEvents none
       "#main-nav" ? do
         pointerEvents auto

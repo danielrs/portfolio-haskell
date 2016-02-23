@@ -17,7 +17,6 @@ main = do
 
 main' :: forall eff. Eff (dom :: DOM, random :: RANDOM, timer :: Timer | eff) Unit
 main' = do
-	-- Call main components
 	Navigation.main
  	Tagline.main
 	return unit
