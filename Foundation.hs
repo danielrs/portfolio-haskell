@@ -89,8 +89,8 @@ instance Yesod App where
             addScriptRemote "https://cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"
             addScriptRemote "https://cdn.jsdelivr.net/underscorejs/1.8.3/underscore-min.js"
             addScriptRemote "https://cdn.rawgit.com/DanielRS/typing.js/master/dist/typing.min.js"
-            addScript $ StaticR js_bundle_js
-            -- addScript $ StaticR js_bundle_min_js
+            -- addScript $ StaticR js_bundle_js
+            addScript $ StaticR js_bundle_min_js
             $(widgetFile "default-layout")
         withUrlRenderer $(hamletFile "templates/default-layout-wrapper.hamlet")
 
